@@ -12,9 +12,7 @@ export default function Footer({ locale }: { locale: string }) {
       role="contentinfo"
       className="px-4 pb-8 pt-6 text-center text-[var(--color-text-muted)] text-xs landing-reveal-footer"
     >
-      <p className="footer-copyright">
-        {t("footer.copyright", { year })}
-      </p>
+      <p className="footer-copyright">{t("footer.copyright", { year })}</p>
     </AnimateInView>
   );
 }

@@ -54,12 +54,7 @@ export default function Header() {
     <header className={menuOpen ? "z-[50]" : undefined}>
       <div className="nav">
         <Link href={lp("/")} className="logo">
-          <Image
-            src="/logo.png"
-            alt="Pierre Glerant"
-            width={40}
-            height={40}
-          />
+          <Image src="/logo.png" alt="Pierre Glerant" width={40} height={40} />
           <span className="hidden md:inline">
             Pierre<span style={{ color: "rgb(var(--primary))" }}> Glerant</span>
           </span>

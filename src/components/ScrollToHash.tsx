@@ -64,7 +64,8 @@ export default function ScrollToHash() {
       const a = (e.target as HTMLElement | null)?.closest("a");
       if (!a) return;
       const href = a.getAttribute("href");
-      if (!href || href.startsWith("mailto:") || href.startsWith("tel:")) return;
+      if (!href || href.startsWith("mailto:") || href.startsWith("tel:"))
+        return;
 
       let url: URL;
       try {
@@ -81,7 +82,9 @@ export default function ScrollToHash() {
       if (pathA !== pathB) return;
 
       e.preventDefault();
-      router.replace(`${url.pathname}${url.search}${url.hash}`, { scroll: false });
+      router.replace(`${url.pathname}${url.search}${url.hash}`, {
+        scroll: false,
+      });
       runScrollForHash(url.hash);
     };
 

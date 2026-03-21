@@ -3,7 +3,12 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import HomeContent from "../../components/HomeContent";
 import { getTranslation } from "../../i18n/server";
-import { SITE_URL, LOCALES, DEFAULT_LOCALE, type Locale } from "../../i18n/config";
+import {
+  SITE_URL,
+  LOCALES,
+  DEFAULT_LOCALE,
+  type Locale,
+} from "../../i18n/config";
 import { CONTACT_EMAIL } from "../../config/social";
 
 export async function generateMetadata({
