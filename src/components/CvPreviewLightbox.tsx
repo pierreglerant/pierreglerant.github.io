@@ -14,21 +14,29 @@ type CvPreviewLightboxProps = {
   previewAlt: string;
   openViewerLabel: string;
   closeLabel: string;
+  lightboxZoomInLabel: string;
+  lightboxZoomOutLabel: string;
 };
 
 export default function CvPreviewLightbox({
   previewAlt,
   openViewerLabel,
   closeLabel,
+  lightboxZoomInLabel,
+  lightboxZoomOutLabel,
 }: CvPreviewLightboxProps) {
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
+  const [innerZoom, setInnerZoom] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const close = useCallback(() => setOpen(false), []);
+  const close = useCallback(() => {
+    setInnerZoom(false);
+    setOpen(false);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -46,7 +54,7 @@ export default function CvPreviewLightbox({
   const overlay =
     open && mounted ? (
       <div
-        className="cv-lightbox-backdrop fixed inset-0 z-[10000] flex items-center justify-center bg-[var(--color-overlay)] p-3 backdrop-blur-sm sm:p-6"
+        className="cv-lightbox-backdrop fixed inset-0 z-[10000] flex items-center justify-center bg-[var(--color-overlay)] backdrop-blur-sm"
         role="presentation"
         onClick={close}
       >
@@ -65,18 +73,29 @@ export default function CvPreviewLightbox({
           role="dialog"
           aria-modal="true"
           aria-label={previewAlt}
-          className="flex max-h-[100dvh] max-w-full cursor-zoom-in items-center justify-center"
+          className="pointer-events-auto max-h-[100dvh] w-full max-w-[100vw] overflow-auto overscroll-contain px-3 py-14 sm:px-6 sm:py-16"
           onClick={(e) => e.stopPropagation()}
         >
-          <Image
-            src={CV_SRC}
-            alt=""
-            width={CV_WIDTH}
-            height={CV_HEIGHT}
-            className="block h-auto max-h-[min(95dvh,922px)] w-auto max-w-[min(100vw-1.5rem,715px)] cursor-zoom-in object-contain"
-            sizes="100vw"
-            priority
-          />
+          <div className="flex min-h-[calc(100dvh-7rem)] w-full items-center justify-center sm:min-h-[calc(100dvh-8rem)]">
+            <button
+              type="button"
+              onClick={() => setInnerZoom((z) => !z)}
+              aria-label={innerZoom ? lightboxZoomOutLabel : lightboxZoomInLabel}
+              aria-pressed={innerZoom}
+              className={`origin-center rounded-lg border-0 bg-transparent p-0 outline-none transition-transform duration-300 ease-out motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)] ${innerZoom ? "scale-[1.62] cursor-zoom-out" : "scale-100 cursor-zoom-in"}`}
+            >
+              <Image
+                src={CV_SRC}
+                alt=""
+                width={CV_WIDTH}
+                height={CV_HEIGHT}
+                draggable={false}
+                className="pointer-events-none block h-auto max-h-[min(95dvh,922px)] w-auto max-w-[min(100vw-1.5rem,715px)] select-none object-contain"
+                sizes="100vw"
+                priority
+              />
+            </button>
+          </div>
         </div>
       </div>
     ) : null;

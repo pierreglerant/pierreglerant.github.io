@@ -75,10 +75,12 @@
       }
     },
     "resume": {
-      "heading": "CV",
+      "heading": "Curriculum vitæ",
       "previewAlt": "Aperçu du CV de Pierre Glerant",
       "openViewer": "Afficher le CV en plein écran",
       "closeViewer": "Fermer l’aperçu",
+      "lightboxZoomIn": "Agrandir encore l’aperçu",
+      "lightboxZoomOut": "Revenir à la taille adaptée à l’écran",
       "download": "Télécharger le CV (PDF)"
     }
   },

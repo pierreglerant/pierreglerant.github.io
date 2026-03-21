@@ -80,6 +80,8 @@
       "previewAlt": "Preview of Pierre Glerant's resume",
       "openViewer": "View resume full screen",
       "closeViewer": "Close preview",
+      "lightboxZoomIn": "Zoom in further",
+      "lightboxZoomOut": "Fit to screen again",
       "download": "Download resume (PDF)"
     }
   },

@@ -52,6 +52,8 @@ export default function AboutSkillsSection({ locale }: { locale: string }) {
           previewAlt={t("about.resume.previewAlt")}
           openViewerLabel={t("about.resume.openViewer")}
           closeLabel={t("about.resume.closeViewer")}
+          lightboxZoomInLabel={t("about.resume.lightboxZoomIn")}
+          lightboxZoomOutLabel={t("about.resume.lightboxZoomOut")}
         />
         <div className="mt-6 flex justify-center">
           <a

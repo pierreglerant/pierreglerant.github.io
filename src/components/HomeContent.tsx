@@ -160,17 +160,23 @@ export default function HomeContent({ locale }: { locale: string }) {
 
       <AnimateInView
         id="contact"
-        className="landing-section landing-reveal-cta"
+        className="landing-section landing-reveal-cta mx-auto max-w-[1200px] px-4 py-14 md:py-20"
         as="section"
+        aria-labelledby="contact-heading"
       >
-        <div className="cta">
-          <div className="contact-section-inner mx-auto max-w-xl space-y-5 text-center">
-            <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-text)] leading-tight">
+        <div className="contact-section">
+          <div className="contact-section__head">
+            <h2
+              id="contact-heading"
+              className="text-center text-3xl font-bold tracking-tight text-[var(--color-text)] md:text-4xl"
+            >
               {t("contact.title")}
             </h2>
-            <p className="text-lg md:text-xl font-medium text-[var(--color-text)] leading-snug">
+            <p className="contact-section__intro mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
               {t("contact.headline")}
             </p>
+          </div>
+          <div className="contact-section-inner mx-auto mt-12 max-w-xl space-y-5 text-center">
             <div className="flex flex-col items-center gap-3 pt-1">
               <a
                 href={mailto}

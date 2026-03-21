@@ -729,7 +729,7 @@
     }
   }
 
-  /* Même largeur utile que section.landing-section + padding 2rem (bulle contact .cta) */
+  /* Même largeur utile que section.landing-section + padding 2rem */
   .hero-highlights {
     width: 100%;
     max-width: 1200px;
@@ -949,19 +949,11 @@
     height: auto;
   }
 
-  /* ---------- CTA ---------- */
+  /* ---------- Contact (page d’accueil, aligné sur la section Compétences) ---------- */
 
-  .cta {
+  .contact-section {
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.078);
-    border-radius: 24px;
-    padding: 4rem 2rem;
-    background: rgba(255, 255, 255, 0.032);
-    box-shadow:
-      0 0 0 1px rgba(2, 6, 18, 0.5) inset,
-      0 8px 36px rgba(2, 8, 22, 0.46);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    padding: 0;
   }
 
   /* ---------- Footer ---------- */
@@ -1604,8 +1596,8 @@
   transition-delay: 0.72s;
 }
 
-/* CTA (titre, paragraphe, bouton) */
-.landing-reveal-cta .cta > * {
+/* Contact : apparition au scroll */
+.landing-reveal-cta .contact-section > * {
   opacity: 0;
   transform: translateY(24px);
   transition:
@@ -1613,19 +1605,19 @@
     transform 0.5s ease-out;
 }
 
-.landing-reveal-cta.is-visible .cta > *:nth-child(1) {
+.landing-reveal-cta.is-visible .contact-section > *:nth-child(1) {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.05s;
 }
 
-.landing-reveal-cta.is-visible .cta > *:nth-child(2) {
+.landing-reveal-cta.is-visible .contact-section > *:nth-child(2) {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.18s;
 }
 
-.landing-reveal-cta.is-visible .cta > *:nth-child(3) {
+.landing-reveal-cta.is-visible .contact-section > *:nth-child(3) {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.3s;
