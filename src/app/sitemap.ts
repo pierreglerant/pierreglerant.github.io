@@ -1,43 +1,41 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL, LOCALES } from "../i18n/config";
+import { SITE_URL, LOCALES, DEFAULT_LOCALE } from "../i18n/config";
 import { PROJECT_SLUGS } from "../config/projects";
+import { SITE_LAST_UPDATE_ISO } from "../config/social";
 
-const SITEMAP_LAST_MOD =
-  (typeof process.env.VERCEL_BUILD_TIME !== "undefined" &&
-    new Date(process.env.VERCEL_BUILD_TIME)) ||
-  new Date();
+/** Dernière mise à jour déclarée du site (section contact) — à ajuster quand le contenu change. */
+const SITEMAP_LAST_MOD = new Date(`${SITE_LAST_UPDATE_ISO}T12:00:00.000Z`);
+
+function hreflangAlternates(pathAfterLocale: string): Record<string, string> {
+  const suffix = pathAfterLocale.replace(/^\//, "");
+  const path = suffix ? `/${suffix}` : "";
+  return {
+    ...Object.fromEntries(
+      LOCALES.map((l) => [l, `${SITE_URL}/${l}${path}`]),
+    ),
+    "x-default": `${SITE_URL}/${DEFAULT_LOCALE}${path}`,
+  };
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of LOCALES) {
-    const url = `${SITE_URL}/${locale}`;
-    const languages: Record<string, string> = {};
-    for (const altLocale of LOCALES) {
-      languages[altLocale] = `${SITE_URL}/${altLocale}`;
-    }
-
     entries.push({
-      url,
+      url: `${SITE_URL}/${locale}`,
       lastModified: SITEMAP_LAST_MOD,
       changeFrequency: "weekly",
       priority: 1,
-      alternates: { languages },
+      alternates: { languages: hreflangAlternates("") },
     });
 
     for (const slug of PROJECT_SLUGS) {
-      const projectUrl = `${SITE_URL}/${locale}/projects/${slug}`;
-      const projectLanguages: Record<string, string> = {};
-      for (const altLocale of LOCALES) {
-        projectLanguages[altLocale] =
-          `${SITE_URL}/${altLocale}/projects/${slug}`;
-      }
       entries.push({
-        url: projectUrl,
+        url: `${SITE_URL}/${locale}/projects/${slug}`,
         lastModified: SITEMAP_LAST_MOD,
         changeFrequency: "monthly",
-        priority: 0.7,
-        alternates: { languages: projectLanguages },
+        priority: 0.8,
+        alternates: { languages: hreflangAlternates(`projects/${slug}`) },
       });
     }
   }
