@@ -78,6 +78,8 @@
     "resume": {
       "heading": "Resume",
       "previewAlt": "Preview of Pierre Glerant's resume",
+      "openViewer": "View resume full screen",
+      "closeViewer": "Close preview",
       "download": "Download resume (PDF)"
     }
   },

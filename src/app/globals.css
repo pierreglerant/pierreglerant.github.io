@@ -1576,7 +1576,7 @@
   transition-delay: 0.62s;
 }
 
-.landing-reveal-stagger .about-section__head {
+.landing-reveal-stagger .about-section__skills-head {
   opacity: 0;
   transform: translateY(24px);
   transition:
@@ -1584,7 +1584,7 @@
     transform 0.5s ease-out;
 }
 
-.landing-reveal-stagger.is-visible .about-section__head {
+.landing-reveal-stagger.is-visible .about-section__skills-head {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.05s;

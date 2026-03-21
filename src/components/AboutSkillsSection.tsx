@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { Card, FeatureCard } from "./cards";
+import { FeatureCard } from "./cards";
+import CvPreviewLightbox from "./CvPreviewLightbox";
 import AnimateInView from "./AnimateInView";
 import { getTranslation } from "../i18n/server";
 import type { Locale } from "../i18n/config";
@@ -13,18 +13,15 @@ export default function AboutSkillsSection({ locale }: { locale: string }) {
       id="about"
       className="about-section landing-section mx-auto max-w-[1200px] px-4 py-14 md:py-20 landing-reveal-stagger"
       as="section"
-      aria-labelledby="about-title"
+      aria-label={t("about.title")}
     >
-      <div className="about-section__head">
+      <div className="about-section__skills-head">
         <h2
-          id="about-title"
+          id="about-skills-heading"
           className="text-center text-3xl font-bold tracking-tight text-[var(--color-text)] md:text-4xl"
         >
-          {t("about.title")}
-        </h2>
-        <p className="about-section__skills-label mt-4 text-center text-xs font-semibold uppercase tracking-[0.2em] text-[rgb(var(--primary))]">
           {t("about.skills.heading")}
-        </p>
+        </h2>
         <p className="about-section__skills-intro mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
           {t("about.skills.intro")}
         </p>
@@ -45,25 +42,17 @@ export default function AboutSkillsSection({ locale }: { locale: string }) {
         className="about-section__resume mx-auto mt-16 max-w-2xl md:mt-20"
         aria-labelledby="about-resume-heading"
       >
-        <h3
+        <h2
           id="about-resume-heading"
-          className="about-section__skills-label text-center text-xs font-semibold uppercase tracking-[0.2em] text-[rgb(var(--primary))]"
+          className="text-center text-3xl font-bold tracking-tight text-[var(--color-text)] md:text-4xl"
         >
           {t("about.resume.heading")}
-        </h3>
-        <Card
-          disableHover
-          className="about-resume-preview-card mt-5 overflow-hidden"
-        >
-          <Image
-            src="/cv/cv-preview.png"
-            alt={t("about.resume.previewAlt")}
-            width={715}
-            height={922}
-            className="block h-auto w-full max-w-full"
-            sizes="(max-width: 768px) 100vw, 672px"
-          />
-        </Card>
+        </h2>
+        <CvPreviewLightbox
+          previewAlt={t("about.resume.previewAlt")}
+          openViewerLabel={t("about.resume.openViewer")}
+          closeLabel={t("about.resume.closeViewer")}
+        />
         <div className="mt-6 flex justify-center">
           <a
             href="/cv/cv.pdf"

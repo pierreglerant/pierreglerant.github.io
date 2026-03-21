@@ -77,6 +77,8 @@
     "resume": {
       "heading": "CV",
       "previewAlt": "Aperçu du CV de Pierre Glerant",
+      "openViewer": "Afficher le CV en plein écran",
+      "closeViewer": "Fermer l’aperçu",
       "download": "Télécharger le CV (PDF)"
     }
   },
