@@ -12,6 +12,18 @@ export const PROJECT_SLUGS = [
 
 export type ProjectSlug = (typeof PROJECT_SLUGS)[number];
 
+/** Badges affichés sur les cartes projets (accueil) — une couleur par id dans `ProjectCard`. */
+export type ProjectBadgeId = "data" | "software" | "cyber" | "ai";
+
+export const PROJECT_CARD_BADGES: Record<
+  ProjectSlug,
+  readonly ProjectBadgeId[]
+> = {
+  immosphere: ["data", "software"],
+  secureops: ["cyber", "software"],
+  "project-three": ["ai"],
+};
+
 export function isProjectSlug(value: string): value is ProjectSlug {
   return (PROJECT_SLUGS as readonly string[]).includes(value);
 }
@@ -43,4 +55,9 @@ export const PROJECT_COVER_IMAGE: Record<ProjectSlug, string> = {
 export const PROJECT_SITE_URLS: Partial<Record<ProjectSlug, string>> = {
   immosphere: "https://www.immosphere.co",
   secureops: "https://secureops.fr",
+};
+
+/** Dépôt source (ex. GitHub), optionnel par projet. */
+export const PROJECT_REPO_URLS: Partial<Record<ProjectSlug, string>> = {
+  secureops: "https://github.com/pierreglerant/secureops",
 };

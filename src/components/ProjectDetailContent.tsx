@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import AnimateInView from "./AnimateInView";
 import ProjectGalleryCarousel from "./ProjectGalleryCarousel";
 import ProjectDetailAccordion, {
@@ -10,8 +10,10 @@ import { bodyParagraphs } from "../lib/body-paragraphs";
 import type { Locale } from "../i18n/config";
 import type { ProjectSlug } from "../config/projects";
 import { getProjectArchitectureSection } from "../config/project-architecture";
+import SecureOpsArchitectureDiagram from "./SecureOpsArchitectureDiagram";
 import {
   PROJECT_GALLERY_IMAGES,
+  PROJECT_REPO_URLS,
   PROJECT_SITE_URLS,
 } from "../config/projects";
 import { getTranslation } from "../i18n/server";
@@ -41,6 +43,7 @@ export default function ProjectDetailContent({
   const projectsAnchor = `/${locale}#projects`;
 
   const siteUrl = PROJECT_SITE_URLS[slug];
+  const repoUrl = PROJECT_REPO_URLS[slug];
 
   const overviewText = t(`projects.items.${slug}.sectionOverview`);
   const keywordsText = t(`projects.items.${slug}.sectionKeywords`);
@@ -62,6 +65,12 @@ export default function ProjectDetailContent({
     );
 
   const architecture = getProjectArchitectureSection(locale, slug);
+  const architectureBody: ReactNode =
+    architecture.variant === "secureopsDiagram" ? (
+      <SecureOpsArchitectureDiagram locale={locale} />
+    ) : (
+      architecture.body
+    );
 
   const accordionSections: AccordionSection[] = [
     {
@@ -79,8 +88,7 @@ export default function ProjectDetailContent({
     },
     {
       title: t("projects.detailSectionTitles.architecture"),
-      body: architecture.body,
-      bodyVariant: architecture.bodyVariant,
+      body: architectureBody,
     },
   ];
 
@@ -119,20 +127,39 @@ export default function ProjectDetailContent({
             >
               {title}
             </h1>
-            {siteUrl ? (
-              <a
-                href={siteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex shrink-0 items-center gap-1.5 border-b border-transparent pb-0.5 text-sm font-medium text-[rgb(var(--primary))] no-underline transition-colors hover:border-[rgb(var(--primary))] md:text-base"
-              >
-                <ExternalLink
-                  className="h-4 w-4 shrink-0 opacity-90 md:h-[1.125rem] md:w-[1.125rem]"
-                  strokeWidth={2}
-                  aria-hidden
-                />
-                {t(`projects.items.${slug}.websiteLinkLabel`)}
-              </a>
+            {siteUrl || repoUrl ? (
+              <div className="flex max-w-full flex-wrap items-center justify-end gap-x-4 gap-y-2">
+                {siteUrl ? (
+                  <a
+                    href={siteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex shrink-0 items-center gap-1.5 border-b border-transparent pb-0.5 text-sm font-medium text-[rgb(var(--primary))] no-underline transition-colors hover:border-[rgb(var(--primary))] md:text-base"
+                  >
+                    <ExternalLink
+                      className="h-4 w-4 shrink-0 opacity-90 md:h-[1.125rem] md:w-[1.125rem]"
+                      strokeWidth={2}
+                      aria-hidden
+                    />
+                    {t(`projects.items.${slug}.websiteLinkLabel`)}
+                  </a>
+                ) : null}
+                {repoUrl ? (
+                  <a
+                    href={repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex shrink-0 items-center gap-1.5 border-b border-transparent pb-0.5 text-sm font-medium text-[rgb(var(--primary))] no-underline transition-colors hover:border-[rgb(var(--primary))] md:text-base"
+                  >
+                    <Github
+                      className="h-4 w-4 shrink-0 opacity-90 md:h-[1.125rem] md:w-[1.125rem]"
+                      strokeWidth={2}
+                      aria-hidden
+                    />
+                    {t(`projects.items.${slug}.githubLinkLabel`)}
+                  </a>
+                ) : null}
+              </div>
             ) : null}
           </div>
         </div>

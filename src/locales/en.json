@@ -95,11 +95,45 @@
     "carouselSlideAlt": "{{base}} — image {{current}} of {{total}}",
     "carouselSlideAltShort": "Image {{current}} of {{total}}",
     "keywordsLabel": "Keywords:",
+    "badgeListLabel": "Project themes",
+    "badges": {
+      "data": "Data",
+      "software": "Software",
+      "cyber": "Cyber",
+      "ai": "AI"
+    },
     "detailSectionTitles": {
       "overview": "Overview",
       "features": "Features & scope",
       "stack": "Tech stack",
       "architecture": "Architecture"
+    },
+    "architecture": {
+      "secureops": {
+        "diagramAria": "SecureOps architecture diagram: frontend, gateway, microservices, workers, and database",
+        "httpLabel": "HTTP — Bearer JWT or X-API-Key",
+        "frontendTitle": "Frontend (Next.js)",
+        "frontendMeta": "Cognito (auth) • i18n en/fr • Tailwind CSS",
+        "gatewayTitle": "API Gateway",
+        "gatewayMeta": "JWT + API key auth • CORS • Proxy",
+        "gatewayRoutes": "Routes: /health, /admin/*, /user/*, /scan/*, /crawl/* …",
+        "adminTitle": "admin-service",
+        "adminMeta": "PostgreSQL • Alembic",
+        "userTitle": "user-service",
+        "userMeta": "PostgreSQL • Alembic",
+        "pdfTitle": "pdf-service",
+        "pdfMeta": "WeasyPrint",
+        "scanTitle": "scan-service",
+        "scanMeta": "REST API — scan jobs (create, status, result)",
+        "crawlTitle": "crawl-service",
+        "crawlMeta": "REST API — crawl jobs (create, status, result)",
+        "scanWorkerTitle": "scan-worker",
+        "scanWorkerMeta": "Job polling • execution • no HTTP • PostgreSQL",
+        "crawlWorkerTitle": "crawl-worker",
+        "crawlWorkerMeta": "Job polling • execution • no HTTP • PostgreSQL",
+        "postgresTitle": "PostgreSQL (PostGIS)",
+        "postgresMeta": "template_db, dedicated schemas, async queue tables — separate connections from admin-service, user-service, scan-worker, and crawl-worker."
+      }
     },
     "items": {
       "immosphere": {
@@ -119,6 +153,7 @@
         "sectionOverview": "SecureOps is a cybersecurity application focused on web vulnerability assessment aligned with the OWASP Top 10, combining a web UI with a dedicated analysis engine.\n\nsecureops.fr is the access point for the product and its use.",
         "sectionKeywords": "cybersecurity, OWASP Top 10, vulnerability scanner, web security, Python, FastAPI, microservices, custom queues, workers, Docker, AWS, EC2, Amplify, RDS, Cognito, WAF, Cloudflare, orchestration, asynchronous processing",
         "websiteLinkLabel": "www.secureops.fr",
+        "githubLinkLabel": "GitHub",
         "sectionFeatures": "Development of a web vulnerability scanner covering OWASP Top 10–style risk scenarios, with a web interface and analysis engine.\n\nDesign of a distributed asynchronous microservices architecture using queues, workers, and orchestration to scale workloads and isolate components.",
         "sectionStack": "- Deployment: AWS — Docker, EC2, Amplify, RDS; Amazon Cognito (authentication); AWS WAF (application firewall); Cloudflare (logs)\n- Architecture: distributed microservices\n- API: FastAPI microservices (REST) with worker services consuming them\n- Analysis engine: Python — OWASP Top 10–aligned scans, asynchronous worker execution\n- Frontend: web UI for the vulnerability scanner\n- Messaging: in-house queue and job-routing layer (custom design rather than a generic Redis / RabbitMQ / SQS-style broker at the core); workers wired to the FastAPI services\n- Orchestration: scan pipeline stages coordinated through that asynchronous layer"
       },

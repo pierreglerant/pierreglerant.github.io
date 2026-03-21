@@ -1,9 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Locale } from "../i18n/config";
-import type { ProjectSlug } from "../config/projects";
-import { PROJECT_COVER_IMAGE } from "../config/projects";
+import type { ProjectBadgeId, ProjectSlug } from "../config/projects";
+import {
+  PROJECT_CARD_BADGES,
+  PROJECT_COVER_IMAGE,
+} from "../config/projects";
 import { getTranslation } from "../i18n/server";
+
+const BADGE_STYLES: Record<ProjectBadgeId, string> = {
+  data: "border-[rgba(var(--success),0.38)] bg-[rgba(var(--success),0.14)] text-[rgb(134,239,172)]",
+  software:
+    "border-[rgba(var(--primary),0.4)] bg-[rgba(var(--primary),0.14)] text-[rgb(var(--primary))]",
+  cyber:
+    "border-[rgba(192,132,252,0.45)] bg-[rgba(168,85,247,0.12)] text-[rgb(216,180,254)]",
+  ai: "border-[rgba(var(--warning),0.42)] bg-[rgba(var(--warning),0.12)] text-[rgb(253,224,139)]",
+};
 
 type Props = { locale: Locale; slug: ProjectSlug };
 
@@ -14,6 +26,7 @@ export default function ProjectCard({ locale, slug }: Props) {
   const excerpt = t(`projects.items.${slug}.excerpt`);
   const coverAlt = t(`projects.items.${slug}.coverAlt`);
   const cover = PROJECT_COVER_IMAGE[slug];
+  const badges = PROJECT_CARD_BADGES[slug];
   const ring =
     "outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]";
 
@@ -37,6 +50,23 @@ export default function ProjectCard({ locale, slug }: Props) {
           />
         </div>
         <div className="flex min-h-0 flex-1 flex-col gap-2 p-5 md:p-6">
+          <ul
+            className="flex list-none flex-wrap gap-1.5 p-0"
+            aria-label={t("projects.badgeListLabel")}
+          >
+            {badges.map((id) => (
+              <li key={id}>
+                <span
+                  className={
+                    "inline-block rounded-md border px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide md:text-[0.7rem] " +
+                    BADGE_STYLES[id]
+                  }
+                >
+                  {t(`projects.badges.${id}`)}
+                </span>
+              </li>
+            ))}
+          </ul>
           <h3 className="text-lg font-semibold tracking-tight text-[var(--color-text)] transition-colors group-hover:text-[rgb(var(--primary))] md:text-xl">
             {title}
           </h3>
