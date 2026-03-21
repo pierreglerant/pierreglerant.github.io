@@ -1,4 +1,4 @@
-import { FolderKanban } from "lucide-react";
+import { Rocket } from "lucide-react";
 import AnimateInView from "./AnimateInView";
 import ProjectCard from "./ProjectCard";
 import SectionTitleWithIcon from "./SectionTitleWithIcon";
@@ -19,7 +19,7 @@ export default function ProjectsSection({ locale }: { locale: string }) {
     >
       <div className="projects-section">
         <div className="projects-section__head">
-          <SectionTitleWithIcon id="projects-heading" icon={FolderKanban}>
+          <SectionTitleWithIcon id="projects-heading" icon={Rocket}>
             {t("projects.title")}
           </SectionTitleWithIcon>
           <p className="mx-auto mt-4 max-w-4xl text-center text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
