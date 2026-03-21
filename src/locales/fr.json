@@ -25,7 +25,9 @@
     "copyright": "© {{year}} Pierre Glerant. Tous droits réservés."
   },
   "home": {
-    "titleLine1": "Bonjour, bienvenue sur mon portfolio",
+    "titleLine1": "Bonjour, je suis",
+    "titleLine1Before": "Bonjour, bienvenue sur mon ",
+    "titleLine1Accent": "portfolio",
     "titleHighlight": "",
     "heroLine1": "Data Scientist & ingénieur ML, diplômé de CentraleSupélec.",
     "heroLine2": "Spécialisé en conception et déploiement d’applications IA, entre autres.",
@@ -87,12 +89,10 @@
   },
   "projects": {
     "title": "Projets",
-    "intro": "Travaux en logiciel, données et intelligence artificielle que j’ai réalisés — présentés ici et accessibles en ligne.",
+    "intro": "Travaux en logiciel, données et intelligence artificielle que j’ai réalisés accessibles en ligne.",
+    "introConfidentiality": "Pour des raisons de confidentialité, les projets réalisés au sein de Safran ne sont pas présentés ici.",
     "seeMore": "Voir le détail",
-    "backToProjects": "← Retour aux projets",
-    "cta": "Voir sur GitHub",
-    "githubAria": "Ouvrir le profil GitHub de Pierre Glerant",
-    "githubHint": "Dépôts, historique Git et démos lorsque c’est possible.",
+    "backToProjects": "Retour aux projets",
     "carouselPrev": "Image précédente",
     "carouselNext": "Image suivante",
     "carouselRegion": "Galerie d’images : {{title}}",

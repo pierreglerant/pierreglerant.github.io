@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import AnimateInView from "./AnimateInView";
 import ProjectGalleryCarousel from "./ProjectGalleryCarousel";
 import ProjectDetailAccordion from "./ProjectDetailAccordion";
@@ -47,18 +48,23 @@ export default function ProjectDetailContent({
   ];
 
   return (
-    <div className="mx-auto max-w-[800px] px-4 py-10 md:py-16">
+    <div className="mx-auto max-w-[min(100%,56rem)] px-4 py-10 md:py-16">
       <AnimateInView
         className="landing-reveal-page"
         as="article"
         aria-labelledby="project-detail-title"
       >
-        <nav className="mb-8" aria-label="Breadcrumb">
+        <nav className="mb-2 md:mb-3" aria-label="Breadcrumb">
           <Link
             href={projectsAnchor}
-            className="cursor-pointer text-sm font-medium text-[rgb(var(--primary))] no-underline underline-offset-4 decoration-[rgb(var(--primary))] hover:underline"
+            className="inline-flex cursor-pointer items-center gap-0.5 border-b border-transparent pb-0.5 text-base font-medium text-[rgb(var(--primary))] no-underline transition-colors hover:border-[rgb(var(--primary))]"
           >
-            {t("projects.backToProjects")}
+            <ArrowLeft
+              className="h-5 w-5 shrink-0 text-[rgb(var(--primary))]"
+              strokeWidth={2}
+              aria-hidden
+            />
+            <span>{t("projects.backToProjects")}</span>
           </Link>
         </nav>
 

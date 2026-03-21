@@ -10,7 +10,7 @@ export default function Footer({ locale }: { locale: string }) {
     <AnimateInView
       as="footer"
       role="contentinfo"
-      className="px-4 pb-8 pt-6 text-center text-[var(--color-text-muted)] text-xs landing-reveal-footer"
+      className="px-4 py-3 text-center text-[var(--color-text-muted)] text-xs landing-reveal-footer"
     >
       <p className="footer-copyright">{t("footer.copyright", { year })}</p>
     </AnimateInView>

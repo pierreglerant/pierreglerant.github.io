@@ -1,6 +1,8 @@
+import { Layers, FileText } from "lucide-react";
 import { FeatureCard } from "./cards";
 import CvPreviewLightbox from "./CvPreviewLightbox";
 import AnimateInView from "./AnimateInView";
+import SectionTitleWithIcon from "./SectionTitleWithIcon";
 import { getTranslation } from "../i18n/server";
 import type { Locale } from "../i18n/config";
 import { ABOUT_SKILL_KEYS } from "../config/about-skills";
@@ -16,12 +18,9 @@ export default function AboutSkillsSection({ locale }: { locale: string }) {
       aria-label={t("about.title")}
     >
       <div className="about-section__skills-head">
-        <h2
-          id="about-skills-heading"
-          className="text-center text-3xl font-bold tracking-tight text-[var(--color-text)] md:text-4xl"
-        >
+        <SectionTitleWithIcon id="about-skills-heading" icon={Layers}>
           {t("about.skills.heading")}
-        </h2>
+        </SectionTitleWithIcon>
         <p className="about-section__skills-intro mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
           {t("about.skills.intro")}
         </p>
@@ -43,12 +42,9 @@ export default function AboutSkillsSection({ locale }: { locale: string }) {
         className="about-section__resume mx-auto mt-16 max-w-2xl md:mt-20"
         aria-labelledby="about-resume-heading"
       >
-        <h2
-          id="about-resume-heading"
-          className="text-center text-3xl font-bold tracking-tight text-[var(--color-text)] md:text-4xl"
-        >
+        <SectionTitleWithIcon id="about-resume-heading" icon={FileText}>
           {t("about.resume.heading")}
-        </h2>
+        </SectionTitleWithIcon>
         <CvPreviewLightbox
           previewAlt={t("about.resume.previewAlt")}
           openViewerLabel={t("about.resume.openViewer")}

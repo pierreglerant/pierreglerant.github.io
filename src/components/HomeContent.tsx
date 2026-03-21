@@ -1,10 +1,12 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
+import { Mail } from "lucide-react";
 import { FeatureCard } from "./cards";
 import AnimateInView from "./AnimateInView";
 import HeroSocialLinks from "./HeroSocialLinks";
 import AboutSkillsSection from "./AboutSkillsSection";
 import ProjectsSection from "./ProjectsSection";
+import SectionTitleWithIcon from "./SectionTitleWithIcon";
 import { getTranslation } from "../i18n/server";
 import { localePath, type Locale } from "../i18n/config";
 import { CONTACT_EMAIL, SITE_LAST_UPDATE_ISO } from "../config/social";
@@ -115,7 +117,10 @@ export default function HomeContent({ locale }: { locale: string }) {
               </>
             ) : (
               <span className="hero-title__greeting">
-                {t("home.titleLine1")}
+                {t("home.titleLine1Before")}
+                <span className="hero-title__name">
+                  {t("home.titleLine1Accent")}
+                </span>
               </span>
             )}
           </h1>
@@ -177,12 +182,9 @@ export default function HomeContent({ locale }: { locale: string }) {
       >
         <div className="contact-section">
           <div className="contact-section__head">
-            <h2
-              id="contact-heading"
-              className="text-center text-3xl font-bold tracking-tight text-[var(--color-text)] md:text-4xl"
-            >
+            <SectionTitleWithIcon id="contact-heading" icon={Mail}>
               {t("contact.title")}
-            </h2>
+            </SectionTitleWithIcon>
             <p className="contact-section__intro mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
               {t("contact.headline")}
             </p>
