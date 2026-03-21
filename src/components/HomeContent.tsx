@@ -6,12 +6,8 @@ import HeroSocialLinks from "./HeroSocialLinks";
 import AboutSkillsSection from "./AboutSkillsSection";
 import ProjectsSection from "./ProjectsSection";
 import { getTranslation } from "../i18n/server";
-import type { Locale } from "../i18n/config";
-import {
-  CONTACT_EMAIL,
-  SITE_LAST_UPDATE_ISO,
-  SOCIAL_LINKS,
-} from "../config/social";
+import { localePath, type Locale } from "../i18n/config";
+import { CONTACT_EMAIL, SITE_LAST_UPDATE_ISO } from "../config/social";
 import { HERO_SCROLL_SKILLS } from "../config/hero-scroll-skills";
 
 /** Répétitions de la liste côte à côte : boucle infinie sans saut (≥ 2). */
@@ -21,6 +17,7 @@ export default function HomeContent({ locale }: { locale: string }) {
   const t = getTranslation(locale as Locale);
   const l = locale as Locale;
   const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Contact portfolio")}`;
+  const projectsHash = `${localePath(l, "/")}#projects`;
 
   const lastUpdateDate = new Date(`${SITE_LAST_UPDATE_ISO}T12:00:00`);
   const lastUpdateFormatted = lastUpdateDate.toLocaleDateString(
@@ -75,9 +72,7 @@ export default function HomeContent({ locale }: { locale: string }) {
         <>
           {t("home.highlight3BodyPrefix")}
           <a
-            href={SOCIAL_LINKS.github}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={projectsHash}
             className="font-medium text-[rgb(var(--primary))] no-underline hover:underline"
             aria-label={t("home.highlight3LinkAria")}
           >
