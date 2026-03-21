@@ -35,7 +35,6 @@ export default function Loading() {
         >
           <Skeleton width="w-[280px] max-w-full" height="h-10" />
           <Skeleton width="w-full max-w-[680px]" height="h-4" />
-          <Skeleton width="w-full max-w-[680px]" height="h-4" />
           <Skeleton width="w-[90%] max-w-[680px]" height="h-4" />
           <div className="flex gap-2 mt-2">
             <Skeleton width="w-10" height="h-10" rounded="md" />

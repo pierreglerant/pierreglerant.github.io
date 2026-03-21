@@ -106,7 +106,6 @@ export default function HomeContent({ locale }: { locale: string }) {
           <div className="hero-lines">
             <p>{t("home.heroLine1")}</p>
             <p>{t("home.heroLine2")}</p>
-            <p>{t("home.heroLine3")}</p>
           </div>
           <HeroSocialLinks />
         </div>
