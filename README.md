@@ -1,20 +1,23 @@
-# Portfolio (frontend)
+# Portfolio — Pierre Glerant
 
-Dépôt centré sur le **frontend** Next.js dans `frontend/`.
+Site Next.js (App Router), multilingue `fr` / `en`, à la racine de ce dépôt.
 
 ## Prérequis
 
 - **Node.js** 20+ (LTS recommandé)
 
-## Démarrage
+## Installation & développement
 
 ```bash
-cd frontend
 npm install
 npm run dev
 ```
 
-Application : http://localhost:3000
+Ouvrir [http://localhost:3000](http://localhost:3000) (redirection vers `/fr` ou `/en`). La section **Contact** est sur l’accueil (`#contact`) ; le lien du menu y fait défiler la page.
+
+## Pages
+
+- `/[locale]` — accueil (hero, contenu, bloc contact en bas de page)
 
 ## Scripts
 
@@ -25,5 +28,3 @@ Application : http://localhost:3000
 | `npm run start` | Serveur après build |
 | `npm run lint` | ESLint |
 | `npm run format` / `format:check` | Prettier |
-
-Détails : [frontend/README.md](frontend/README.md).

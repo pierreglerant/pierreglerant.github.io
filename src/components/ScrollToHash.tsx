@@ -87,7 +87,7 @@ export default function ScrollToHash() {
 
     document.addEventListener("click", onClickCapture, true);
     return () => document.removeEventListener("click", onClickCapture, true);
-  }, [runScrollForHash]);
+  }, [runScrollForHash, router]);
 
   return null;
 }

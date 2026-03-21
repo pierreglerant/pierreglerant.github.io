@@ -884,18 +884,6 @@
     transform: none;
   }
 
-  /* ---------- Testimonials ---------- */
-
-  .testimonial {
-    font-size: 0.95rem;
-  }
-
-  .author {
-    margin-top: 0.8rem;
-    font-weight: 500;
-    color: rgb(var(--secondary));
-  }
-
   /* ---------- CTA ---------- */
 
   .cta {

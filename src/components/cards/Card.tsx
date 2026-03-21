@@ -5,7 +5,6 @@ import React from "react";
 interface CardProps {
   children: React.ReactNode;
   className?: string;
-  variant?: "default" | "testimonial";
   onClick?: () => void;
   disableHover?: boolean;
   style?: React.CSSProperties;
@@ -16,21 +15,13 @@ interface CardProps {
  * Memoïsé pour éviter les re-renders inutiles lorsqu'il est rendu en boucle.
  */
 const Card: React.FC<CardProps> = React.memo(
-  ({
-    children,
-    className = "",
-    variant = "default",
-    onClick,
-    disableHover = false,
-    style,
-  }) => {
+  ({ children, className = "", onClick, disableHover = false, style }) => {
     const baseClasses = "card";
-    const variantClasses = variant === "testimonial" ? "testimonial" : "";
     const hoverClasses = disableHover ? "no-hover" : "";
 
     return (
       <div
-        className={`${baseClasses} ${variantClasses} ${hoverClasses} ${className}`.trim()}
+        className={`${baseClasses} ${hoverClasses} ${className}`.trim()}
         onClick={onClick}
         style={{ ...(onClick ? { cursor: "pointer" } : {}), ...style }}
       >

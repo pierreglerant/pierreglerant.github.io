@@ -1,4 +1,4 @@
-import { TestimonialCard, FeatureCard } from "./cards";
+import { FeatureCard } from "./cards";
 import AnimateInView from "./AnimateInView";
 import HeroSocialLinks from "./HeroSocialLinks";
 import { getTranslation } from "../i18n/server";
@@ -28,21 +28,6 @@ export default function HomeContent({ locale }: { locale: string }) {
     { title: t("home.highlight1Title"), body: t("home.highlight1Body") },
     { title: t("home.highlight2Title"), body: t("home.highlight2Body") },
     { title: t("home.highlight3Title"), body: t("home.highlight3Body") },
-  ];
-
-  const TESTIMONIALS = [
-    {
-      quote: t("home.testimonial1Quote"),
-      author: t("home.testimonial1Author"),
-    },
-    {
-      quote: t("home.testimonial2Quote"),
-      author: t("home.testimonial2Author"),
-    },
-    {
-      quote: t("home.testimonial3Quote"),
-      author: t("home.testimonial3Author"),
-    },
   ];
 
   return (
@@ -94,25 +79,6 @@ export default function HomeContent({ locale }: { locale: string }) {
               key={highlight.title}
               title={highlight.title}
               body={highlight.body}
-            />
-          ))}
-        </div>
-      </AnimateInView>
-
-      <AnimateInView
-        id="trust"
-        className="landing-section landing-reveal-stagger"
-        as="section"
-      >
-        <div className="section-title">
-          <h3>{t("home.trustTitle")}</h3>
-        </div>
-        <div className="grid">
-          {TESTIMONIALS.map((testimonial, index) => (
-            <TestimonialCard
-              key={`${testimonial.author}-${index}`}
-              quote={testimonial.quote}
-              author={testimonial.author}
             />
           ))}
         </div>

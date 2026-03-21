@@ -5,9 +5,7 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
-  // Override default ignores of eslint-config-next.
   globalIgnores([
-    // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",
     "build/**",
@@ -18,14 +16,6 @@ const eslintConfig = defineConfig([
       "@typescript-eslint/no-explicit-any": "warn",
       "react-hooks/set-state-in-effect": "off",
       "@next/next/no-img-element": "warn",
-    },
-  },
-  // Le StructuredContentEditor génère du HTML brut (emails/newsletters),
-  // pas du JSX React — next/image ne peut pas s'appliquer ici.
-  {
-    files: ["src/components/StructuredContentEditor/**"],
-    rules: {
-      "@next/next/no-img-element": "off",
     },
   },
 ]);
