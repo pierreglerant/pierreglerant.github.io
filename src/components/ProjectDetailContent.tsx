@@ -56,7 +56,7 @@ export default function ProjectDetailContent({
         <nav className="mb-8" aria-label="Breadcrumb">
           <Link
             href={projectsAnchor}
-            className="text-sm font-medium text-[rgb(var(--primary))] no-underline hover:underline"
+            className="cursor-pointer text-sm font-medium text-[rgb(var(--primary))] no-underline underline-offset-4 decoration-[rgb(var(--primary))] hover:underline"
           >
             {t("projects.backToProjects")}
           </Link>

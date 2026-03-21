@@ -22,7 +22,7 @@ export default function ProjectCard({ locale, slug }: Props) {
       <Link
         href={href}
         className={
-          "project-card__link group flex h-full min-h-0 flex-col no-underline text-inherit rounded-[inherit] " +
+          "project-card__link group flex h-full min-h-0 cursor-pointer flex-col no-underline text-inherit rounded-[inherit] " +
           ring
         }
       >
@@ -43,7 +43,7 @@ export default function ProjectCard({ locale, slug }: Props) {
           <p className="flex-1 text-sm leading-relaxed text-[var(--color-text-muted)] md:text-[0.9375rem]">
             {excerpt}
           </p>
-          <span className="mt-1 text-sm font-medium text-[rgb(var(--primary))]">
+          <span className="mt-1 inline-block w-fit text-sm font-medium text-[rgb(var(--primary))] no-underline underline-offset-4 decoration-[rgb(var(--primary))] hover:underline">
             {t("projects.seeMore")}
           </span>
         </div>
