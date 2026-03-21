@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FeatureCard } from "./cards";
 import AnimateInView from "./AnimateInView";
 import HeroSocialLinks from "./HeroSocialLinks";
+import AboutSkillsSection from "./AboutSkillsSection";
 import { getTranslation } from "../i18n/server";
 import type { Locale } from "../i18n/config";
 import {
@@ -116,7 +117,7 @@ export default function HomeContent({ locale }: { locale: string }) {
           <HeroSocialLinks />
         </div>
         <div id="features" className="hero-highlights">
-          <div className="grid w-full min-w-0 grid-cols-3 gap-2 sm:gap-3 md:gap-6">
+          <div className="grid w-full min-w-0 grid-cols-3 gap-3 sm:gap-4 md:gap-7">
             {HIGHLIGHTS.map((highlight) => (
               <FeatureCard
                 key={highlight.key}
@@ -154,6 +155,8 @@ export default function HomeContent({ locale }: { locale: string }) {
       </AnimateInView>
 
       <h2 className="sr-only">{t("home.sectionsTitle")}</h2>
+
+      <AboutSkillsSection locale={locale} />
 
       <AnimateInView
         id="contact"

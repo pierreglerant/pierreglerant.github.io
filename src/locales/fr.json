@@ -14,6 +14,7 @@
   },
   "header": {
     "home": "Accueil",
+    "about": "À propos",
     "contact": "Contact",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu",
@@ -40,6 +41,44 @@
     "highlight2LogoAlt": "Logo Safran",
     "highlight3LogoAlt": "Logo GitHub",
     "skillsMarqueeIntro": "Compétences et technologies"
+  },
+  "about": {
+    "title": "À propos",
+    "skills": {
+      "heading": "Compétences",
+      "intro": "Solutions IA fiables — du ML au déploiement à l’échelle.",
+      "items": {
+        "ml": {
+          "title": "ML & deep learning",
+          "body": "Entraînement et évaluation de modèles — Python, TensorFlow, PyTorch, Pandas, NumPy."
+        },
+        "llm": {
+          "title": "LLM & RAG",
+          "body": "Modèles de langage, RAG et pipelines NLP."
+        },
+        "data": {
+          "title": "Données & pipelines",
+          "body": "SQL, pipelines de données, flux fiables pour l’entraînement et la production."
+        },
+        "software": {
+          "title": "Développement logiciel",
+          "body": "API REST, PostgreSQL, JavaScript, React, Next.js, micro-services."
+        },
+        "mlops": {
+          "title": "MLOps & déploiement",
+          "body": "Docker, Git, CI/CD, APIs, mise en prod et monitoring."
+        },
+        "cloud": {
+          "title": "Cloud & DevOps",
+          "body": "AWS (EC2, RDS, Amplify, etc.), Linux, automatisation, observabilité."
+        }
+      }
+    },
+    "resume": {
+      "heading": "CV",
+      "previewAlt": "Aperçu du CV de Pierre Glerant",
+      "download": "Télécharger le CV (PDF)"
+    }
   },
   "contact": {
     "title": "Contact",

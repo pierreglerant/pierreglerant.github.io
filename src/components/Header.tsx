@@ -33,9 +33,11 @@ export default function Header() {
   }, [menuOpen, closeMenu]);
 
   const contactHash = `${lp("/")}#contact`;
+  const aboutHash = `${lp("/")}#about`;
 
   const NAV_LINKS = [
     { label: t("header.home"), href: lp("/") },
+    { label: t("header.about"), href: aboutHash },
     { label: t("header.contact"), href: contactHash },
   ];
 

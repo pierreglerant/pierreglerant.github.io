@@ -14,6 +14,7 @@
   },
   "header": {
     "home": "Home",
+    "about": "About",
     "contact": "Contact",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
@@ -41,6 +42,44 @@
     "highlight2LogoAlt": "Safran logo",
     "highlight3LogoAlt": "GitHub logo",
     "skillsMarqueeIntro": "Skills and technologies"
+  },
+  "about": {
+    "title": "About",
+    "skills": {
+      "heading": "Skills",
+      "intro": "Reliable AI — from machine learning to production at scale.",
+      "items": {
+        "ml": {
+          "title": "ML & deep learning",
+          "body": "Model training and evaluation — Python, TensorFlow, PyTorch, Pandas, NumPy."
+        },
+        "llm": {
+          "title": "LLM & RAG",
+          "body": "Language models, retrieval-augmented generation, NLP pipelines."
+        },
+        "data": {
+          "title": "Data & pipelines",
+          "body": "SQL, data pipelines, and reliable data flows for training and production."
+        },
+        "software": {
+          "title": "Software engineering",
+          "body": "REST APIs, PostgreSQL, JavaScript, React, Next.js, microservices."
+        },
+        "mlops": {
+          "title": "MLOps & deployment",
+          "body": "Docker, Git, CI/CD, APIs, production rollout and monitoring."
+        },
+        "cloud": {
+          "title": "Cloud & DevOps",
+          "body": "AWS (EC2, RDS, Amplify, etc.), Linux, automation, observability."
+        }
+      }
+    },
+    "resume": {
+      "heading": "Resume",
+      "previewAlt": "Preview of Pierre Glerant's resume",
+      "download": "Download resume (PDF)"
+    }
   },
   "contact": {
     "title": "Contact",
