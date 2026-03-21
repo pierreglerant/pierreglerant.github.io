@@ -39,7 +39,7 @@ export default function AboutSkillsSection({ locale }: { locale: string }) {
 
       <div
         id="cv"
-        className="about-section__resume mx-auto mt-16 max-w-2xl md:mt-20"
+        className="about-section__resume mx-auto mt-28 max-w-2xl md:mt-40"
         aria-labelledby="about-resume-heading"
       >
         <SectionTitleWithIcon id="about-resume-heading" icon={FileText}>
