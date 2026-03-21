@@ -3,13 +3,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import HomeContent from "../../components/HomeContent";
 import { getTranslation } from "../../i18n/server";
-import {
-  SITE_URL,
-  LOCALES,
-  DEFAULT_LOCALE,
-  SLUG_MAP,
-  type Locale,
-} from "../../i18n/config";
+import { SITE_URL, LOCALES, DEFAULT_LOCALE, type Locale } from "../../i18n/config";
 import { CONTACT_EMAIL } from "../../config/social";
 
 export async function generateMetadata({
@@ -54,8 +48,7 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   const t = getTranslation(locale as Locale);
-  const l = locale as Locale;
-  const contactSlug = SLUG_MAP[l].contact;
+  const contactUrl = `${SITE_URL}/${locale}#contact`;
 
   const organizationJsonLd = {
     "@context": "https://schema.org",
@@ -80,8 +73,6 @@ export default async function HomePage({
       name: "Pierre Glerant",
     },
   };
-
-  const contactUrl = `${SITE_URL}/${locale}/${contactSlug}`;
 
   const contactPageJsonLd = {
     "@context": "https://schema.org",

@@ -1,14 +1,5 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL, LOCALES, SLUG_MAP } from "../i18n/config";
-
-const PUBLIC_PAGES: {
-  internalSlug: string;
-  changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
-  priority: number;
-}[] = [
-  { internalSlug: "", changeFrequency: "weekly", priority: 1 },
-  { internalSlug: "contact", changeFrequency: "monthly", priority: 0.7 },
-];
+import { SITE_URL, LOCALES } from "../i18n/config";
 
 const SITEMAP_LAST_MOD =
   (typeof process.env.VERCEL_BUILD_TIME !== "undefined" &&
@@ -18,36 +9,20 @@ const SITEMAP_LAST_MOD =
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
-  for (const page of PUBLIC_PAGES) {
-    for (const locale of LOCALES) {
-      const slug = page.internalSlug
-        ? (SLUG_MAP[locale][page.internalSlug] ?? page.internalSlug)
-        : "";
-
-      const url = slug
-        ? `${SITE_URL}/${locale}/${slug}`
-        : `${SITE_URL}/${locale}`;
-
-      const languages: Record<string, string> = {};
-      for (const altLocale of LOCALES) {
-        const altSlug = page.internalSlug
-          ? (SLUG_MAP[altLocale][page.internalSlug] ?? page.internalSlug)
-          : "";
-        languages[altLocale] = altSlug
-          ? `${SITE_URL}/${altLocale}/${altSlug}`
-          : `${SITE_URL}/${altLocale}`;
-      }
-
-      entries.push({
-        url,
-        lastModified: SITEMAP_LAST_MOD,
-        changeFrequency: page.changeFrequency,
-        priority: page.priority,
-        alternates: {
-          languages,
-        },
-      });
+  for (const locale of LOCALES) {
+    const url = `${SITE_URL}/${locale}`;
+    const languages: Record<string, string> = {};
+    for (const altLocale of LOCALES) {
+      languages[altLocale] = `${SITE_URL}/${altLocale}`;
     }
+
+    entries.push({
+      url,
+      lastModified: SITEMAP_LAST_MOD,
+      changeFrequency: "weekly",
+      priority: 1,
+      alternates: { languages },
+    });
   }
 
   return entries;

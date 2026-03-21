@@ -9,7 +9,7 @@
     "siteDescription": "Pierre Glerant's portfolio: projects, skills, and contact.",
     "homeTitle": "Home",
     "homeDescription": "Welcome to Pierre Glerant's portfolio.",
-    "contactTitle": "Contact",
+    "contactTitle": "Contact me",
     "contactDescription": "Email Pierre Glerant."
   },
   "header": {
@@ -50,10 +50,7 @@
     "testimonial2Quote": "Curious; I enjoy learning and sharing.",
     "testimonial2Author": "— Pierre",
     "testimonial3Quote": "Happy to hear about your ideas.",
-    "testimonial3Author": "— Pierre",
-    "ctaTitle": "Have a project in mind?",
-    "ctaSub": "Drop me an email and let's talk.",
-    "ctaBtn": "Send an email"
+    "testimonial3Author": "— Pierre"
   },
   "contact": {
     "intro": "To reach me, use the link below — it will open your mail app with the address filled in.",

@@ -9,7 +9,7 @@
     "siteDescription": "Portfolio de Pierre Glerant : projets, compétences et contact.",
     "homeTitle": "Accueil",
     "homeDescription": "Bienvenue sur le portfolio de Pierre Glerant.",
-    "contactTitle": "Contact",
+    "contactTitle": "Contactez-moi",
     "contactDescription": "Contacter Pierre Glerant par email."
   },
   "header": {
@@ -50,10 +50,7 @@
     "testimonial2Quote": "Curieux, j'aime apprendre et partager.",
     "testimonial2Author": "— Pierre",
     "testimonial3Quote": "Disponible pour discuter de vos idées.",
-    "testimonial3Author": "— Pierre",
-    "ctaTitle": "Un projet en tête ?",
-    "ctaSub": "Écrivez-moi pour en parler.",
-    "ctaBtn": "Envoyer un email"
+    "testimonial3Author": "— Pierre"
   },
   "contact": {
     "intro": "Pour m'écrire, utilisez le lien ci-dessous : votre client mail s'ouvrira avec l'adresse préremplie.",

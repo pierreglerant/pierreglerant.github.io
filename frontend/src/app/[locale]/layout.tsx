@@ -9,6 +9,7 @@ import {
 } from "../../i18n/config";
 import { getTranslation } from "../../i18n/server";
 import { Providers } from "../../components/Providers";
+import ScrollToHash from "../../components/ScrollToHash";
 
 const SITE_NAME = "Pierre Glerant";
 const CONTACT_EMAIL = "pierreglerant@gmail.com";
@@ -173,7 +174,10 @@ export default async function LocaleLayout({
         >
           {locale === "fr" ? "Aller au contenu" : "Skip to content"}
         </a>
-        <Providers locale={locale as Locale}>{children}</Providers>
+        <Providers locale={locale as Locale}>
+          <ScrollToHash />
+          {children}
+        </Providers>
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import type { MetadataRoute } from "next";
-import { LOCALES, SLUG_MAP, type Locale } from "../../../../i18n/config";
+import { LOCALES, type Locale } from "../../../../i18n/config";
 import { getTranslation } from "../../../../i18n/server";
 
 export async function GET(
@@ -46,7 +46,7 @@ export async function GET(
       {
         name: t("header.contact"),
         short_name: t("header.contact"),
-        url: `/${locale}/${SLUG_MAP[l].contact}`,
+        url: `/${locale}#contact`,
         icons: [
           {
             src: "/logo.png",

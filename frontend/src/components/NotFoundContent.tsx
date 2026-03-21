@@ -53,7 +53,7 @@ export default function NotFoundContent() {
               />
               <GenericButton
                 label={t("notFound.contact")}
-                href={lp("/contact")}
+                href={`${lp("/")}#contact`}
                 variant="outline"
                 icon={<Mail className="w-4 h-4" />}
                 iconPosition="left"

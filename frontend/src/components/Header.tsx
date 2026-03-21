@@ -34,9 +34,11 @@ export default function Header() {
     return () => document.removeEventListener("keydown", onEscape);
   }, [menuOpen, closeMenu]);
 
+  const contactHash = `${lp("/")}#contact`;
+
   const NAV_LINKS = [
     { label: t("header.home"), href: lp("/") },
-    { label: t("header.contact"), href: lp("/contact") },
+    { label: t("header.contact"), href: contactHash },
   ];
 
   const toggleLanguage = () => {

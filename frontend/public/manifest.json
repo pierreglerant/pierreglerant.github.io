@@ -28,7 +28,7 @@
     {
       "name": "Contact",
       "short_name": "Contact",
-      "url": "/fr/contact",
+      "url": "/fr#contact",
       "icons": [{ "src": "/logo.png", "sizes": "512x512", "type": "image/png" }]
     }
   ],

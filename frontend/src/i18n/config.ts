@@ -9,14 +9,10 @@ export const LOCALES = ["fr", "en"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "fr";
 
-/** Public routes (internal slug = URL segment in `app/[locale]/`). */
-const INTERNAL_SLUGS = ["contact"] as const;
-
+/** Mappings FR slug → URL par locale (vide : pas de pages traduites par slug). */
 export const SLUG_MAP: Record<Locale, Record<string, string>> = {
-  fr: Object.fromEntries(INTERNAL_SLUGS.map((s) => [s, s])),
-  en: {
-    contact: "contact",
-  },
+  fr: {},
+  en: {},
 };
 
 export const EN_SLUG_TO_INTERNAL: Record<string, string> = Object.fromEntries(

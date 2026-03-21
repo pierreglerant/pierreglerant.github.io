@@ -14,12 +14,11 @@ npm install
 npm run dev
 ```
 
-Ouvrir [http://localhost:3000](http://localhost:3000) (redirection vers `/fr` ou `/en` selon la langue).
+Ouvrir [http://localhost:3000](http://localhost:3000) (redirection vers `/fr` ou `/en` selon la langue). La section **Contact** est sur l’accueil (`#contact`) ; le lien du menu y fait défiler la page.
 
 ## Pages
 
-- `/[locale]` — accueil  
-- `/[locale]/contact` — lien mail vers pierreglerant@gmail.com  
+- `/[locale]` — accueil (hero, contenu, bloc contact en bas de page)
 
 ## Scripts
 

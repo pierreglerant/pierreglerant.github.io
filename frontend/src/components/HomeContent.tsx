@@ -66,7 +66,7 @@ export default function HomeContent({ locale }: { locale: string }) {
           <div className="actions">
             <GenericButton
               label={t("home.requestDemo")}
-              href={localePath(l, "/contact")}
+              href={`${homeHref}#contact`}
               variant="primary"
             />
             <GenericButton
@@ -130,20 +130,23 @@ export default function HomeContent({ locale }: { locale: string }) {
       </AnimateInView>
 
       <AnimateInView
+        id="contact"
         className="landing-section landing-reveal-cta"
         as="section"
       >
         <div className="cta">
-          <h3>{t("home.ctaTitle")}</h3>
+          <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-text)] mb-4">
+            {t("metadata.contactTitle")}
+          </h2>
           <p className="my-4 mx-auto max-w-[600px] text-muted-theme mb-8">
-            {t("home.ctaSub")}
+            {t("contact.intro")}
           </p>
-          <GenericButton
-            label={t("home.ctaBtn")}
+          <a
             href={mailto}
-            variant="primary"
-            className="!inline-flex !w-auto !py-2 !px-5 !text-sm"
-          />
+            className="btn btn-primary inline-flex items-center justify-center px-6 py-3 rounded-full no-underline !text-sm"
+          >
+            {t("contact.emailLink")}
+          </a>
         </div>
       </AnimateInView>
     </>
