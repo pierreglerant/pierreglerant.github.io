@@ -24,14 +24,7 @@
     "menu": "Menu"
   },
   "footer": {
-    "description": "Portfolio personnel : projets et contact.",
-    "contact": "Contact",
-    "emailLabel": "Email :",
-    "copyEmail": "Copier l'adresse email",
-    "copyEmailAria": "Copier l'adresse email pierreglerant@gmail.com",
-    "emailCopied": "Adresse copiée !",
-    "writeEmail": "Écrire un email",
-    "allRightsReserved": "Tous droits réservés."
+    "copyright": "© {{year}} Pierre Glerant. Tous droits réservés."
   },
   "home": {
     "titleLine1": "Bonjour, je suis",

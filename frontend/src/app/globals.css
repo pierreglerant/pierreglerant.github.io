@@ -1563,8 +1563,7 @@
   transition-delay: 0.2s;
 }
 
-/* Footer : colonnes puis copyright au scroll */
-.landing-reveal-footer .footer-columns,
+/* Footer : ligne copyright au scroll */
 .landing-reveal-footer .footer-copyright {
   opacity: 0;
   transform: translateY(24px);
@@ -1573,14 +1572,8 @@
     transform 0.5s ease-out;
 }
 
-.landing-reveal-footer.is-visible .footer-columns {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.05s;
-}
-
 .landing-reveal-footer.is-visible .footer-copyright {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 0.2s;
+  transition-delay: 0.05s;
 }
