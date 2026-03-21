@@ -9,8 +9,8 @@
     "siteDescription": "Pierre Glerant's portfolio: projects, skills, and contact.",
     "homeTitle": "Home",
     "homeDescription": "Welcome to Pierre Glerant's portfolio.",
-    "contactTitle": "Contact me",
-    "contactDescription": "Email Pierre Glerant."
+    "contactTitle": "Contact",
+    "contactDescription": "Get in touch with Pierre Glerant by email."
   },
   "header": {
     "home": "Home",
@@ -33,8 +33,6 @@
     "heroLine1": "Data Scientist & ML Engineer from CentraleSupélec.",
     "heroLine2": "Specialized in Research & Mathematical Modeling.",
     "heroLine3": "Passionate about GenAI, Computer Vision, and RAG/LLMs.",
-    "requestDemo": "Get in touch",
-    "secondaryCta": "Learn more",
     "sectionsTitle": "Content",
     "featuresTitle": "What I do",
     "featuresSub": "Work and skills",
@@ -53,8 +51,12 @@
     "testimonial3Author": "— Pierre"
   },
   "contact": {
-    "intro": "To reach me, use the link below — it will open your mail app with the address filled in.",
-    "emailLink": "Email pierreglerant@gmail.com"
+    "title": "Contact",
+    "headline": "Want to collaborate, chat, or start a project?",
+    "body": "You can email me directly. I reply quickly.",
+    "cta": "Send an email",
+    "location": "Based in Paris, France • Available for remote/hybrid",
+    "lastUpdate": "Last site update: {{date}}"
   },
   "notFound": {
     "code": "404",

@@ -1,10 +1,9 @@
-import { GenericButton } from "./buttons";
 import { TestimonialCard, FeatureCard } from "./cards";
 import AnimateInView from "./AnimateInView";
 import HeroSocialLinks from "./HeroSocialLinks";
 import { getTranslation } from "../i18n/server";
-import { localePath, type Locale } from "../i18n/config";
-import { CONTACT_EMAIL } from "../config/social";
+import type { Locale } from "../i18n/config";
+import { CONTACT_EMAIL, SITE_LAST_UPDATE_ISO } from "../config/social";
 
 const TRUSTED_LOGOS = [
   "ACME CORP",
@@ -17,8 +16,13 @@ const TRUSTED_LOGOS = [
 export default function HomeContent({ locale }: { locale: string }) {
   const t = getTranslation(locale as Locale);
   const l = locale as Locale;
-  const homeHref = localePath(l, "/");
   const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Contact portfolio")}`;
+
+  const lastUpdateDate = new Date(`${SITE_LAST_UPDATE_ISO}T12:00:00`);
+  const lastUpdateFormatted = lastUpdateDate.toLocaleDateString(
+    l === "fr" ? "fr-FR" : "en-US",
+    { year: "numeric", month: "numeric", day: "numeric" },
+  );
 
   const HIGHLIGHTS = [
     { title: t("home.highlight1Title"), body: t("home.highlight1Body") },
@@ -54,27 +58,12 @@ export default function HomeContent({ locale }: { locale: string }) {
             <span className="hero-title__greeting">{t("home.titleLine1")}</span>{" "}
             <span className="hero-title__name">{t("home.titleHighlight")}</span>
           </h1>
-          <p className="hero-slash" aria-hidden="true">
-            {t("home.heroSlash")}
-          </p>
           <div className="hero-lines">
             <p>{t("home.heroLine1")}</p>
             <p>{t("home.heroLine2")}</p>
             <p>{t("home.heroLine3")}</p>
           </div>
           <HeroSocialLinks />
-          <div className="actions">
-            <GenericButton
-              label={t("home.requestDemo")}
-              href={`${homeHref}#contact`}
-              variant="primary"
-            />
-            <GenericButton
-              label={t("home.secondaryCta")}
-              href={`${homeHref}#features`}
-              variant="outline"
-            />
-          </div>
         </div>
       </AnimateInView>
 
@@ -135,18 +124,37 @@ export default function HomeContent({ locale }: { locale: string }) {
         as="section"
       >
         <div className="cta">
-          <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-text)] mb-4">
-            {t("metadata.contactTitle")}
-          </h2>
-          <p className="my-4 mx-auto max-w-[600px] text-muted-theme mb-8">
-            {t("contact.intro")}
-          </p>
-          <a
-            href={mailto}
-            className="btn btn-primary inline-flex items-center justify-center px-6 py-3 rounded-full no-underline !text-sm"
-          >
-            {t("contact.emailLink")}
-          </a>
+          <div className="contact-section-inner mx-auto max-w-xl space-y-5 text-center">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-text)] leading-tight">
+              {t("contact.title")}
+            </h2>
+            <p className="text-lg md:text-xl font-medium text-[var(--color-text)] leading-snug">
+              {t("contact.headline")}
+            </p>
+            <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
+              {t("contact.body")}
+            </p>
+            <div className="flex flex-col items-center gap-3 pt-1">
+              <a
+                href={mailto}
+                className="btn btn-primary inline-flex items-center justify-center px-6 py-3 rounded-full no-underline !text-sm"
+              >
+                {t("contact.cta")}
+              </a>
+              <a
+                href={mailto}
+                className="text-sm font-medium text-[rgb(var(--primary))] no-underline hover:underline break-all"
+              >
+                {CONTACT_EMAIL}
+              </a>
+            </div>
+            <p className="text-sm text-[var(--color-text-muted)] pt-4 border-t border-[var(--color-border)]">
+              {t("contact.location")}
+            </p>
+            <p className="text-xs text-[var(--color-text-muted)] opacity-90">
+              {t("contact.lastUpdate", { date: lastUpdateFormatted })}
+            </p>
+          </div>
         </div>
       </AnimateInView>
     </>

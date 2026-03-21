@@ -9,7 +9,7 @@
     "siteDescription": "Portfolio de Pierre Glerant : projets, compétences et contact.",
     "homeTitle": "Accueil",
     "homeDescription": "Bienvenue sur le portfolio de Pierre Glerant.",
-    "contactTitle": "Contactez-moi",
+    "contactTitle": "Contact",
     "contactDescription": "Contacter Pierre Glerant par email."
   },
   "header": {
@@ -29,12 +29,9 @@
   "home": {
     "titleLine1": "Bonjour, je suis",
     "titleHighlight": "Pierre",
-    "heroSlash": "/",
     "heroLine1": "Data Scientist & ingénieur ML, diplômé de CentraleSupélec.",
     "heroLine2": "Spécialisé en recherche & modélisation mathématique.",
     "heroLine3": "Passionné par la GenAI, la vision par ordinateur et les RAG / LLM.",
-    "requestDemo": "Me contacter",
-    "secondaryCta": "En savoir plus",
     "sectionsTitle": "Contenu",
     "featuresTitle": "Ce que je fais",
     "featuresSub": "Réalisations et compétences",
@@ -53,8 +50,12 @@
     "testimonial3Author": "— Pierre"
   },
   "contact": {
-    "intro": "Pour m'écrire, utilisez le lien ci-dessous : votre client mail s'ouvrira avec l'adresse préremplie.",
-    "emailLink": "Écrire à pierreglerant@gmail.com"
+    "title": "Contact",
+    "headline": "Envie de collaborer, d’échanger ou de lancer un projet ?",
+    "body": "Écrivez-moi directement sur cette adresse — je réponds rapidement.",
+    "cta": "Envoyer un email",
+    "location": "Basé à Paris, France • Disponible en remote / hybride",
+    "lastUpdate": "Dernière mise à jour du site : {{date}}"
   },
   "notFound": {
     "code": "404",

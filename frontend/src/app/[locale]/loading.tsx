@@ -35,7 +35,6 @@ export default function Loading() {
           style={{ paddingTop: "6rem", paddingBottom: "4rem" }}
         >
           <Skeleton width="w-[280px] max-w-full" height="h-10" />
-          <Skeleton width="w-6" height="h-6" className="my-1" />
           <Skeleton width="w-full" height="h-4" />
           <Skeleton width="w-full" height="h-4" />
           <Skeleton width="w-[90%]" height="h-4" />
@@ -43,10 +42,6 @@ export default function Loading() {
             <Skeleton width="w-10" height="h-10" rounded="md" />
             <Skeleton width="w-10" height="h-10" rounded="md" />
             <Skeleton width="w-10" height="h-10" rounded="md" />
-          </div>
-          <div className="flex gap-4 mt-4">
-            <Skeleton width="w-36" height="h-10" rounded="full" />
-            <Skeleton width="w-36" height="h-10" rounded="full" />
           </div>
         </div>
       </section>

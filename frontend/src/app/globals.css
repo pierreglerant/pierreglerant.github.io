@@ -733,7 +733,7 @@
   }
 
   .hero-content--intro .hero-title {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     font-weight: 700;
   }
 
@@ -743,16 +743,6 @@
 
   .hero-content--intro h1.hero-title .hero-title__name {
     color: rgb(var(--primary));
-  }
-
-  .hero-slash {
-    margin: 0.15rem auto 1rem;
-    font-size: 1.35rem;
-    font-weight: 300;
-    color: var(--color-text-muted);
-    opacity: 0.9;
-    line-height: 1;
-    max-width: 700px;
   }
 
   .hero-lines {
@@ -1435,12 +1425,10 @@
   transform: translateY(0);
 }
 
-/* Hero : titre, slash, accroches, liens sociaux, actions */
+/* Hero : titre, accroches, liens sociaux */
 .landing-reveal-hero .hero-content > .hero-title,
-.landing-reveal-hero .hero-content > .hero-slash,
 .landing-reveal-hero .hero-content > .hero-lines,
-.landing-reveal-hero .hero-content > .hero-social,
-.landing-reveal-hero .hero-content > .actions {
+.landing-reveal-hero .hero-content > .hero-social {
   opacity: 0;
   transform: translateY(28px);
   transition:
@@ -1454,28 +1442,16 @@
   transition-delay: 0.12s;
 }
 
-.landing-reveal-hero.is-visible .hero-content > .hero-slash {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.18s;
-}
-
 .landing-reveal-hero.is-visible .hero-content > .hero-lines {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 0.24s;
+  transition-delay: 0.2s;
 }
 
 .landing-reveal-hero.is-visible .hero-content > .hero-social {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 0.32s;
-}
-
-.landing-reveal-hero.is-visible .hero-content > .actions {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.4s;
+  transition-delay: 0.28s;
 }
 
 /* Sections au scroll : titre puis grille avec léger décalage */
