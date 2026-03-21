@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import ContactForm from "../../../components/ContactForm";
 import { getTranslation } from "../../../i18n/server";
 import {
   SITE_URL,
@@ -10,6 +9,9 @@ import {
   SLUG_MAP,
   type Locale,
 } from "../../../i18n/config";
+import { CONTACT_EMAIL } from "../../../config/social";
+
+const MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Contact portfolio")}`;
 
 export async function generateMetadata({
   params,
@@ -25,7 +27,7 @@ export async function generateMetadata({
     title: t("metadata.contactTitle"),
     description: t("metadata.contactDescription"),
     openGraph: {
-      title: `${t("metadata.contactTitle")} – SecureOps`,
+      title: `${t("metadata.contactTitle")} — Pierre Glerant`,
       description: t("metadata.contactDescription"),
       url: `${SITE_URL}/${locale}/${slug}`,
     },
@@ -61,7 +63,7 @@ export default async function ContactPage({
       {
         "@type": "ListItem",
         position: 1,
-        name: "SecureOps",
+        name: "Pierre Glerant",
         item: `${SITE_URL}/${locale}`,
       },
       {
@@ -73,43 +75,31 @@ export default async function ContactPage({
     ],
   };
 
-  const contactPageJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    name: t("metadata.contactTitle"),
-    description: t("metadata.contactDescription"),
-    url: pageUrl,
-    mainEntity: {
-      "@type": "Organization",
-      name: "SecureOps",
-      url: SITE_URL,
-      logo: `${SITE_URL}/logo.png`,
-      email: "contact@secureops.io",
-      contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "customer support",
-        email: "contact@secureops.io",
-        url: pageUrl,
-        availableLanguage: ["French", "English"],
-      },
-    },
-  };
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageJsonLd) }}
-      />
       <Header />
-      <main id="main" className="min-h-screen">
-        <ContactForm />
-        <Footer locale={locale} />
+      <main
+        id="main"
+        className="min-h-[calc(100vh-var(--header-height)-120px)] max-w-[640px] mx-auto px-4 py-16 text-center"
+      >
+        <h1 className="text-3xl font-semibold text-[var(--color-text)] mb-4">
+          {t("metadata.contactTitle")}
+        </h1>
+        <p className="text-[var(--color-text-muted)] mb-10 leading-relaxed">
+          {t("contact.intro")}
+        </p>
+        <a
+          href={MAILTO}
+          className="btn btn-primary inline-flex items-center justify-center px-6 py-3 rounded-full no-underline"
+        >
+          {t("contact.emailLink")}
+        </a>
       </main>
+      <Footer locale={locale} />
     </>
   );
 }

@@ -1,6 +1,5 @@
 import { toast } from "react-hot-toast";
 
-/** Traducteur utilisé pour les messages de repli des toasts (langue courante). */
 let toastTranslator: ((key: string) => string) | null = null;
 
 export function setToastTranslator(fn: (key: string) => string): void {
@@ -33,7 +32,7 @@ export const showSuccessToast = (
   message: string,
   options: ToastExtraOptions = {},
 ) =>
-  toast.success(message || getToastT()("admin.common.successDefault"), {
+  toast.success(message || getToastT()("common.success"), {
     ...BASE_OPTIONS,
     ...options,
   });
@@ -42,7 +41,7 @@ export const showErrorToast = (
   message: string,
   options: ToastExtraOptions = {},
 ) =>
-  toast.error(message || getToastT()("admin.common.errorDefault"), {
+  toast.error(message || getToastT()("common.error"), {
     ...BASE_OPTIONS,
     duration: options.duration ?? 5500,
     ...options,
@@ -52,7 +51,7 @@ export const showWarningToast = (
   message: string,
   options: ToastExtraOptions = {},
 ) =>
-  toast(message || getToastT()("admin.common.infoDefault"), {
+  toast(message || getToastT()("common.info"), {
     ...BASE_OPTIONS,
     ...options,
   });

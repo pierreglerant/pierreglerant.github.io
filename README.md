@@ -10,7 +10,6 @@ Dépôt centré sur le **frontend** Next.js dans `frontend/`.
 
 ```bash
 cd frontend
-cp .env.example .env.local   # si besoin (Cognito, gateway, etc.)
 npm install
 npm run dev
 ```

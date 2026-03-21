@@ -1,15 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import {
-  LOCALES,
-  DEFAULT_LOCALE,
-  EN_SLUG_TO_INTERNAL,
-  type Locale,
-} from "./i18n/config";
+import { LOCALES, DEFAULT_LOCALE, type Locale } from "./i18n/config";
 
-/**
- * Paths that should never get a locale prefix.
- */
-const PUBLIC_FILES = /\.(.*)$/; // files with extensions
+const PUBLIC_FILES = /\.(.*)$/;
 const IGNORED_PREFIXES = [
   "/_next",
   "/api",
@@ -24,17 +16,12 @@ function shouldIgnore(pathname: string): boolean {
   return IGNORED_PREFIXES.some((prefix) => pathname.startsWith(prefix));
 }
 
-/**
- * Detect the best locale from the Accept-Language header.
- */
 function detectLocale(request: NextRequest): Locale {
-  // 1. Check cookie preference
   const cookieLocale = request.cookies.get("locale")?.value;
   if (cookieLocale && LOCALES.includes(cookieLocale as Locale)) {
     return cookieLocale as Locale;
   }
 
-  // 2. Parse Accept-Language
   const acceptLang = request.headers.get("accept-language") ?? "";
   const preferred = acceptLang
     .split(",")
@@ -59,7 +46,6 @@ function detectLocale(request: NextRequest): Locale {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Skip static files and internal paths
   if (shouldIgnore(pathname)) {
     return NextResponse.next();
   }
@@ -67,14 +53,12 @@ export function middleware(request: NextRequest) {
   const segments = pathname.split("/").filter(Boolean);
   const firstSegment = segments[0];
 
-  // Check if pathname already starts with a known locale
   const hasLocale = LOCALES.includes(firstSegment as Locale);
 
   if (!hasLocale) {
-    // No locale prefix → redirect to /{detectedLocale}{pathname}
     const locale = detectLocale(request);
     const url = request.nextUrl.clone();
-    url.pathname = `/${locale}${pathname}`;
+    url.pathname = `/${locale}${pathname === "/" ? "" : pathname}`;
     const response = NextResponse.redirect(url);
     response.cookies.set("locale", locale, {
       path: "/",
@@ -83,23 +67,7 @@ export function middleware(request: NextRequest) {
     return response;
   }
 
-  // Locale is present. Now check if we need to rewrite EN slugs.
   const locale = firstSegment as Locale;
-
-  if (locale === "en" && segments.length >= 2) {
-    const slug = segments[1];
-    const internalSlug = EN_SLUG_TO_INTERNAL[slug];
-
-    if (internalSlug) {
-      // Rewrite /en/pricing → /en/tarifs (internal route)
-      const url = request.nextUrl.clone();
-      const remainingSegments = segments.slice(2);
-      url.pathname = `/${locale}/${internalSlug}${remainingSegments.length ? "/" + remainingSegments.join("/") : ""}`;
-      return NextResponse.rewrite(url);
-    }
-  }
-
-  // Set locale cookie for persistence
   const response = NextResponse.next();
   response.cookies.set("locale", locale, {
     path: "/",
@@ -110,11 +78,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    /*
-     * Match all paths except:
-     * - _next/static, _next/image
-     * - favicon.ico, sitemap.xml, robots.txt
-     */
     "/((?!_next/static|_next/image|favicon\\.ico|sitemap\\.xml|robots\\.txt).*)",
   ],
 };

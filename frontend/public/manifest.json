@@ -1,7 +1,7 @@
 {
-  "name": "SecureOps – Cybersécurité SaaS",
-  "short_name": "SecureOps",
-  "description": "Plateforme SaaS de cybersécurité : détection de vulnérabilités, monitoring et protection en temps réel.",
+  "name": "Pierre Glerant — Portfolio",
+  "short_name": "Pierre Glerant",
+  "description": "Portfolio personnel : projets et contact.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -10,7 +10,6 @@
   "orientation": "portrait-primary",
   "lang": "fr-FR",
   "dir": "ltr",
-
   "icons": [
     {
       "src": "/favicon-96x96.png",
@@ -24,16 +23,8 @@
       "purpose": "any maskable"
     }
   ],
-
-  "categories": ["security", "business", "productivity"],
-
+  "categories": ["portfolio", "personal"],
   "shortcuts": [
-    {
-      "name": "Tarifs",
-      "short_name": "Tarifs",
-      "url": "/fr/tarifs",
-      "icons": [{ "src": "/logo.png", "sizes": "512x512", "type": "image/png" }]
-    },
     {
       "name": "Contact",
       "short_name": "Contact",
@@ -41,7 +32,6 @@
       "icons": [{ "src": "/logo.png", "sizes": "512x512", "type": "image/png" }]
     }
   ],
-
   "prefer_related_applications": false,
   "display_override": ["standalone", "minimal-ui", "browser"]
 }

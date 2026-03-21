@@ -9,12 +9,10 @@ import {
 } from "../../i18n/config";
 import { getTranslation } from "../../i18n/server";
 import { Providers } from "../../components/Providers";
-const SITE_NAME = "SecureOps";
 
-/**
- * Tell Next.js which locale values are valid so it can statically generate
- * both /fr and /en versions.
- */
+const SITE_NAME = "Pierre Glerant";
+const CONTACT_EMAIL = "pierreglerant@gmail.com";
+
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
@@ -36,22 +34,19 @@ export async function generateMetadata({
     },
     description: t("metadata.siteDescription"),
     keywords: [
-      "cybersécurité",
-      "cybersecurity",
-      "SaaS",
-      "vulnérabilités",
-      "vulnerabilities",
-      "SecureOps",
+      "portfolio",
+      "développeur",
+      "developer",
+      "Pierre Glerant",
+      "projets",
     ],
     authors: [{ name: SITE_NAME }],
     creator: SITE_NAME,
     publisher: SITE_NAME,
     applicationName: SITE_NAME,
 
-    /** ── Manifest PWA ── */
     manifest: `/api/manifest/${locale}`,
 
-    /** ── Icons / Favicons ── */
     icons: {
       icon: [
         { url: "/favicon.ico", sizes: "any" },
@@ -61,7 +56,6 @@ export async function generateMetadata({
       apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
     },
 
-    /** ── Open Graph (Facebook, LinkedIn, Discord…) ── */
     openGraph: {
       type: "website",
       locale: locale === "fr" ? "fr_FR" : "en_US",
@@ -88,7 +82,6 @@ export async function generateMetadata({
       ],
     },
 
-    /** ── Twitter / X Card ── */
     twitter: {
       card: "summary_large_image",
       title: t("metadata.siteTitle"),
@@ -110,7 +103,6 @@ export async function generateMetadata({
       ],
     },
 
-    /** ── Robots ── */
     robots: {
       index: true,
       follow: true,
@@ -123,7 +115,6 @@ export async function generateMetadata({
       },
     },
 
-    /** ── Canonical + hreflang ── */
     alternates: {
       canonical: `${SITE_URL}/${locale}`,
       languages: {
@@ -144,40 +135,30 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
 
-  // Validate the locale
   if (!LOCALES.includes(locale as Locale)) {
     notFound();
   }
 
   const t = getTranslation(locale as Locale);
 
-  /* ── Global JSON-LD: Organization (appears on every page) ── */
   const organizationJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "Person",
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.png`,
+    image: `${SITE_URL}/logo.png`,
     description: t("metadata.siteDescription"),
-    email: "contact@secureops.io",
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer support",
-      email: "contact@secureops.io",
-      availableLanguage: ["French", "English"],
-    },
+    email: CONTACT_EMAIL,
   };
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        {/* Anti-flash script: applies theme BEFORE first render */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t)}}catch(e){}})()`,
           }}
         />
-        {/* Global structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -7,12 +7,8 @@ import { GenericButton } from "./buttons";
 import AnimateInView from "./AnimateInView";
 import { useLanguage } from "./LanguageProvider";
 import { LOCALES, DEFAULT_LOCALE, type Locale } from "../i18n/config";
-import { Home, Mail, CreditCard } from "lucide-react";
+import { Home, Mail } from "lucide-react";
 
-/**
- * Contenu de la page 404 : Header, message stylé, actions, Footer.
- * Utilise le pathname pour déduire la locale (premier segment).
- */
 export default function NotFoundContent() {
   const pathname = usePathname();
   const segments = pathname?.split("/").filter(Boolean) ?? [];
@@ -34,7 +30,6 @@ export default function NotFoundContent() {
           as="section"
         >
           <div className="max-w-[560px] mx-auto text-center">
-            {/* Code 404 mis en avant */}
             <p
               className="text-6xl md:text-8xl font-bold tracking-tighter text-[rgb(var(--primary))] opacity-90 mb-4"
               aria-hidden
@@ -48,7 +43,6 @@ export default function NotFoundContent() {
               {t("notFound.description")}
             </p>
 
-            {/* Actions */}
             <div className="flex flex-wrap justify-center gap-3">
               <GenericButton
                 label={t("notFound.backHome")}
@@ -62,13 +56,6 @@ export default function NotFoundContent() {
                 href={lp("/contact")}
                 variant="outline"
                 icon={<Mail className="w-4 h-4" />}
-                iconPosition="left"
-              />
-              <GenericButton
-                label={t("notFound.pricing")}
-                href={lp("/tarifs")}
-                variant="outline"
-                icon={<CreditCard className="w-4 h-4" />}
                 iconPosition="left"
               />
             </div>

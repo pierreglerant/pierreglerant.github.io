@@ -1,8 +1,10 @@
 import { GenericButton } from "./buttons";
 import { TestimonialCard, FeatureCard } from "./cards";
 import AnimateInView from "./AnimateInView";
+import HeroSocialLinks from "./HeroSocialLinks";
 import { getTranslation } from "../i18n/server";
 import { localePath, type Locale } from "../i18n/config";
+import { CONTACT_EMAIL } from "../config/social";
 
 const TRUSTED_LOGOS = [
   "ACME CORP",
@@ -14,6 +16,9 @@ const TRUSTED_LOGOS = [
 
 export default function HomeContent({ locale }: { locale: string }) {
   const t = getTranslation(locale as Locale);
+  const l = locale as Locale;
+  const homeHref = localePath(l, "/");
+  const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Contact portfolio")}`;
 
   const HIGHLIGHTS = [
     { title: t("home.highlight1Title"), body: t("home.highlight1Body") },
@@ -44,23 +49,29 @@ export default function HomeContent({ locale }: { locale: string }) {
         className="hero-wrapper landing-reveal-hero"
         as="section"
       >
-        <div className="hero-content">
-          <div className="badge">{t("home.badge")}</div>
-          <h1>
-            {t("home.titleLine1")}
-            <br />
-            <span>{t("home.titleHighlight")}</span> {t("home.titleLine2")}
+        <div className="hero-content hero-content--intro">
+          <h1 className="hero-title">
+            <span className="hero-title__greeting">{t("home.titleLine1")}</span>{" "}
+            <span className="hero-title__name">{t("home.titleHighlight")}</span>
           </h1>
-          <p>{t("home.subtitle")}</p>
+          <p className="hero-slash" aria-hidden="true">
+            {t("home.heroSlash")}
+          </p>
+          <div className="hero-lines">
+            <p>{t("home.heroLine1")}</p>
+            <p>{t("home.heroLine2")}</p>
+            <p>{t("home.heroLine3")}</p>
+          </div>
+          <HeroSocialLinks />
           <div className="actions">
             <GenericButton
               label={t("home.requestDemo")}
-              href={localePath(locale as Locale, "/contact")}
+              href={localePath(l, "/contact")}
               variant="primary"
             />
             <GenericButton
-              label={t("home.viewDocs")}
-              href={localePath(locale as Locale, "/tarifs")}
+              label={t("home.secondaryCta")}
+              href={`${homeHref}#features`}
               variant="outline"
             />
           </div>
@@ -80,6 +91,7 @@ export default function HomeContent({ locale }: { locale: string }) {
 
       <h2 className="sr-only">{t("home.sectionsTitle")}</h2>
       <AnimateInView
+        id="features"
         className="landing-section landing-reveal-stagger"
         as="section"
       >
@@ -99,6 +111,7 @@ export default function HomeContent({ locale }: { locale: string }) {
       </AnimateInView>
 
       <AnimateInView
+        id="trust"
         className="landing-section landing-reveal-stagger"
         as="section"
       >
@@ -127,7 +140,7 @@ export default function HomeContent({ locale }: { locale: string }) {
           </p>
           <GenericButton
             label={t("home.ctaBtn")}
-            href={localePath(locale as Locale, "/contact")}
+            href={mailto}
             variant="primary"
             className="!inline-flex !w-auto !py-2 !px-5 !text-sm"
           />

@@ -1,27 +1,16 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
-import { signOut } from "aws-amplify/auth";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Sun, Moon, Globe, Menu, X } from "lucide-react";
-import { showSuccessToast } from "../utils/toastNotifications";
-import { GenericButton } from "./buttons";
 import { useTheme } from "./ThemeProvider";
 import { useLanguage } from "./LanguageProvider";
 import type { Language } from "./LanguageProvider";
 
-import logger from "../utils/logger";
-import { useAuthUser } from "../hooks/useAuthUser";
-
 export default function Header() {
-  const router = useRouter();
   const { theme, toggleTheme } = useTheme();
   const { language, setLanguage, t, lp } = useLanguage();
-  const { isAuthenticated, isLoading, recheck } = useAuthUser({
-    listenToAuthEvents: true,
-  });
   const [menuOpen, setMenuOpen] = useState(false);
   const [closing, setClosing] = useState(false);
 
@@ -47,50 +36,8 @@ export default function Header() {
 
   const NAV_LINKS = [
     { label: t("header.home"), href: lp("/") },
-    { label: t("header.pricing"), href: lp("/tarifs") },
     { label: t("header.contact"), href: lp("/contact") },
   ];
-
-  const handleSignOut = async () => {
-    try {
-      sessionStorage.removeItem("justLoggedIn");
-
-      Object.keys(localStorage).forEach((key) => {
-        if (
-          key.startsWith("CognitoIdentityServiceProvider") ||
-          key.includes("amplify") ||
-          key.includes("aws-amplify")
-        ) {
-          localStorage.removeItem(key);
-        }
-      });
-
-      Object.keys(sessionStorage).forEach((key) => {
-        if (
-          key.startsWith("CognitoIdentityServiceProvider") ||
-          key.includes("amplify") ||
-          key.includes("aws-amplify")
-        ) {
-          sessionStorage.removeItem(key);
-        }
-      });
-
-      await signOut();
-
-      localStorage.setItem("auth:signOut", Date.now().toString());
-      localStorage.removeItem("auth:signOut");
-
-      window.dispatchEvent(new CustomEvent("auth:signOut"));
-
-      recheck();
-      showSuccessToast(t("header.signOutSuccess"));
-      router.push(lp("/"));
-    } catch (err) {
-      logger.error(t("header.signOutError"), err);
-      recheck();
-      router.push(lp("/"));
-    }
-  };
 
   const toggleLanguage = () => {
     const newLang: Language = language === "en" ? "fr" : "en";
@@ -105,9 +52,14 @@ export default function Header() {
     <header className={menuOpen ? "z-[50]" : undefined}>
       <div className="nav">
         <Link href={lp("/")} className="logo">
-          <Image src="/logo.png" alt="SecureOps Logo" width={40} height={40} />
+          <Image
+            src="/logo.png"
+            alt="Pierre Glerant"
+            width={40}
+            height={40}
+          />
           <span className="hidden md:inline">
-            Secure<span style={{ color: "rgb(var(--primary))" }}>Ops</span>
+            Pierre<span style={{ color: "rgb(var(--primary))" }}> Glerant</span>
           </span>
         </Link>
         <nav className="nav-links hidden md:flex">
@@ -119,66 +71,36 @@ export default function Header() {
         </nav>
         <div className="nav-cta flex items-center gap-2 justify-self-end">
           <div className="hidden md:flex md:gap-2 md:items-center">
-            {!isLoading && !isAuthenticated && (
-              <>
-                <button
-                  onClick={toggleLanguage}
-                  className="btn btn-secondary p-2 rounded-full"
-                  style={{ cursor: "pointer" }}
-                  aria-label={
-                    language === "en" ? "Switch to French" : "Passer en anglais"
-                  }
-                  title={langLabel}
-                >
-                  <Globe className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={toggleTheme}
-                  className="btn btn-secondary p-2 rounded-full"
-                  style={{ cursor: "pointer" }}
-                  aria-label={
-                    theme === "dark"
-                      ? t("header.switchToLight")
-                      : t("header.switchToDark")
-                  }
-                  title={themeLabel}
-                >
-                  {theme === "dark" ? (
-                    <Sun className="w-4 h-4" />
-                  ) : (
-                    <Moon className="w-4 h-4" />
-                  )}
-                </button>
-              </>
-            )}
-            {!isLoading &&
-              (isAuthenticated ? (
-                <>
-                  <GenericButton
-                    label={t("header.myAccount")}
-                    href={lp("/mon-compte")}
-                    variant="secondary"
-                  />
-                  <GenericButton
-                    label={t("header.signOut")}
-                    onClick={handleSignOut}
-                    variant="primary"
-                  />
-                </>
+            <button
+              type="button"
+              onClick={toggleLanguage}
+              className="btn btn-secondary p-2 rounded-full"
+              style={{ cursor: "pointer" }}
+              aria-label={
+                language === "en" ? "Switch to French" : "Passer en anglais"
+              }
+              title={langLabel}
+            >
+              <Globe className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="btn btn-secondary p-2 rounded-full"
+              style={{ cursor: "pointer" }}
+              aria-label={
+                theme === "dark"
+                  ? t("header.switchToLight")
+                  : t("header.switchToDark")
+              }
+              title={themeLabel}
+            >
+              {theme === "dark" ? (
+                <Sun className="w-4 h-4" />
               ) : (
-                <>
-                  <GenericButton
-                    label={t("header.signIn")}
-                    href={lp("/connexion")}
-                    variant="secondary"
-                  />
-                  <GenericButton
-                    label={t("header.signUp")}
-                    href={lp("/inscription")}
-                    variant="primary"
-                  />
-                </>
-              ))}
+                <Moon className="w-4 h-4" />
+              )}
+            </button>
           </div>
           <button
             type="button"
@@ -195,7 +117,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Volet mobile */}
       {(menuOpen || closing) && (
         <>
           <div
@@ -238,71 +159,30 @@ export default function Header() {
                 </Link>
               ))}
               <div className="h-px bg-[var(--color-border)] my-2" />
-              {!isLoading && !isAuthenticated && (
-                <div className="flex gap-2 py-2">
-                  <button
-                    onClick={() => {
-                      toggleLanguage();
-                    }}
-                    className="btn btn-secondary p-2 rounded-full"
-                    aria-label={langLabel}
-                    title={langLabel}
-                  >
-                    <Globe className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={toggleTheme}
-                    className="btn btn-secondary p-2 rounded-full"
-                    aria-label={themeLabel}
-                    title={themeLabel}
-                  >
-                    {theme === "dark" ? (
-                      <Sun className="w-4 h-4" />
-                    ) : (
-                      <Moon className="w-4 h-4" />
-                    )}
-                  </button>
-                </div>
-              )}
-              {!isLoading &&
-                (isAuthenticated ? (
-                  <div className="flex flex-col gap-2 pt-2">
-                    <Link
-                      href={lp("/mon-compte")}
-                      onClick={closeMenu}
-                      className="btn btn-secondary text-center"
-                    >
-                      {t("header.myAccount")}
-                    </Link>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        closeMenu();
-                        handleSignOut();
-                      }}
-                      className="btn btn-primary"
-                    >
-                      {t("header.signOut")}
-                    </button>
-                  </div>
-                ) : (
-                  <div className="flex flex-col gap-2 pt-2">
-                    <Link
-                      href={lp("/connexion")}
-                      onClick={closeMenu}
-                      className="btn btn-secondary text-center"
-                    >
-                      {t("header.signIn")}
-                    </Link>
-                    <Link
-                      href={lp("/inscription")}
-                      onClick={closeMenu}
-                      className="btn btn-primary text-center"
-                    >
-                      {t("header.signUp")}
-                    </Link>
-                  </div>
-                ))}
+              <div className="flex gap-2 py-2">
+                <button
+                  type="button"
+                  onClick={toggleLanguage}
+                  className="btn btn-secondary p-2 rounded-full"
+                  aria-label={langLabel}
+                  title={langLabel}
+                >
+                  <Globe className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={toggleTheme}
+                  className="btn btn-secondary p-2 rounded-full"
+                  aria-label={themeLabel}
+                  title={themeLabel}
+                >
+                  {theme === "dark" ? (
+                    <Sun className="w-4 h-4" />
+                  ) : (
+                    <Moon className="w-4 h-4" />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         </>

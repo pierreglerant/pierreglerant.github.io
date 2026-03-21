@@ -42,7 +42,7 @@ interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string, params?: Record<string, string | number>) => string;
-  /** Build a locale-prefixed path: lp("/tarifs") → "/fr/tarifs" */
+  /** Build a locale-prefixed path: lp("/contact") → "/fr/contact" */
   lp: (path: string) => string;
 }
 

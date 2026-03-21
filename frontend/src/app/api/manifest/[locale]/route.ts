@@ -3,23 +3,12 @@ import type { MetadataRoute } from "next";
 import { LOCALES, SLUG_MAP, type Locale } from "../../../../i18n/config";
 import { getTranslation } from "../../../../i18n/server";
 
-/**
- * Génère le manifest PWA dynamiquement selon la locale.
- *
- * Args:
- *   request: Requête Next.js.
- *   params: Paramètres de route contenant la locale.
- *
- * Returns:
- *   NextResponse: Réponse JSON contenant le manifest.
- */
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: Promise<{ locale: string }> },
 ): Promise<NextResponse> {
   const { locale } = await params;
 
-  // Valide la locale
   if (!LOCALES.includes(locale as Locale)) {
     return NextResponse.json({ error: "Invalid locale" }, { status: 400 });
   }
@@ -27,10 +16,9 @@ export async function GET(
   const t = getTranslation(locale as Locale);
   const l = locale as Locale;
 
-  // Construit le manifest selon la locale
   const manifest: MetadataRoute.Manifest = {
     name: t("metadata.siteTitle"),
-    short_name: "SecureOps",
+    short_name: "Pierre Glerant",
     description: t("metadata.siteDescription"),
     start_url: `/${locale}`,
     scope: `/${locale}`,
@@ -53,20 +41,8 @@ export async function GET(
         purpose: "maskable",
       },
     ],
-    categories: ["security", "business", "productivity"],
+    categories: ["portfolio", "personal"],
     shortcuts: [
-      {
-        name: t("header.pricing"),
-        short_name: t("header.pricing"),
-        url: `/${locale}/${SLUG_MAP[l].tarifs}`,
-        icons: [
-          {
-            src: "/logo.png",
-            sizes: "512x512",
-            type: "image/png",
-          },
-        ],
-      },
       {
         name: t("header.contact"),
         short_name: t("header.contact"),

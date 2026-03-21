@@ -18,15 +18,12 @@ export default function Loading() {
           </div>
           {/* Nav links */}
           <div className="hidden md:flex items-center gap-6">
-            <Skeleton width="w-16" height="h-4" />
-            <Skeleton width="w-12" height="h-4" />
+            <Skeleton width="w-14" height="h-4" />
             <Skeleton width="w-16" height="h-4" />
           </div>
-          {/* Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <Skeleton width="w-8" height="h-8" rounded="full" />
             <Skeleton width="w-8" height="h-8" rounded="full" />
-            <Skeleton width="w-24" height="h-9" rounded="full" />
           </div>
         </div>
       </header>
@@ -34,17 +31,19 @@ export default function Loading() {
       {/* ─── Hero section skeleton ─── */}
       <section className="hero-wrapper">
         <div
-          className="flex flex-col items-center text-center gap-4"
+          className="flex flex-col items-center text-center gap-3 max-w-[680px] mx-auto px-4"
           style={{ paddingTop: "6rem", paddingBottom: "4rem" }}
         >
-          <Skeleton width="w-40" height="h-6" rounded="full" />
-          <Skeleton width="w-[480px] max-w-full" height="h-10" />
-          <Skeleton width="w-[360px] max-w-full" height="h-10" />
-          <Skeleton
-            width="w-[500px] max-w-full"
-            height="h-5"
-            className="mt-2"
-          />
+          <Skeleton width="w-[280px] max-w-full" height="h-10" />
+          <Skeleton width="w-6" height="h-6" className="my-1" />
+          <Skeleton width="w-full" height="h-4" />
+          <Skeleton width="w-full" height="h-4" />
+          <Skeleton width="w-[90%]" height="h-4" />
+          <div className="flex gap-2 mt-2">
+            <Skeleton width="w-10" height="h-10" rounded="md" />
+            <Skeleton width="w-10" height="h-10" rounded="md" />
+            <Skeleton width="w-10" height="h-10" rounded="md" />
+          </div>
           <div className="flex gap-4 mt-4">
             <Skeleton width="w-36" height="h-10" rounded="full" />
             <Skeleton width="w-36" height="h-10" rounded="full" />

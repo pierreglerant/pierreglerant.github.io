@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import OAuthCallbackHandler from "../../components/OAuthCallbackHandler";
 import HomeContent from "../../components/HomeContent";
 import { getTranslation } from "../../i18n/server";
 import {
@@ -11,6 +10,7 @@ import {
   SLUG_MAP,
   type Locale,
 } from "../../i18n/config";
+import { CONTACT_EMAIL } from "../../config/social";
 
 export async function generateMetadata({
   params,
@@ -32,7 +32,7 @@ export async function generateMetadata({
           url: `${SITE_URL}/logo.png`,
           width: 512,
           height: 512,
-          alt: "SecureOps",
+          alt: "Pierre Glerant",
           type: "image/png",
         },
       ],
@@ -54,56 +54,45 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   const t = getTranslation(locale as Locale);
+  const l = locale as Locale;
+  const contactSlug = SLUG_MAP[l].contact;
 
   const organizationJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "SecureOps",
+    "@type": "Person",
+    name: "Pierre Glerant",
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.png`,
+    image: `${SITE_URL}/logo.png`,
     description: t("metadata.siteDescription"),
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer support",
-      email: "contact@secureops.io",
-      url: `${SITE_URL}/${locale}/${SLUG_MAP[locale as Locale].contact}`,
-      availableLanguage: ["French", "English"],
-    },
+    email: CONTACT_EMAIL,
     sameAs: [],
   };
 
   const webSiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "SecureOps",
+    name: "Pierre Glerant",
     url: SITE_URL,
     description: t("metadata.siteDescription"),
     inLanguage: locale === "fr" ? "fr-FR" : "en-US",
     publisher: {
-      "@type": "Organization",
-      name: "SecureOps",
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/logo.png`,
-      },
+      "@type": "Person",
+      name: "Pierre Glerant",
     },
   };
 
-  const softwareJsonLd = {
+  const contactUrl = `${SITE_URL}/${locale}/${contactSlug}`;
+
+  const contactPageJsonLd = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "SecureOps",
-    applicationCategory: "SecurityApplication",
-    operatingSystem: "Web",
-    description: t("metadata.homeDescription"),
-    url: `${SITE_URL}/${locale}`,
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: "EUR",
-      lowPrice: "23",
-      highPrice: "79",
-      offerCount: 3,
-      url: `${SITE_URL}/${locale}/${SLUG_MAP[locale as Locale].tarifs}`,
+    "@type": "ContactPage",
+    name: t("metadata.contactTitle"),
+    url: contactUrl,
+    mainEntity: {
+      "@type": "Person",
+      name: "Pierre Glerant",
+      email: CONTACT_EMAIL,
+      url: SITE_URL,
     },
   };
 
@@ -124,10 +113,9 @@ export default async function HomePage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(softwareJsonLd),
+          __html: JSON.stringify(contactPageJsonLd),
         }}
       />
-      <OAuthCallbackHandler />
       <Header />
       <main id="main">
         <HomeContent locale={locale} />
