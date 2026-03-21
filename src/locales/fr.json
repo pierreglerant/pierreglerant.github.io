@@ -98,6 +98,7 @@
     "carouselRegion": "Galerie d’images : {{title}}",
     "carouselSlideAlt": "{{base}} — visuel {{current}} sur {{total}}",
     "carouselSlideAltShort": "Visuel {{current}} sur {{total}}",
+    "keywordsLabel": "Mots-clés :",
     "detailSectionTitles": {
       "overview": "Vue d’ensemble",
       "features": "Détails & fonctionnalités",
@@ -105,28 +106,33 @@
     },
     "items": {
       "project-one": {
-        "title": "Projet 1",
-        "excerpt": "Exemple factice : description courte pour illustrer la carte du premier projet.",
-        "coverAlt": "Visuel du projet 1 (placeholder)",
-        "sectionOverview": "Il s’agit d’une page de détail factice pour le projet 1. Remplacez ce texte par le contexte réel, la problématique et votre rôle.",
-        "sectionFeatures": "L’image est un placeholder téléchargé pour la maquette ; vous pourrez la remplacer par une capture d’écran ou une maquette du produit.",
-        "sectionStack": "Ajoutez ici plus tard les liens vers le dépôt GitHub, une démo en ligne ou la documentation."
+        "title": "ImmoSphere",
+        "excerpt": "Plateforme d’analyse immobilière multi-sources — aide à la décision et cartes interactives (immosphere.co).",
+        "coverAlt": "Aperçu du projet ImmoSphere — plateforme d’analyse immobilière",
+        "sectionOverview": "ImmoSphere est une application web d’aide à la décision immobilière, alimentée par des données multi-sources. Projet mené depuis octobre 2025 et toujours en cours ; immosphere.co en est le point d’accès public.\n\nLa plateforme permet d’explorer et de comparer des zones géographiques à partir de plusieurs critères (prix, rendement, etc.) pour éclairer les arbitrages.",
+        "sectionKeywords": "immobilier, analyse de données, aide à la décision, données multi-sources, cartographie interactive, MapTiler, tile server, tuiles auto-hébergées, AWS, API REST, Python, PostgreSQL, React, Docker, EC2, RDS, Amplify, Cognito, WAF, Cloudflare, pipelines de données, production",
+        "websiteLinkLabel": "www.immosphere.co",
+        "sectionFeatures": "Développement complet d’une application web d’aide à la décision immobilière sur la base de données agrégées et hétérogènes.\n\nConception d’une architecture full-stack : pipelines de données, API REST en Python, base PostgreSQL, frontend React, déploiement sur AWS (EC2, RDS, Amplify) et gestion du service en production.\n\nMise en place de visualisations interactives sur carte pour comparer les territoires selon plusieurs indicateurs (prix, rendement, etc.).",
+        "sectionStack": "- Déploiement : AWS — Docker, EC2, Amplify, RDS ; Amazon Cognito (authentification) ; AWS WAF (pare-feu applicatif) ; Cloudflare (logs)\n- API : REST en Python\n- Frontend : React\n- Base de données : PostgreSQL\n- Données & pipelines : ingestion et transformation multi-sources\n- Cartographie : tuiles servies par un tile server sur AWS ; jeux de styles et chaîne préparés avec les outils MapTiler ; diffusion auto-hébergée (pas d’hébergement de tuiles type Mapbox)"
       },
       "project-two": {
-        "title": "Projet 2",
-        "excerpt": "Deuxième exemple factice : mise en page identique, contenu à personnaliser.",
-        "coverAlt": "Visuel du projet 2 (placeholder)",
-        "sectionOverview": "Page de détail factice pour le projet 2. Décrivez l’architecture, les données utilisées ou les contraintes techniques.",
-        "sectionFeatures": "Ce bloc sert à montrer la structure du portfolio ; le fond bleu/gris de l’image est aléatoire (Lorem Picsum).",
-        "sectionStack": "Vous pouvez enrichir cette page avec une galerie, une liste de technologies ou des extraits de code."
+        "title": "SecureOps",
+        "excerpt": "Application de cybersécurité — scanner web OWASP Top 10 et architecture microservices (secureops.fr).",
+        "coverAlt": "Aperçu du projet SecureOps — scanner de vulnérabilités web",
+        "sectionOverview": "SecureOps est une application de cybersécurité centrée sur l’analyse de vulnérabilités web alignée sur le référentiel OWASP Top 10, avec une interface utilisateur web et un moteur d’analyse dédié.\n\nLe site secureops.fr sert de point d’accès au produit et à son utilisation.",
+        "sectionKeywords": "cybersécurité, OWASP Top 10, scanner de vulnérabilités, analyse web, Python, FastAPI, microservices, queues sur mesure, workers, Docker, AWS, EC2, Amplify, RDS, Cognito, WAF, Cloudflare, orchestration, asynchrone",
+        "websiteLinkLabel": "www.secureops.fr",
+        "sectionFeatures": "Développement d’un scanner web de vulnérabilités couvrant les scénarios de risque OWASP Top 10, avec interface web et moteur d’analyse.\n\nConception d’une architecture distribuée asynchrone en microservices : files d’attente, workers et orchestration des traitements pour absorber la charge et isoler les composants.",
+        "sectionStack": "- Déploiement : AWS — Docker, EC2, Amplify, RDS ; Amazon Cognito (authentification) ; AWS WAF (pare-feu applicatif) ; Cloudflare (logs)\n- Architecture : microservices distribués\n- API : microservices FastAPI (REST) et services workers qui les consomment\n- Moteur d’analyse : Python — scans alignés OWASP Top 10, exécution asynchrone via workers\n- Frontend : interface web du scanner de vulnérabilités\n- Messaging : système de files d’attente et de routage des jobs conçu en interne (approche sur mesure plutôt qu’un broker générique type Redis, RabbitMQ ou SQS pour le cœur du flux) ; workers connectés aux APIs FastAPI\n- Orchestration : enchaînement des étapes de scan piloté par cette couche asynchrone"
       },
       "project-three": {
         "title": "Projet 3",
         "excerpt": "Troisième carte d’exemple : même gabarit, texte provisoire.",
         "coverAlt": "Visuel du projet 3 (placeholder)",
         "sectionOverview": "Dernière page factice de la série. Expliquez les résultats obtenus, les métriques ou les enseignements du projet.",
+        "sectionKeywords": "",
         "sectionFeatures": "Les trois visuels sont indépendants pour simuler des projets distincts une fois le contenu final en place.",
-        "sectionStack": "Pensez à mettre à jour le sitemap et les métadonnées quand vous publierez de vrais projets."
+        "sectionStack": "- Déploiement : à renseigner\n- API : à renseigner\n- Frontend : à renseigner\n- Base de données : à renseigner\n- Autres : CI/CD, métadonnées et sitemap à la publication"
       }
     }
   },

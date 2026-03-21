@@ -1,25 +1,59 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useCallback, useId, useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { bodyParagraphs, stackBulletItems } from "../lib/body-paragraphs";
 
 export type AccordionSection = {
   title: string;
-  body: string;
+  body: string | ReactNode;
+  /** `bulletList` : une ligne = une puce, préfixe `- ` (ou `• ` / `* `). */
+  bodyVariant?: "prose" | "bulletList";
 };
-
-function bodyParagraphs(body: string): string[] {
-  return body
-    .split(/\n\n+/)
-    .map((p) => p.trim())
-    .filter(Boolean);
-}
 
 type Props = {
   sections: AccordionSection[];
   /** Index de la section ouverte au chargement (-1 = toutes fermées) */
   defaultOpenIndex?: number;
 };
+
+/** Met en avant `Libellé :` au début de chaque puce (format stack). */
+function formatStackListItem(text: string): ReactNode {
+  const idx = text.indexOf(": ");
+  if (idx <= 0) return text;
+  const label = text.slice(0, idx).trim();
+  const value = text.slice(idx + 2).trim();
+  if (!label || !value) return text;
+  return (
+    <>
+      <span className="font-semibold text-[var(--color-text)]">{label}:</span>
+      <span> {value}</span>
+    </>
+  );
+}
+
+function renderStringAccordionBody(
+  body: string,
+  variant: AccordionSection["bodyVariant"],
+) {
+  if (variant === "bulletList") {
+    const items = stackBulletItems(body);
+    if (items.length > 0) {
+      return (
+        <ul className="list-disc space-y-2 pl-5 marker:text-[rgb(var(--primary))]">
+          {items.map((item, j) => (
+            <li key={j} className="pl-1">
+              {formatStackListItem(item)}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+    return <p>{body}</p>;
+  }
+  return bodyParagraphs(body).map((para, j) => <p key={j}>{para}</p>);
+}
 
 export default function ProjectDetailAccordion({
   sections,
@@ -62,23 +96,36 @@ export default function ProjectDetailAccordion({
               </span>
               <ChevronDown
                 className={
-                  "h-5 w-5 shrink-0 text-[rgb(var(--primary))] transition-transform duration-200 md:h-6 md:w-6 " +
+                  "h-5 w-5 shrink-0 text-[rgb(var(--primary))] transition-transform duration-300 ease-out motion-reduce:duration-150 md:h-6 md:w-6 " +
                   (isOpen ? "rotate-180" : "rotate-0")
                 }
                 aria-hidden
               />
             </button>
             <div
-              id={panelId}
-              role="region"
-              aria-labelledby={headerId}
-              hidden={!isOpen}
-              className="border-t border-[var(--color-border)] px-4 pb-4 pt-3 md:px-5 md:pb-5 md:pt-4"
+              className={
+                "grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none " +
+                (isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]")
+              }
             >
-              <div className="space-y-3 text-sm leading-relaxed text-[var(--color-text-muted)] md:text-base">
-                {bodyParagraphs(section.body).map((para, j) => (
-                  <p key={j}>{para}</p>
-                ))}
+              <div className="min-h-0 overflow-hidden">
+                <div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={headerId}
+                  aria-hidden={!isOpen}
+                  inert={!isOpen}
+                  className="border-t border-[var(--color-border)] px-4 pb-4 pt-3 md:px-5 md:pb-5 md:pt-4"
+                >
+                  <div className="space-y-3 text-sm leading-relaxed text-[var(--color-text-muted)] md:text-base">
+                    {typeof section.body === "string"
+                      ? renderStringAccordionBody(
+                          section.body,
+                          section.bodyVariant,
+                        )
+                      : section.body}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

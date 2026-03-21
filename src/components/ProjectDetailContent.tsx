@@ -1,11 +1,18 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import AnimateInView from "./AnimateInView";
 import ProjectGalleryCarousel from "./ProjectGalleryCarousel";
-import ProjectDetailAccordion from "./ProjectDetailAccordion";
+import ProjectDetailAccordion, {
+  type AccordionSection,
+} from "./ProjectDetailAccordion";
+import { bodyParagraphs } from "../lib/body-paragraphs";
 import type { Locale } from "../i18n/config";
 import type { ProjectSlug } from "../config/projects";
-import { PROJECT_GALLERY_IMAGES } from "../config/projects";
+import {
+  PROJECT_GALLERY_IMAGES,
+  PROJECT_SITE_URLS,
+} from "../config/projects";
 import { getTranslation } from "../i18n/server";
 
 export default function ProjectDetailContent({
@@ -32,10 +39,31 @@ export default function ProjectDetailContent({
   }));
   const projectsAnchor = `/${locale}#projects`;
 
-  const accordionSections = [
+  const siteUrl = PROJECT_SITE_URLS[slug];
+
+  const overviewText = t(`projects.items.${slug}.sectionOverview`);
+  const keywordsText = t(`projects.items.${slug}.sectionKeywords`);
+  const overviewBody: string | ReactNode =
+    keywordsText.trim().length > 0 ? (
+      <>
+        {bodyParagraphs(overviewText).map((para, j) => (
+          <p key={j}>{para}</p>
+        ))}
+        <p>
+          <span className="font-semibold text-[var(--color-text)]">
+            {t("projects.keywordsLabel")}
+          </span>{" "}
+          {keywordsText}
+        </p>
+      </>
+    ) : (
+      overviewText
+    );
+
+  const accordionSections: AccordionSection[] = [
     {
       title: t("projects.detailSectionTitles.overview"),
-      body: t(`projects.items.${slug}.sectionOverview`),
+      body: overviewBody,
     },
     {
       title: t("projects.detailSectionTitles.features"),
@@ -44,6 +72,7 @@ export default function ProjectDetailContent({
     {
       title: t("projects.detailSectionTitles.stack"),
       body: t(`projects.items.${slug}.sectionStack`),
+      bodyVariant: "bulletList" as const,
     },
   ];
 
@@ -75,12 +104,29 @@ export default function ProjectDetailContent({
             nextLabel={t("projects.carouselNext")}
             regionLabel={t("projects.carouselRegion", { title })}
           />
-          <h1
-            id="project-detail-title"
-            className="mt-5 w-full text-left text-3xl font-bold tracking-tight text-[var(--color-text)] md:mt-6 md:text-4xl"
-          >
-            {title}
-          </h1>
+          <div className="mt-5 flex w-full flex-wrap items-baseline justify-between gap-x-4 gap-y-2 md:mt-6">
+            <h1
+              id="project-detail-title"
+              className="min-w-0 text-left text-3xl font-bold tracking-tight text-[var(--color-text)] md:text-4xl"
+            >
+              {title}
+            </h1>
+            {siteUrl ? (
+              <a
+                href={siteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex shrink-0 items-center gap-1.5 border-b border-transparent pb-0.5 text-sm font-medium text-[rgb(var(--primary))] no-underline transition-colors hover:border-[rgb(var(--primary))] md:text-base"
+              >
+                <ExternalLink
+                  className="h-4 w-4 shrink-0 opacity-90 md:h-[1.125rem] md:w-[1.125rem]"
+                  strokeWidth={2}
+                  aria-hidden
+                />
+                {t(`projects.items.${slug}.websiteLinkLabel`)}
+              </a>
+            ) : null}
+          </div>
         </div>
 
         <ProjectDetailAccordion

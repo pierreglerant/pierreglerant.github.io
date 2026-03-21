@@ -94,6 +94,7 @@
     "carouselRegion": "Image gallery: {{title}}",
     "carouselSlideAlt": "{{base}} — image {{current}} of {{total}}",
     "carouselSlideAltShort": "Image {{current}} of {{total}}",
+    "keywordsLabel": "Keywords:",
     "detailSectionTitles": {
       "overview": "Overview",
       "features": "Features & scope",
@@ -101,28 +102,33 @@
     },
     "items": {
       "project-one": {
-        "title": "Project 1",
-        "excerpt": "Placeholder copy: short blurb for the first project card layout.",
-        "coverAlt": "Project 1 cover (placeholder)",
-        "sectionOverview": "This is a placeholder detail page for project 1. Replace this with the real problem statement, stack, and your contribution.",
-        "sectionFeatures": "The image is a stand-in from a stock photo service; swap it for a screenshot or product mockup when ready.",
-        "sectionStack": "You can add links to the GitHub repo, a live demo, or documentation here later."
+        "title": "ImmoSphere",
+        "excerpt": "Multi-source real estate analytics platform — decision support and interactive maps (immosphere.co).",
+        "coverAlt": "ImmoSphere project preview — real estate analytics platform",
+        "sectionOverview": "ImmoSphere is a web application for real-estate decision support powered by multi-source data. Ongoing since October 2025; immosphere.co is the public entry point.\n\nThe platform lets users explore and compare geographic areas across multiple indicators (price, yield, etc.) to support investment and usage decisions.",
+        "sectionKeywords": "real estate, data analytics, decision support, multi-source data, interactive mapping, MapTiler, tile server, self-hosted tiles, AWS, REST API, Python, PostgreSQL, React, Docker, EC2, RDS, Amplify, Cognito, WAF, Cloudflare, data pipelines, production operations",
+        "websiteLinkLabel": "www.immosphere.co",
+        "sectionFeatures": "End-to-end development of a decision-support web app built on aggregated, heterogeneous property and market data.\n\nFull-stack architecture: data pipelines, Python REST API, PostgreSQL database, React frontend, deployment on AWS (EC2, RDS, Amplify), and day-to-day production operations.\n\nInteractive map-based visualizations to compare territories across several criteria (price, yield, and more).",
+        "sectionStack": "- Deployment: AWS — Docker, EC2, Amplify, RDS; Amazon Cognito (authentication); AWS WAF (application firewall); Cloudflare (logs)\n- API: Python REST\n- Frontend: React\n- Database: PostgreSQL\n- Data & pipelines: multi-source ingestion and transformation\n- Mapping: tiles from a tile server on AWS; styles and map pipeline built with MapTiler tooling; self-hosted delivery (no Mapbox-style hosted tile dependency)"
       },
       "project-two": {
-        "title": "Project 2",
-        "excerpt": "Second placeholder: same card pattern, ready for your content.",
-        "coverAlt": "Project 2 cover (placeholder)",
-        "sectionOverview": "Placeholder detail for project 2. Use this space for architecture notes, datasets, or technical constraints.",
-        "sectionFeatures": "The random photo is only to demonstrate the layout; it is not related to any real product.",
-        "sectionStack": "Consider adding a tech list, gallery, or code snippets on this page when you flesh it out."
+        "title": "SecureOps",
+        "excerpt": "Cybersecurity application — OWASP Top 10 web scanner and microservices architecture (secureops.fr).",
+        "coverAlt": "SecureOps project preview — web vulnerability scanner",
+        "sectionOverview": "SecureOps is a cybersecurity application focused on web vulnerability assessment aligned with the OWASP Top 10, combining a web UI with a dedicated analysis engine.\n\nsecureops.fr is the access point for the product and its use.",
+        "sectionKeywords": "cybersecurity, OWASP Top 10, vulnerability scanner, web security, Python, FastAPI, microservices, custom queues, workers, Docker, AWS, EC2, Amplify, RDS, Cognito, WAF, Cloudflare, orchestration, asynchronous processing",
+        "websiteLinkLabel": "www.secureops.fr",
+        "sectionFeatures": "Development of a web vulnerability scanner covering OWASP Top 10–style risk scenarios, with a web interface and analysis engine.\n\nDesign of a distributed asynchronous microservices architecture using queues, workers, and orchestration to scale workloads and isolate components.",
+        "sectionStack": "- Deployment: AWS — Docker, EC2, Amplify, RDS; Amazon Cognito (authentication); AWS WAF (application firewall); Cloudflare (logs)\n- Architecture: distributed microservices\n- API: FastAPI microservices (REST) with worker services consuming them\n- Analysis engine: Python — OWASP Top 10–aligned scans, asynchronous worker execution\n- Frontend: web UI for the vulnerability scanner\n- Messaging: in-house queue and job-routing layer (custom design rather than a generic Redis / RabbitMQ / SQS-style broker at the core); workers wired to the FastAPI services\n- Orchestration: scan pipeline stages coordinated through that asynchronous layer"
       },
       "project-three": {
         "title": "Project 3",
         "excerpt": "Third sample card: temporary text until you ship real projects.",
         "coverAlt": "Project 3 cover (placeholder)",
         "sectionOverview": "Final placeholder page. Summarize outcomes, metrics, or lessons learned from the project.",
+        "sectionKeywords": "",
         "sectionFeatures": "All three hero images are independent so they read as separate projects once you replace the copy.",
-        "sectionStack": "Remember to refresh metadata and the sitemap when you publish real case studies."
+        "sectionStack": "- Deployment: TBD\n- API: TBD\n- Frontend: TBD\n- Database: TBD\n- Other: CI/CD, metadata and sitemap on publish"
       }
     }
   },
