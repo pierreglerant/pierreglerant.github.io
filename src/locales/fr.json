@@ -33,8 +33,6 @@
     "heroLine2": "Spécialisé en recherche & modélisation mathématique.",
     "heroLine3": "Passionné par la GenAI, la vision par ordinateur et les RAG / LLM.",
     "sectionsTitle": "Contenu",
-    "featuresTitle": "Ce que je fais",
-    "featuresSub": "Réalisations et compétences",
     "highlight1Title": "Projets",
     "highlight1Body": "Sélection de travaux et expérimentations techniques.",
     "highlight2Title": "Qualité",
@@ -45,7 +43,6 @@
   "contact": {
     "title": "Contact",
     "headline": "Envie de collaborer, d’échanger ou de lancer un projet ?",
-    "body": "Écrivez-moi directement sur cette adresse — je réponds rapidement.",
     "cta": "Envoyer un email",
     "location": "Basé à Paris, France • Disponible en remote / hybride",
     "lastUpdate": "Dernière mise à jour du site : {{date}}"

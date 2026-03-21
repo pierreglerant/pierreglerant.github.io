@@ -50,6 +50,18 @@ export default function HomeContent({ locale }: { locale: string }) {
           </div>
           <HeroSocialLinks />
         </div>
+        <div id="features" className="hero-highlights">
+          <div className="grid w-full min-w-0 grid-cols-3 gap-2 sm:gap-3 md:gap-6">
+            {HIGHLIGHTS.map((highlight) => (
+              <FeatureCard
+                key={highlight.title}
+                title={highlight.title}
+                body={highlight.body}
+                className="min-w-0 [&_h3]:text-base [&_h3]:sm:text-xl [&_p]:text-sm [&_p]:sm:text-base [&_h3]:mb-1.5 sm:[&_h3]:mb-2 !px-3 !py-4 sm:!px-5 sm:!py-6 md:!p-8"
+              />
+            ))}
+          </div>
+        </div>
       </AnimateInView>
 
       <AnimateInView
@@ -64,25 +76,6 @@ export default function HomeContent({ locale }: { locale: string }) {
       </AnimateInView>
 
       <h2 className="sr-only">{t("home.sectionsTitle")}</h2>
-      <AnimateInView
-        id="features"
-        className="landing-section landing-reveal-stagger"
-        as="section"
-      >
-        <div className="section-title">
-          <h3>{t("home.featuresTitle")}</h3>
-          <p>{t("home.featuresSub")}</p>
-        </div>
-        <div className="grid">
-          {HIGHLIGHTS.map((highlight) => (
-            <FeatureCard
-              key={highlight.title}
-              title={highlight.title}
-              body={highlight.body}
-            />
-          ))}
-        </div>
-      </AnimateInView>
 
       <AnimateInView
         id="contact"
@@ -96,9 +89,6 @@ export default function HomeContent({ locale }: { locale: string }) {
             </h2>
             <p className="text-lg md:text-xl font-medium text-[var(--color-text)] leading-snug">
               {t("contact.headline")}
-            </p>
-            <p className="text-base text-[var(--color-text-muted)] leading-relaxed">
-              {t("contact.body")}
             </p>
             <div className="flex flex-col items-center gap-3 pt-1">
               <a

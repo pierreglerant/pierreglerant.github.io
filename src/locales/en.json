@@ -34,8 +34,6 @@
     "heroLine2": "Specialized in Research & Mathematical Modeling.",
     "heroLine3": "Passionate about GenAI, Computer Vision, and RAG/LLMs.",
     "sectionsTitle": "Content",
-    "featuresTitle": "What I do",
-    "featuresSub": "Work and skills",
     "highlight1Title": "Projects",
     "highlight1Body": "A selection of work and technical experiments.",
     "highlight2Title": "Quality",
@@ -46,7 +44,6 @@
   "contact": {
     "title": "Contact",
     "headline": "Want to collaborate, chat, or start a project?",
-    "body": "You can email me directly. I reply quickly.",
     "cta": "Send an email",
     "location": "Based in Paris, France • Available for remote/hybrid",
     "lastUpdate": "Last site update: {{date}}"

@@ -703,6 +703,7 @@
     width: 100%;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -711,8 +712,11 @@
   .hero-content {
     position: relative;
     z-index: 1;
+    width: 100%;
     max-width: 900px;
-    padding: 6rem 2rem 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 6rem 2rem 2rem;
     text-align: center;
   }
 
@@ -764,7 +768,16 @@
   }
 
   .hero-content--intro .hero-social {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  /* Même largeur utile que section.landing-section + padding 2rem (bulle contact .cta) */
+  .hero-highlights {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem 3rem;
+    box-sizing: border-box;
   }
 
   .actions {
@@ -1413,10 +1426,11 @@
   transform: translateY(0);
 }
 
-/* Hero : titre, accroches, liens sociaux */
+/* Hero : titre, accroches, liens sociaux, puis cartes (hors .hero-content) */
 .landing-reveal-hero .hero-content > .hero-title,
 .landing-reveal-hero .hero-content > .hero-lines,
-.landing-reveal-hero .hero-content > .hero-social {
+.landing-reveal-hero .hero-content > .hero-social,
+.landing-reveal-hero .hero-highlights .grid > * {
   opacity: 0;
   transform: translateY(28px);
   transition:
@@ -1440,6 +1454,24 @@
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.28s;
+}
+
+.landing-reveal-hero.is-visible .hero-highlights .grid > *:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.38s;
+}
+
+.landing-reveal-hero.is-visible .hero-highlights .grid > *:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.48s;
+}
+
+.landing-reveal-hero.is-visible .hero-highlights .grid > *:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.58s;
 }
 
 /* Sections au scroll : titre puis grille avec léger décalage */

@@ -2,7 +2,7 @@ import Skeleton from "../../components/skeletons/Skeleton";
 
 /**
  * Skeleton de chargement pour la page d'accueil (home).
- * Reproduit la structure : Header, Hero, Logos, Features (3 cards), CTA, Footer.
+ * Reproduit la structure : Header, Hero (avec 3 cartes), Logos, CTA, Footer.
  */
 export default function Loading() {
   return (
@@ -30,17 +30,30 @@ export default function Loading() {
       {/* ─── Hero section skeleton ─── */}
       <section className="hero-wrapper">
         <div
-          className="flex flex-col items-center text-center gap-3 max-w-[680px] mx-auto px-4"
+          className="flex flex-col items-center text-center gap-3 max-w-5xl mx-auto px-4"
           style={{ paddingTop: "6rem", paddingBottom: "4rem" }}
         >
           <Skeleton width="w-[280px] max-w-full" height="h-10" />
-          <Skeleton width="w-full" height="h-4" />
-          <Skeleton width="w-full" height="h-4" />
-          <Skeleton width="w-[90%]" height="h-4" />
+          <Skeleton width="w-full max-w-[680px]" height="h-4" />
+          <Skeleton width="w-full max-w-[680px]" height="h-4" />
+          <Skeleton width="w-[90%] max-w-[680px]" height="h-4" />
           <div className="flex gap-2 mt-2">
             <Skeleton width="w-10" height="h-10" rounded="md" />
             <Skeleton width="w-10" height="h-10" rounded="md" />
             <Skeleton width="w-10" height="h-10" rounded="md" />
+          </div>
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 w-full mt-8">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <div
+                key={i}
+                className="p-6 rounded-xl border border-[var(--border)] bg-[var(--color-surface-subtle)]"
+              >
+                <Skeleton width="w-3/4" height="h-5" className="mb-3" />
+                <Skeleton width="w-full" height="h-3" className="mb-1.5" />
+                <Skeleton width="w-full" height="h-3" className="mb-1.5" />
+                <Skeleton width="w-2/3" height="h-3" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -50,27 +63,6 @@ export default function Loading() {
         <div className="flex justify-center gap-8 flex-wrap">
           {Array.from({ length: 5 }).map((_, i) => (
             <Skeleton key={i} width="w-24" height="h-5" />
-          ))}
-        </div>
-      </section>
-
-      {/* ─── Features section skeleton (3 cards) ─── */}
-      <section className="landing-section">
-        <div className="flex flex-col items-center text-center mb-8">
-          <Skeleton width="w-64" height="h-7" className="mb-3" />
-          <Skeleton width="w-96 max-w-full" height="h-4" />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div
-              key={i}
-              className="p-6 rounded-xl border border-[var(--border)] bg-[var(--color-surface-subtle)]"
-            >
-              <Skeleton width="w-3/4" height="h-5" className="mb-3" />
-              <Skeleton width="w-full" height="h-3" className="mb-1.5" />
-              <Skeleton width="w-full" height="h-3" className="mb-1.5" />
-              <Skeleton width="w-2/3" height="h-3" />
-            </div>
           ))}
         </div>
       </section>
