@@ -84,7 +84,10 @@ export default async function ProjectDetailPage({
   return (
     <>
       <Header />
-      <main id="main" className="min-h-[calc(100vh-var(--header-height)-120px)]">
+      <main
+        id="main"
+        className="min-h-[calc(100vh-var(--header-height)-120px)]"
+      >
         <ProjectDetailContent locale={locale as Locale} slug={slug} />
       </main>
       <Footer locale={locale} />

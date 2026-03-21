@@ -77,7 +77,10 @@ export default function ProjectDetailContent({
           </h1>
         </div>
 
-        <ProjectDetailAccordion sections={accordionSections} defaultOpenIndex={0} />
+        <ProjectDetailAccordion
+          sections={accordionSections}
+          defaultOpenIndex={0}
+        />
       </AnimateInView>
     </div>
   );

@@ -80,7 +80,9 @@ export default function CvPreviewLightbox({
             <button
               type="button"
               onClick={() => setInnerZoom((z) => !z)}
-              aria-label={innerZoom ? lightboxZoomOutLabel : lightboxZoomInLabel}
+              aria-label={
+                innerZoom ? lightboxZoomOutLabel : lightboxZoomInLabel
+              }
               aria-pressed={innerZoom}
               className={`origin-center rounded-lg border-0 bg-transparent p-0 outline-none transition-transform duration-300 ease-out motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)] ${innerZoom ? "scale-[1.62] cursor-zoom-out" : "scale-100 cursor-zoom-in"}`}
             >
@@ -110,7 +112,10 @@ export default function CvPreviewLightbox({
         aria-expanded={open}
         aria-label={openViewerLabel}
       >
-        <Card disableHover className="about-resume-preview-card overflow-hidden">
+        <Card
+          disableHover
+          className="about-resume-preview-card overflow-hidden"
+        >
           <Image
             src={CV_SRC}
             alt={previewAlt}
