@@ -9,6 +9,7 @@ import ProjectDetailAccordion, {
 import { bodyParagraphs } from "../lib/body-paragraphs";
 import type { Locale } from "../i18n/config";
 import type { ProjectSlug } from "../config/projects";
+import { getProjectArchitectureSection } from "../config/project-architecture";
 import {
   PROJECT_GALLERY_IMAGES,
   PROJECT_SITE_URLS,
@@ -60,6 +61,8 @@ export default function ProjectDetailContent({
       overviewText
     );
 
+  const architecture = getProjectArchitectureSection(locale, slug);
+
   const accordionSections: AccordionSection[] = [
     {
       title: t("projects.detailSectionTitles.overview"),
@@ -73,6 +76,11 @@ export default function ProjectDetailContent({
       title: t("projects.detailSectionTitles.stack"),
       body: t(`projects.items.${slug}.sectionStack`),
       bodyVariant: "bulletList" as const,
+    },
+    {
+      title: t("projects.detailSectionTitles.architecture"),
+      body: architecture.body,
+      bodyVariant: architecture.bodyVariant,
     },
   ];
 

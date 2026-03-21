@@ -8,8 +8,8 @@ import { bodyParagraphs, stackBulletItems } from "../lib/body-paragraphs";
 export type AccordionSection = {
   title: string;
   body: string | ReactNode;
-  /** `bulletList` : une ligne = une puce, préfixe `- ` (ou `• ` / `* `). */
-  bodyVariant?: "prose" | "bulletList";
+  /** `bulletList` : une ligne = une puce, préfixe `- ` (ou `• ` / `* `). `preformatted` : bloc monospace (schéma ASCII). */
+  bodyVariant?: "prose" | "bulletList" | "preformatted";
 };
 
 type Props = {
@@ -37,6 +37,16 @@ function renderStringAccordionBody(
   body: string,
   variant: AccordionSection["bodyVariant"],
 ) {
+  if (variant === "preformatted") {
+    return (
+      <pre
+        className="overflow-x-auto rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)]/90 p-3 font-mono text-[0.62rem] leading-snug text-[var(--color-text-muted)] [tab-size:2] md:p-4 md:text-[0.72rem]"
+        style={{ whiteSpace: "pre" }}
+      >
+        {body}
+      </pre>
+    );
+  }
   if (variant === "bulletList") {
     const items = stackBulletItems(body);
     if (items.length > 0) {

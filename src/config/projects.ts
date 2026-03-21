@@ -5,8 +5,8 @@
  * Images : public/projects/<slug>/1.jpg … (ordre carrousel / couverture = 1)
  */
 export const PROJECT_SLUGS = [
-  "project-one",
-  "project-two",
+  "immosphere",
+  "secureops",
   "project-three",
 ] as const;
 
@@ -27,20 +27,20 @@ function galleryForSlug(slug: ProjectSlug): readonly string[] {
 
 /** Images du carrousel (page détail) : 1 = couverture carte liste */
 export const PROJECT_GALLERY_IMAGES: Record<ProjectSlug, readonly string[]> = {
-  "project-one": galleryForSlug("project-one"),
-  "project-two": galleryForSlug("project-two"),
+  immosphere: galleryForSlug("immosphere"),
+  secureops: galleryForSlug("secureops"),
   "project-three": galleryForSlug("project-three"),
 };
 
 /** Première image = aperçu carte liste */
 export const PROJECT_COVER_IMAGE: Record<ProjectSlug, string> = {
-  "project-one": PROJECT_GALLERY_IMAGES["project-one"][0],
-  "project-two": PROJECT_GALLERY_IMAGES["project-two"][0],
+  immosphere: PROJECT_GALLERY_IMAGES.immosphere[0],
+  secureops: PROJECT_GALLERY_IMAGES.secureops[0],
   "project-three": PROJECT_GALLERY_IMAGES["project-three"][0],
 };
 
 /** URL du site public pour un projet (lien affiché dans la fiche). */
 export const PROJECT_SITE_URLS: Partial<Record<ProjectSlug, string>> = {
-  "project-one": "https://www.immosphere.co",
-  "project-two": "https://secureops.fr",
+  immosphere: "https://www.immosphere.co",
+  secureops: "https://secureops.fr",
 };

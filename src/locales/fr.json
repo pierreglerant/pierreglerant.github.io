@@ -102,10 +102,11 @@
     "detailSectionTitles": {
       "overview": "Vue d’ensemble",
       "features": "Détails & fonctionnalités",
-      "stack": "Technologies & stack"
+      "stack": "Technologies & stack",
+      "architecture": "Architecture"
     },
     "items": {
-      "project-one": {
+      "immosphere": {
         "title": "ImmoSphere",
         "excerpt": "Plateforme d’analyse immobilière multi-sources — aide à la décision et cartes interactives (immosphere.co).",
         "coverAlt": "Aperçu du projet ImmoSphere — plateforme d’analyse immobilière",
@@ -115,7 +116,7 @@
         "sectionFeatures": "Développement complet d’une application web d’aide à la décision immobilière sur la base de données agrégées et hétérogènes.\n\nConception d’une architecture full-stack : pipelines de données, API REST en Python, base PostgreSQL, frontend React, déploiement sur AWS (EC2, RDS, Amplify) et gestion du service en production.\n\nMise en place de visualisations interactives sur carte pour comparer les territoires selon plusieurs indicateurs (prix, rendement, etc.).",
         "sectionStack": "- Déploiement : AWS — Docker, EC2, Amplify, RDS ; Amazon Cognito (authentification) ; AWS WAF (pare-feu applicatif) ; Cloudflare (logs)\n- API : REST en Python\n- Frontend : React\n- Base de données : PostgreSQL\n- Données & pipelines : ingestion et transformation multi-sources\n- Cartographie : tuiles servies par un tile server sur AWS ; jeux de styles et chaîne préparés avec les outils MapTiler ; diffusion auto-hébergée (pas d’hébergement de tuiles type Mapbox)"
       },
-      "project-two": {
+      "secureops": {
         "title": "SecureOps",
         "excerpt": "Application de cybersécurité — scanner web OWASP Top 10 et architecture microservices (secureops.fr).",
         "coverAlt": "Aperçu du projet SecureOps — scanner de vulnérabilités web",

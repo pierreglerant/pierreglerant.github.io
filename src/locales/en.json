@@ -98,10 +98,11 @@
     "detailSectionTitles": {
       "overview": "Overview",
       "features": "Features & scope",
-      "stack": "Tech stack"
+      "stack": "Tech stack",
+      "architecture": "Architecture"
     },
     "items": {
-      "project-one": {
+      "immosphere": {
         "title": "ImmoSphere",
         "excerpt": "Multi-source real estate analytics platform — decision support and interactive maps (immosphere.co).",
         "coverAlt": "ImmoSphere project preview — real estate analytics platform",
@@ -111,7 +112,7 @@
         "sectionFeatures": "End-to-end development of a decision-support web app built on aggregated, heterogeneous property and market data.\n\nFull-stack architecture: data pipelines, Python REST API, PostgreSQL database, React frontend, deployment on AWS (EC2, RDS, Amplify), and day-to-day production operations.\n\nInteractive map-based visualizations to compare territories across several criteria (price, yield, and more).",
         "sectionStack": "- Deployment: AWS — Docker, EC2, Amplify, RDS; Amazon Cognito (authentication); AWS WAF (application firewall); Cloudflare (logs)\n- API: Python REST\n- Frontend: React\n- Database: PostgreSQL\n- Data & pipelines: multi-source ingestion and transformation\n- Mapping: tiles from a tile server on AWS; styles and map pipeline built with MapTiler tooling; self-hosted delivery (no Mapbox-style hosted tile dependency)"
       },
-      "project-two": {
+      "secureops": {
         "title": "SecureOps",
         "excerpt": "Cybersecurity application — OWASP Top 10 web scanner and microservices architecture (secureops.fr).",
         "coverAlt": "SecureOps project preview — web vulnerability scanner",

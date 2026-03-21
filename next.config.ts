@@ -4,6 +4,31 @@ const nextConfig: NextConfig = {
   // Pas de trailing slash pour éviter contenu dupliqué (SEO)
   trailingSlash: false,
 
+  async redirects() {
+    return [
+      {
+        source: "/fr/projects/project-one",
+        destination: "/fr/projects/immosphere",
+        permanent: true,
+      },
+      {
+        source: "/en/projects/project-one",
+        destination: "/en/projects/immosphere",
+        permanent: true,
+      },
+      {
+        source: "/fr/projects/project-two",
+        destination: "/fr/projects/secureops",
+        permanent: true,
+      },
+      {
+        source: "/en/projects/project-two",
+        destination: "/en/projects/secureops",
+        permanent: true,
+      },
+    ];
+  },
+
   // Configuration pour éviter l'avertissement sur le workspace root
   // Note: Le warning sur les lockfiles multiples est normal si vous avez un monorepo
 
