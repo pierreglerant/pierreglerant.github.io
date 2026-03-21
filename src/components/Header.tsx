@@ -3,13 +3,11 @@
 import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Sun, Moon, Globe, Menu, X } from "lucide-react";
-import { useTheme } from "./ThemeProvider";
+import { Globe, Menu, X } from "lucide-react";
 import { useLanguage } from "./LanguageProvider";
 import type { Language } from "./LanguageProvider";
 
 export default function Header() {
-  const { theme, toggleTheme } = useTheme();
   const { language, setLanguage, t, lp } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [closing, setClosing] = useState(false);
@@ -47,8 +45,6 @@ export default function Header() {
   };
 
   const langLabel = language === "en" ? "FR" : "EN";
-  const themeLabel =
-    theme === "dark" ? t("header.lightMode") : t("header.darkMode");
 
   return (
     <header className={menuOpen ? "z-[50]" : undefined}>
@@ -79,24 +75,6 @@ export default function Header() {
               title={langLabel}
             >
               <Globe className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className="btn btn-secondary p-2 rounded-full"
-              style={{ cursor: "pointer" }}
-              aria-label={
-                theme === "dark"
-                  ? t("header.switchToLight")
-                  : t("header.switchToDark")
-              }
-              title={themeLabel}
-            >
-              {theme === "dark" ? (
-                <Sun className="w-4 h-4" />
-              ) : (
-                <Moon className="w-4 h-4" />
-              )}
             </button>
           </div>
           <button
@@ -165,19 +143,6 @@ export default function Header() {
                   title={langLabel}
                 >
                   <Globe className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={toggleTheme}
-                  className="btn btn-secondary p-2 rounded-full"
-                  aria-label={themeLabel}
-                  title={themeLabel}
-                >
-                  {theme === "dark" ? (
-                    <Sun className="w-4 h-4" />
-                  ) : (
-                    <Moon className="w-4 h-4" />
-                  )}
                 </button>
               </div>
             </div>

@@ -15,10 +15,6 @@
   "header": {
     "home": "Accueil",
     "contact": "Contact",
-    "switchToLight": "Passer en mode clair",
-    "switchToDark": "Passer en mode sombre",
-    "lightMode": "Mode clair",
-    "darkMode": "Mode sombre",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu",
     "menu": "Menu"
@@ -42,7 +38,8 @@
     "highlight3LinkAria": "Voir les projets sur GitHub",
     "highlight1LogoAlt": "Logo CentraleSupélec",
     "highlight2LogoAlt": "Logo Safran",
-    "highlight3LogoAlt": "Logo GitHub"
+    "highlight3LogoAlt": "Logo GitHub",
+    "skillsMarqueeIntro": "Compétences et technologies"
   },
   "contact": {
     "title": "Contact",

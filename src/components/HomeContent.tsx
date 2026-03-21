@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import { FeatureCard } from "./cards";
 import AnimateInView from "./AnimateInView";
@@ -9,14 +10,10 @@ import {
   SITE_LAST_UPDATE_ISO,
   SOCIAL_LINKS,
 } from "../config/social";
+import { HERO_SCROLL_SKILLS } from "../config/hero-scroll-skills";
 
-const TRUSTED_LOGOS = [
-  "ACME CORP",
-  "FINTECHX",
-  "GOVTECH",
-  "CLOUDSAFE",
-  "DATAFLOW",
-];
+/** Répétitions de la liste côte à côte : boucle infinie sans saut (≥ 2). */
+const SKILLS_MARQUEE_COPIES = 3;
 
 export default function HomeContent({ locale }: { locale: string }) {
   const t = getTranslation(locale as Locale);
@@ -28,6 +25,15 @@ export default function HomeContent({ locale }: { locale: string }) {
     l === "fr" ? "fr-FR" : "en-US",
     { year: "numeric", month: "numeric", day: "numeric" },
   );
+
+  const skillsMarqueeItems = Array.from(
+    { length: SKILLS_MARQUEE_COPIES },
+    (_, copy) =>
+      HERO_SCROLL_SKILLS.map((label, i) => ({
+        key: `${copy}-${i}-${label}`,
+        label,
+      })),
+  ).flat();
 
   const HIGHLIGHTS = [
     {
@@ -121,17 +127,29 @@ export default function HomeContent({ locale }: { locale: string }) {
               />
             ))}
           </div>
-        </div>
-      </AnimateInView>
-
-      <AnimateInView
-        className="landing-section landing-reveal-stagger"
-        as="section"
-      >
-        <div className="logos">
-          {TRUSTED_LOGOS.map((logo) => (
-            <div key={logo}>{logo}</div>
-          ))}
+          {HERO_SCROLL_SKILLS.length > 0 && (
+            <div className="skills-marquee-wrap">
+              <p className="sr-only">
+                {t("home.skillsMarqueeIntro")}: {HERO_SCROLL_SKILLS.join(", ")}.
+              </p>
+              <div className="skills-marquee" aria-hidden="true">
+                <div
+                  className="skills-marquee__track"
+                  style={
+                    {
+                      "--skills-marquee-copies": SKILLS_MARQUEE_COPIES,
+                    } as CSSProperties
+                  }
+                >
+                  {skillsMarqueeItems.map(({ key, label }) => (
+                    <span key={key} className="skills-marquee__item">
+                      {label}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </AnimateInView>
 

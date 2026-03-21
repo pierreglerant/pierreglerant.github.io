@@ -15,10 +15,6 @@
   "header": {
     "home": "Home",
     "contact": "Contact",
-    "switchToLight": "Switch to light mode",
-    "switchToDark": "Switch to dark mode",
-    "lightMode": "Light mode",
-    "darkMode": "Dark mode",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "menu": "Menu"
@@ -43,7 +39,8 @@
     "highlight3LinkAria": "View projects on GitHub",
     "highlight1LogoAlt": "CentraleSupélec logo",
     "highlight2LogoAlt": "Safran logo",
-    "highlight3LogoAlt": "GitHub logo"
+    "highlight3LogoAlt": "GitHub logo",
+    "skillsMarqueeIntro": "Skills and technologies"
   },
   "contact": {
     "title": "Contact",
