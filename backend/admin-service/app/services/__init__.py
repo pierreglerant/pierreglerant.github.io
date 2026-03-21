@@ -1,1 +1,0 @@
-"""Services du Admin Service."""
