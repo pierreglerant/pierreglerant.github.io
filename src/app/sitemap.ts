@@ -10,9 +10,7 @@ function hreflangAlternates(pathAfterLocale: string): Record<string, string> {
   const suffix = pathAfterLocale.replace(/^\//, "");
   const path = suffix ? `/${suffix}` : "";
   return {
-    ...Object.fromEntries(
-      LOCALES.map((l) => [l, `${SITE_URL}/${l}${path}`]),
-    ),
+    ...Object.fromEntries(LOCALES.map((l) => [l, `${SITE_URL}/${l}${path}`])),
     "x-default": `${SITE_URL}/${DEFAULT_LOCALE}${path}`,
   };
 }
