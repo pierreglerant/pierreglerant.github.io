@@ -7,7 +7,11 @@ type Props = {
   children: ReactNode;
 };
 
-export default function SectionTitleWithIcon({ id, icon: Icon, children }: Props) {
+export default function SectionTitleWithIcon({
+  id,
+  icon: Icon,
+  children,
+}: Props) {
   return (
     <h2
       id={id}
