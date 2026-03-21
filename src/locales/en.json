@@ -34,12 +34,17 @@
     "heroLine2": "Specialized in Research & Mathematical Modeling.",
     "heroLine3": "Passionate about GenAI, Computer Vision, and RAG/LLMs.",
     "sectionsTitle": "Content",
-    "highlight1Title": "Projects",
-    "highlight1Body": "A selection of work and technical experiments.",
-    "highlight2Title": "Quality",
-    "highlight2Body": "Clean code, solid practices, and attention to detail.",
-    "highlight3Title": "Collaboration",
-    "highlight3Body": "Open to conversations and new opportunities."
+    "highlight1Title": "CentraleSupélec",
+    "highlight1Body": "Graduated in 2025, computer science track, AI concentration.",
+    "highlight2Title": "Safran",
+    "highlight2Body": "3-year apprenticeship: first as a data scientist, then as an AI application engineer.",
+    "highlight3Title": "Projects",
+    "highlight3BodyPrefix": "8 software, data, and AI projects, visible ",
+    "highlight3LinkLabel": "here",
+    "highlight3LinkAria": "View projects on GitHub",
+    "highlight1LogoAlt": "CentraleSupélec logo",
+    "highlight2LogoAlt": "Safran logo",
+    "highlight3LogoAlt": "GitHub logo"
   },
   "contact": {
     "title": "Contact",

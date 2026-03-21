@@ -33,12 +33,17 @@
     "heroLine2": "Spécialisé en recherche & modélisation mathématique.",
     "heroLine3": "Passionné par la GenAI, la vision par ordinateur et les RAG / LLM.",
     "sectionsTitle": "Contenu",
-    "highlight1Title": "Projets",
-    "highlight1Body": "Sélection de travaux et expérimentations techniques.",
-    "highlight2Title": "Qualité",
-    "highlight2Body": "Code clair, bonnes pratiques et attention au détail.",
-    "highlight3Title": "Collaboration",
-    "highlight3Body": "Ouvert aux échanges et aux nouvelles opportunités."
+    "highlight1Title": "CentraleSupélec",
+    "highlight1Body": "Diplômé en 2025, dominante Informatique, mention IA.",
+    "highlight2Title": "Safran",
+    "highlight2Body": "3 ans d’apprentissage en science des données, puis comme ingénieur en applications d’IA.",
+    "highlight3Title": "Projets",
+    "highlight3BodyPrefix": "8 projets logiciels, données et IA visibles ",
+    "highlight3LinkLabel": "ici",
+    "highlight3LinkAria": "Voir les projets sur GitHub",
+    "highlight1LogoAlt": "Logo CentraleSupélec",
+    "highlight2LogoAlt": "Logo Safran",
+    "highlight3LogoAlt": "Logo GitHub"
   },
   "contact": {
     "title": "Contact",

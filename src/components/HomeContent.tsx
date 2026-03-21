@@ -1,9 +1,14 @@
+import Image from "next/image";
 import { FeatureCard } from "./cards";
 import AnimateInView from "./AnimateInView";
 import HeroSocialLinks from "./HeroSocialLinks";
 import { getTranslation } from "../i18n/server";
 import type { Locale } from "../i18n/config";
-import { CONTACT_EMAIL, SITE_LAST_UPDATE_ISO } from "../config/social";
+import {
+  CONTACT_EMAIL,
+  SITE_LAST_UPDATE_ISO,
+  SOCIAL_LINKS,
+} from "../config/social";
 
 const TRUSTED_LOGOS = [
   "ACME CORP",
@@ -25,9 +30,64 @@ export default function HomeContent({ locale }: { locale: string }) {
   );
 
   const HIGHLIGHTS = [
-    { title: t("home.highlight1Title"), body: t("home.highlight1Body") },
-    { title: t("home.highlight2Title"), body: t("home.highlight2Body") },
-    { title: t("home.highlight3Title"), body: t("home.highlight3Body") },
+    {
+      key: "education",
+      title: t("home.highlight1Title"),
+      body: t("home.highlight1Body"),
+      icon: (
+        <Image
+          src="/logos/centrale-supelec.svg"
+          alt={t("home.highlight1LogoAlt")}
+          width={96}
+          height={72}
+          unoptimized
+          className="max-h-10 w-auto max-w-[5.5rem] object-contain object-center"
+        />
+      ),
+    },
+    {
+      key: "safran",
+      title: t("home.highlight2Title"),
+      body: t("home.highlight2Body"),
+      icon: (
+        <Image
+          src="/logos/safran.svg"
+          alt={t("home.highlight2LogoAlt")}
+          width={76}
+          height={84}
+          unoptimized
+          className="max-h-10 w-auto max-w-[5.5rem] object-contain object-center"
+        />
+      ),
+    },
+    {
+      key: "projects",
+      title: t("home.highlight3Title"),
+      body: (
+        <>
+          {t("home.highlight3BodyPrefix")}
+          <a
+            href={SOCIAL_LINKS.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-[rgb(var(--primary))] no-underline hover:underline"
+            aria-label={t("home.highlight3LinkAria")}
+          >
+            {t("home.highlight3LinkLabel")}
+          </a>
+        </>
+      ),
+      icon: (
+        <Image
+          src="/logos/github-mark.svg"
+          alt={t("home.highlight3LogoAlt")}
+          width={32}
+          height={32}
+          unoptimized
+          className="hero-github-logo max-h-10 w-8 object-contain"
+        />
+      ),
+    },
   ];
 
   return (
@@ -54,9 +114,10 @@ export default function HomeContent({ locale }: { locale: string }) {
           <div className="grid w-full min-w-0 grid-cols-3 gap-2 sm:gap-3 md:gap-6">
             {HIGHLIGHTS.map((highlight) => (
               <FeatureCard
-                key={highlight.title}
+                key={highlight.key}
                 title={highlight.title}
                 body={highlight.body}
+                icon={highlight.icon}
                 className="min-w-0 [&_h3]:text-base [&_h3]:sm:text-xl [&_p]:text-sm [&_p]:sm:text-base [&_h3]:mb-1.5 sm:[&_h3]:mb-2 !px-3 !py-4 sm:!px-5 sm:!py-6 md:!p-8"
               />
             ))}
