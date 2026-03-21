@@ -74,7 +74,7 @@ const LoadingSpinner = ({ variant }: { variant: string }) => {
 };
 
 /**
- * Composant bouton générique basé sur le DropdownSelector
+ * Bouton / lien générique (variantes primary, secondary, etc.)
  * Peut fonctionner comme un bouton simple ou un dropdown selon les props
  */
 const GenericButton: React.FC<GenericButtonProps> = ({

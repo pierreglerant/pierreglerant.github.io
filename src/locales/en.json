@@ -1,9 +1,4 @@
 {
-  "common": {
-    "success": "Done successfully.",
-    "error": "Something went wrong.",
-    "info": "Information"
-  },
   "metadata": {
     "siteTitle": "Pierre Glerant — Portfolio",
     "siteDescription": "Pierre Glerant's portfolio: projects, skills, and contact.",
@@ -15,6 +10,8 @@
   "header": {
     "home": "Home",
     "about": "About",
+    "cv": "Resume",
+    "projects": "Projects",
     "contact": "Contact",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
@@ -24,9 +21,8 @@
     "copyright": "© {{year}} Pierre Glerant. All rights reserved."
   },
   "home": {
-    "titleLine1": "Hello, I'm",
-    "titleHighlight": "Pierre",
-    "heroSlash": "/",
+    "titleLine1": "Hello, welcome to my portfolio",
+    "titleHighlight": "",
     "heroLine1": "Data Scientist & ML Engineer from CentraleSupélec.",
     "heroLine2": "Specialized in designing and deploying AI applications — and beyond.",
     "sectionsTitle": "Content",
@@ -83,6 +79,51 @@
       "lightboxZoomIn": "Zoom in further",
       "lightboxZoomOut": "Fit to screen again",
       "download": "Download resume (PDF)"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "intro": "Software, data, and AI work I've built — presented here and available online to explore.",
+    "seeMore": "See more",
+    "backToProjects": "← Back to projects",
+    "cta": "View on GitHub",
+    "githubAria": "Open Pierre Glerant's GitHub profile",
+    "githubHint": "Repositories, commit history, and demos where available.",
+    "carouselPrev": "Previous image",
+    "carouselNext": "Next image",
+    "carouselRegion": "Image gallery: {{title}}",
+    "carouselSlideAlt": "{{base}} — image {{current}} of {{total}}",
+    "carouselSlideAltShort": "Image {{current}} of {{total}}",
+    "detailSectionTitles": {
+      "overview": "Overview",
+      "features": "Features & scope",
+      "stack": "Tech stack"
+    },
+    "items": {
+      "project-one": {
+        "title": "Project 1",
+        "excerpt": "Placeholder copy: short blurb for the first project card layout.",
+        "coverAlt": "Project 1 cover (placeholder)",
+        "sectionOverview": "This is a placeholder detail page for project 1. Replace this with the real problem statement, stack, and your contribution.",
+        "sectionFeatures": "The image is a stand-in from a stock photo service; swap it for a screenshot or product mockup when ready.",
+        "sectionStack": "You can add links to the GitHub repo, a live demo, or documentation here later."
+      },
+      "project-two": {
+        "title": "Project 2",
+        "excerpt": "Second placeholder: same card pattern, ready for your content.",
+        "coverAlt": "Project 2 cover (placeholder)",
+        "sectionOverview": "Placeholder detail for project 2. Use this space for architecture notes, datasets, or technical constraints.",
+        "sectionFeatures": "The random photo is only to demonstrate the layout; it is not related to any real product.",
+        "sectionStack": "Consider adding a tech list, gallery, or code snippets on this page when you flesh it out."
+      },
+      "project-three": {
+        "title": "Project 3",
+        "excerpt": "Third sample card: temporary text until you ship real projects.",
+        "coverAlt": "Project 3 cover (placeholder)",
+        "sectionOverview": "Final placeholder page. Summarize outcomes, metrics, or lessons learned from the project.",
+        "sectionFeatures": "All three hero images are independent so they read as separate projects once you replace the copy.",
+        "sectionStack": "Remember to refresh metadata and the sitemap when you publish real case studies."
+      }
     }
   },
   "contact": {

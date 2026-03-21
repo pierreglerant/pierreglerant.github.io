@@ -1,7 +1,2 @@
-/**
- * Export des composants de boutons
- */
-
-export { default as ToggleButton } from "./ToggleButton";
-export { default as DropdownSelector } from "./DropdownSelector";
+/** Boutons réutilisables */
 export { default as GenericButton } from "./GenericButton";

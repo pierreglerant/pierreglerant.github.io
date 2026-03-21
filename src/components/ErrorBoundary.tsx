@@ -2,7 +2,6 @@
 
 import React, { Component, ReactNode } from "react";
 import { AlertTriangle, RefreshCw } from "lucide-react";
-import { error as logError } from "../utils/logger";
 import Card from "./cards/Card";
 import { GenericButton } from "./buttons";
 
@@ -47,8 +46,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
-    // Logger l'erreur
-    logError("[ErrorBoundary] Uncaught error:", error, errorInfo);
+    console.error("[ErrorBoundary] Uncaught error:", error, errorInfo);
 
     // Mettre à jour l'état avec les infos complètes
     this.setState({

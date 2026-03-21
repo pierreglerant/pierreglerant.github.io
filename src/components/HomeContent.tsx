@@ -4,6 +4,7 @@ import { FeatureCard } from "./cards";
 import AnimateInView from "./AnimateInView";
 import HeroSocialLinks from "./HeroSocialLinks";
 import AboutSkillsSection from "./AboutSkillsSection";
+import ProjectsSection from "./ProjectsSection";
 import { getTranslation } from "../i18n/server";
 import type { Locale } from "../i18n/config";
 import {
@@ -100,6 +101,7 @@ export default function HomeContent({ locale }: { locale: string }) {
   return (
     <>
       <AnimateInView
+        id="top"
         initialOnly
         delay={80}
         className="hero-wrapper landing-reveal-hero"
@@ -107,8 +109,20 @@ export default function HomeContent({ locale }: { locale: string }) {
       >
         <div className="hero-content hero-content--intro">
           <h1 className="hero-title">
-            <span className="hero-title__greeting">{t("home.titleLine1")}</span>{" "}
-            <span className="hero-title__name">{t("home.titleHighlight")}</span>
+            {t("home.titleHighlight") ? (
+              <>
+                <span className="hero-title__greeting">
+                  {t("home.titleLine1")}
+                </span>{" "}
+                <span className="hero-title__name">
+                  {t("home.titleHighlight")}
+                </span>
+              </>
+            ) : (
+              <span className="hero-title__greeting">
+                {t("home.titleLine1")}
+              </span>
+            )}
           </h1>
           <div className="hero-lines">
             <p>{t("home.heroLine1")}</p>
@@ -157,6 +171,8 @@ export default function HomeContent({ locale }: { locale: string }) {
       <h2 className="sr-only">{t("home.sectionsTitle")}</h2>
 
       <AboutSkillsSection locale={locale} />
+
+      <ProjectsSection locale={locale} />
 
       <AnimateInView
         id="contact"

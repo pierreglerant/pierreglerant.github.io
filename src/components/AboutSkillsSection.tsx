@@ -39,6 +39,7 @@ export default function AboutSkillsSection({ locale }: { locale: string }) {
       </div>
 
       <div
+        id="cv"
         className="about-section__resume mx-auto mt-16 max-w-2xl md:mt-20"
         aria-labelledby="about-resume-heading"
       >

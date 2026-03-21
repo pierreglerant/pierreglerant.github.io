@@ -1,0 +1,40 @@
+/**
+ * Projets affichés sur l’accueil et pages détail.
+ * Slugs utilisés dans les URLs : /[locale]/projects/[slug]
+ *
+ * Images : public/projects/<slug>/1.jpg … (ordre carrousel / couverture = 1)
+ */
+export const PROJECT_SLUGS = [
+  "project-one",
+  "project-two",
+  "project-three",
+] as const;
+
+export type ProjectSlug = (typeof PROJECT_SLUGS)[number];
+
+export function isProjectSlug(value: string): value is ProjectSlug {
+  return (PROJECT_SLUGS as readonly string[]).includes(value);
+}
+
+const GALLERY_COUNT = 4;
+
+function galleryForSlug(slug: ProjectSlug): readonly string[] {
+  return Array.from(
+    { length: GALLERY_COUNT },
+    (_, i) => `/projects/${slug}/${i + 1}.jpg`,
+  );
+}
+
+/** Images du carrousel (page détail) : 1 = couverture carte liste */
+export const PROJECT_GALLERY_IMAGES: Record<ProjectSlug, readonly string[]> = {
+  "project-one": galleryForSlug("project-one"),
+  "project-two": galleryForSlug("project-two"),
+  "project-three": galleryForSlug("project-three"),
+};
+
+/** Première image = aperçu carte liste */
+export const PROJECT_COVER_IMAGE: Record<ProjectSlug, string> = {
+  "project-one": PROJECT_GALLERY_IMAGES["project-one"][0],
+  "project-two": PROJECT_GALLERY_IMAGES["project-two"][0],
+  "project-three": PROJECT_GALLERY_IMAGES["project-three"][0],
+};

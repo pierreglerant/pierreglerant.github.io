@@ -46,7 +46,7 @@ export default function NotFoundContent() {
             <div className="flex flex-wrap justify-center gap-3">
               <GenericButton
                 label={t("notFound.backHome")}
-                href={lp("/")}
+                href={`${lp("/")}#top`}
                 variant="primary"
                 icon={<Home className="w-4 h-4" />}
                 iconPosition="left"

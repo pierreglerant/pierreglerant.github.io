@@ -417,9 +417,9 @@
     padding: 2.5rem 1rem;
   }
 
-  /* ---------- Header / Navigation ---------- */
+  /* ---------- Header / Navigation (uniquement la barre du site) ---------- */
 
-  header {
+  header.site-header {
     position: fixed;
     top: 0;
     left: 0;
@@ -967,41 +967,6 @@
   /* Ancres : dégagement sous le header fixe */
   main [id] {
     scroll-margin-top: calc(var(--header-height) + 0.75rem);
-  }
-
-  /* ---------- Inputs (formulaires auth & contact) ---------- */
-
-  .auth-input {
-    width: 100%;
-    padding: 0.625rem 0.875rem;
-    font-size: 0.875rem;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
-    color: var(--color-text);
-    background: var(--color-surface-input);
-    border: 1px solid var(--color-border);
-  }
-
-  .auth-input::placeholder {
-    color: var(--color-text-muted);
-    opacity: 0.6;
-  }
-
-  .auth-input:focus {
-    outline: none;
-    border-color: rgba(var(--primary), 0.5);
-    background: var(--color-surface-input-hover);
-    box-shadow: 0 0 0 3px rgba(var(--primary), 0.1);
-  }
-
-  .auth-input:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  .auth-input:hover:not(:disabled):not(:focus) {
-    border-color: var(--color-border);
-    background: var(--color-surface-input-hover);
   }
 
   /* ---------- Champs number : boutons d’incrémentation (spinners) ---------- */
@@ -1594,6 +1559,46 @@
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.72s;
+}
+
+.landing-reveal-stagger .projects-section > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+}
+
+.landing-reveal-stagger.is-visible .projects-section > *:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.05s;
+}
+
+.landing-reveal-stagger.is-visible .projects-section > *:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.18s;
+}
+
+.landing-reveal-stagger.is-visible .projects-section > *:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.31s;
+}
+
+/* Cartes projet : pas de double lift (le lien gère le hover image) */
+.project-card.card:hover {
+  transform: none;
+  border-color: rgba(var(--primary), 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.075),
+    0 0 0 1px rgba(2, 6, 18, 0.42) inset,
+    0 14px 36px rgba(2, 8, 26, 0.45);
+}
+
+.project-card.card:hover::after {
+  opacity: 0.5;
 }
 
 /* Contact : apparition au scroll */

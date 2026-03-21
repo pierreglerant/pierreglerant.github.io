@@ -11,7 +11,6 @@ import { useRouter, usePathname } from "next/navigation";
 import en from "../locales/en.json";
 import fr from "../locales/fr.json";
 import { localePath, switchLocalePath, type Locale } from "../i18n/config";
-import { setToastTranslator } from "../utils/toastNotifications";
 
 export type Language = Locale;
 
@@ -122,12 +121,6 @@ export function LanguageProvider({
     (path: string) => localePath(language, path),
     [language],
   );
-
-  // Expose t to toast fallbacks (hors React) pour que les toasts suivent la langue
-  useEffect(() => {
-    setToastTranslator(t);
-    return () => setToastTranslator((k: string) => k);
-  }, [t]);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t, lp }}>

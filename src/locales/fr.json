@@ -15,6 +15,7 @@
   "header": {
     "home": "Accueil",
     "about": "À propos",
+    "projects": "Projets",
     "contact": "Contact",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu",
@@ -24,8 +25,8 @@
     "copyright": "© {{year}} Pierre Glerant. Tous droits réservés."
   },
   "home": {
-    "titleLine1": "Bonjour, je suis",
-    "titleHighlight": "Pierre",
+    "titleLine1": "Bonjour, bienvenue sur mon portfolio",
+    "titleHighlight": "",
     "heroLine1": "Data Scientist & ingénieur ML, diplômé de CentraleSupélec.",
     "heroLine2": "Spécialisé en conception et déploiement d’applications IA, entre autres.",
     "sectionsTitle": "Contenu",
@@ -82,6 +83,51 @@
       "lightboxZoomIn": "Agrandir encore l’aperçu",
       "lightboxZoomOut": "Revenir à la taille adaptée à l’écran",
       "download": "Télécharger le CV (PDF)"
+    }
+  },
+  "projects": {
+    "title": "Projets",
+    "intro": "Travaux en logiciel, données et intelligence artificielle que j’ai réalisés — présentés ici et accessibles en ligne.",
+    "seeMore": "Voir le détail",
+    "backToProjects": "← Retour aux projets",
+    "cta": "Voir sur GitHub",
+    "githubAria": "Ouvrir le profil GitHub de Pierre Glerant",
+    "githubHint": "Dépôts, historique Git et démos lorsque c’est possible.",
+    "carouselPrev": "Image précédente",
+    "carouselNext": "Image suivante",
+    "carouselRegion": "Galerie d’images : {{title}}",
+    "carouselSlideAlt": "{{base}} — visuel {{current}} sur {{total}}",
+    "carouselSlideAltShort": "Visuel {{current}} sur {{total}}",
+    "detailSectionTitles": {
+      "overview": "Vue d’ensemble",
+      "features": "Détails & fonctionnalités",
+      "stack": "Technologies & stack"
+    },
+    "items": {
+      "project-one": {
+        "title": "Projet 1",
+        "excerpt": "Exemple factice : description courte pour illustrer la carte du premier projet.",
+        "coverAlt": "Visuel du projet 1 (placeholder)",
+        "sectionOverview": "Il s’agit d’une page de détail factice pour le projet 1. Remplacez ce texte par le contexte réel, la problématique et votre rôle.",
+        "sectionFeatures": "L’image est un placeholder téléchargé pour la maquette ; vous pourrez la remplacer par une capture d’écran ou une maquette du produit.",
+        "sectionStack": "Ajoutez ici plus tard les liens vers le dépôt GitHub, une démo en ligne ou la documentation."
+      },
+      "project-two": {
+        "title": "Projet 2",
+        "excerpt": "Deuxième exemple factice : mise en page identique, contenu à personnaliser.",
+        "coverAlt": "Visuel du projet 2 (placeholder)",
+        "sectionOverview": "Page de détail factice pour le projet 2. Décrivez l’architecture, les données utilisées ou les contraintes techniques.",
+        "sectionFeatures": "Ce bloc sert à montrer la structure du portfolio ; le fond bleu/gris de l’image est aléatoire (Lorem Picsum).",
+        "sectionStack": "Vous pouvez enrichir cette page avec une galerie, une liste de technologies ou des extraits de code."
+      },
+      "project-three": {
+        "title": "Projet 3",
+        "excerpt": "Troisième carte d’exemple : même gabarit, texte provisoire.",
+        "coverAlt": "Visuel du projet 3 (placeholder)",
+        "sectionOverview": "Dernière page factice de la série. Expliquez les résultats obtenus, les métriques ou les enseignements du projet.",
+        "sectionFeatures": "Les trois visuels sont indépendants pour simuler des projets distincts une fois le contenu final en place.",
+        "sectionStack": "Pensez à mettre à jour le sitemap et les métadonnées quand vous publierez de vrais projets."
+      }
     }
   },
   "contact": {

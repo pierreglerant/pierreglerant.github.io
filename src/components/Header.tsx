@@ -32,12 +32,15 @@ export default function Header() {
     return () => document.removeEventListener("keydown", onEscape);
   }, [menuOpen, closeMenu]);
 
+  const homeHash = `${lp("/")}#top`;
   const contactHash = `${lp("/")}#contact`;
   const aboutHash = `${lp("/")}#about`;
+  const projectsHash = `${lp("/")}#projects`;
 
   const NAV_LINKS = [
-    { label: t("header.home"), href: lp("/") },
+    { label: t("header.home"), href: homeHash },
     { label: t("header.about"), href: aboutHash },
+    { label: t("header.projects"), href: projectsHash },
     { label: t("header.contact"), href: contactHash },
   ];
 
@@ -49,9 +52,9 @@ export default function Header() {
   const langLabel = language === "en" ? "FR" : "EN";
 
   return (
-    <header className={menuOpen ? "z-[50]" : undefined}>
+    <header className={menuOpen ? "site-header z-[50]" : "site-header"}>
       <div className="nav">
-        <Link href={lp("/")} className="logo">
+        <Link href={homeHash} className="logo">
           <Image src="/logo.png" alt="Pierre Glerant" width={40} height={40} />
           <span className="hidden md:inline">
             Pierre<span style={{ color: "rgb(var(--primary))" }}> Glerant</span>
