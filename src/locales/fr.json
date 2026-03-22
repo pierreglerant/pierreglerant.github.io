@@ -136,6 +136,19 @@
         "crawlWorkerMeta": "Poll des jobs • exécution • sans HTTP • PostgreSQL",
         "postgresTitle": "PostgreSQL",
         "postgresMeta": "Base modèle, schémas dédiés, files d’attente de jobs, tables métier et de métadonnées, etc."
+      },
+      "immosphere": {
+        "diagramAria": "Schéma d’architecture ImmoSphere : frontend, API gateway, services dont TileServer, et PostgreSQL",
+        "httpsLabel": "HTTPS",
+        "frontendTitle": "Frontend",
+        "frontendMeta": "React + Vite • AWS Amplify · Amazon Cognito • Tailwind CSS",
+        "directTilesNote": "Le frontend interroge aussi TileServer en HTTPS pour les tuiles vectorielles.",
+        "gatewayTitle": "API Gateway (FastAPI)",
+        "gatewayMeta": "Auth : JWT Cognito · clé API métriques → admin • CORS · reverse proxy · réponses tuiles en streaming",
+        "microservicesLabel": "Services",
+        "serviceLines": "analytics-query-service|lecture indicateurs / PostGIS\nanalytics-ingestion-service|chargement & transformation\nland-register-service|cadastre, pipelines, MBTiles (suivi SSE)\nautocompletion-service|recherche adresses / texte\nuser-service|profil & données utilisateur\nadmin-service|métriques, outils d’exploitation\nblog-service|contenus & formulaires (ex. Turnstile)\ntoolbox-service|utilitaires API\npdf-generator-service|PDF (Playwright)\nTileServer GL|tuiles vectorielles depuis MBTiles",
+        "postgresTitle": "PostgreSQL / PostGIS",
+        "postgresMeta": "Loyers, transactions, DPE, équipements, démographie / logement, cadastre ; index pour l’autocomplétion (adresses, libellés) ; comptes, contenus et schémas analytics & admin"
       }
     },
     "items": {
@@ -146,9 +159,9 @@
         "sectionOverview": "**ImmoSphere** est une application web d’aide à la décision immobilière, bâtie sur des données immobilières et de marché agrégées et **multi-sources**.\n\nLe produit permet d’explorer et de comparer des zones géographiques selon plusieurs indicateurs (prix, loyers, démographie, équipements, performance énergétique (DPE), etc.) pour éclairer les décisions d’investissement et d’usage, avec une expérience centrée sur la **carte interactive**.\n\nCo-réalisation avec un **conseiller en gestion de patrimoine** : le partenaire assure le cadrage métier et le développement commercial ; je conduis la conception, le développement et l’exploitation techniques.",
         "sectionKeywords": "immobilier, aide à la décision, analyse de données, données multi-sources, cartographie interactive, géospatial, microservices, pipelines de données",
         "websiteLinkLabel": "www.immosphere.co",
-        "sectionFeatures": "Livraison de bout en bout d’un produit d’aide à la décision : ingestion et transformation des données, APIs REST, PostgreSQL/PostGIS, frontend React, déploiement conteneurisé sur AWS (EC2, RDS) et accompagnement opérationnel au quotidien.\n\nAnalyse multi-indicateurs (transactions, loyers, DPE, équipements, population / logement, etc.) exposée via une API unifiée derrière une gateway.",
+        "sectionFeatures": "Livraison de bout en bout d’un produit d’**aide à la décision** : ingestion et transformation des données, APIs REST, **PostgreSQL/PostGIS**, frontend React, déploiement conteneurisé sur **AWS** (EC2, RDS) et accompagnement opérationnel au quotidien.\n\nAnalyse **multi-indicateurs** (transactions, loyers, DPE, équipements, population / logement, etc.) exposée via une **API unifiée** derrière une gateway.",
         "sectionFeaturesListTitle": "Fonctionnalités principales",
-        "sectionFeaturesList": "- Cartes nationales : couches interactives sur la **France métropolitaine** — ventes depuis 2014, DPE depuis 2021, indicateurs de prix et de dynamique de quartier à différentes échelles territoriales.\n- Analyseur de bien : à partir de l’adresse, de la surface, de la typologie et d’autres informations saisies, **tableaux de bord** qui synthétisent le logement, son environnement immédiat et le quartier.\n- Explorateur de marché : exploration d’un **marché local** à partir d’une **zone géographique** choisie, avec des statistiques immobilières et **socio-démographiques** consolidées pour en comprendre la dynamique.",
+        "sectionFeaturesList": "- Cartes nationales : couches interactives sur la **France métropolitaine** — ventes depuis 2014, DPE depuis 2021, indicateurs de prix et de dynamique de quartier à différentes échelles territoriales.\n- Analyseur de bien : à partir de l’adresse, de la surface, de la typologie et d’autres informations saisies, **tableaux de bord** qui synthétisent le logement, son environnement immédiat et le quartier.\n- Explorateur de marché : exploration d’un **marché local** à partir d’une **zone géographique** choisie, avec des statistiques immobilières et **socio-démographiques** consolidées pour en comprendre la dynamique.\n- Simulateurs : crédit immobilier, impôt sur la fortune immobilière (IFI), plus-value immobilière.",
         "sectionStack": "- Déploiement & infrastructure : AWS EC2, services conteneurisés (Docker), Amazon RDS, Amazon Cognito pour l’authentification, AWS Amplify pour le frontend\n- Architecture & backend : microservices Python / FastAPI derrière une API Gateway centrale ; services découpés selon les périmètres métier ; TileServer pour les cartes\n- Couche données : ingestion multi-sources orchestrée en Python ; traitements et conversions vers PostgreSQL/PostGIS ou vers des tuiles vectorielles\n- Sécurité : JWT Cognito (Amplify côté client) ; droits par groupes Cognito ; Cloudflare\n- Observabilité : logs structurés (JSON en option), propagation X-Correlation-ID, réduction / masquage des données personnelles (PII), interface d’administration de supervision développée sur mesure\n- Frontend : React (Vite), React Router, Tailwind, MapLibre pour les cartes\n- Tests & CI : GitHub Actions (lint, tests backend et frontend), intégration Docker"
       },
       "secureops": {

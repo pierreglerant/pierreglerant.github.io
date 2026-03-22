@@ -3,7 +3,8 @@ import type { ProjectSlug } from "./projects";
 
 export type ArchitectureSection =
   | { variant: "prose"; body: string }
-  | { variant: "secureopsDiagram" };
+  | { variant: "secureopsDiagram" }
+  | { variant: "immosphereDiagram" };
 
 export function getProjectArchitectureSection(
   locale: Locale,
@@ -11,6 +12,9 @@ export function getProjectArchitectureSection(
 ): ArchitectureSection {
   if (slug === "secureops") {
     return { variant: "secureopsDiagram" };
+  }
+  if (slug === "immosphere") {
+    return { variant: "immosphereDiagram" };
   }
   return {
     variant: "prose",

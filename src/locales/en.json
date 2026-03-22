@@ -132,6 +132,19 @@
         "crawlWorkerMeta": "Job polling • execution • no HTTP • PostgreSQL",
         "postgresTitle": "PostgreSQL",
         "postgresMeta": "Template database, dedicated schemas, async job queues, domain and metadata tables, etc."
+      },
+      "immosphere": {
+        "diagramAria": "ImmoSphere architecture diagram: frontend, API gateway, services including TileServer, and PostgreSQL",
+        "httpsLabel": "HTTPS",
+        "frontendTitle": "Frontend",
+        "frontendMeta": "React + Vite • AWS Amplify · Amazon Cognito • Tailwind CSS",
+        "directTilesNote": "The frontend also calls TileServer over HTTPS for vector tiles.",
+        "gatewayTitle": "API Gateway (FastAPI)",
+        "gatewayMeta": "Auth: Cognito JWT · metrics API key → admin • CORS · reverse proxy · streamed tile responses",
+        "microservicesLabel": "Services",
+        "serviceLines": "analytics-query-service|indicator reads / PostGIS\nanalytics-ingestion-service|load & transform\nland-register-service|cadastre, pipelines, MBTiles (SSE progress)\nautocompletion-service|address / text search\nuser-service|profile & user data\nadmin-service|metrics & ops tooling\nblog-service|content & forms (e.g. Turnstile)\ntoolbox-service|API utilities\npdf-generator-service|PDF (Playwright)\nTileServer GL|Vector tiles from MBTiles",
+        "postgresTitle": "PostgreSQL / PostGIS",
+        "postgresMeta": "Rents, transactions, DPE, equipment, demographics / housing, cadastre; indexes for autocomplete (addresses, labels); accounts, content, and analytics & admin schemas"
       }
     },
     "items": {
@@ -144,7 +157,7 @@
         "websiteLinkLabel": "www.immosphere.co",
         "sectionFeatures": "End-to-end delivery of a decision-support product: data ingestion and transformation, REST APIs, **PostgreSQL/PostGIS**, React frontend, containerized deployment on **AWS** (EC2, RDS), and day-to-day production care.\n\nMulti-indicator analysis (e.g. transactions, rents, DPE, equipment, population/housing) exposed through a **unified API** behind a gateway.",
         "sectionFeaturesListTitle": "Main features",
-        "sectionFeaturesList": "- National map layers: interactive coverage of **metropolitan France**—sales from 2014 onward, DPE from 2021, and price and neighborhood dynamics at multiple geographic scales.\n- Property analyzer: from address, floor area, property type, and other inputs, **dashboards** summarize the home, its immediate context, and the neighborhood.\n- Market explorer: explore a **local market** from a chosen **geographic zone**, with consolidated real-estate and **socio-demographic** statistics to understand how that market behaves.",
+        "sectionFeaturesList": "- National map layers: interactive coverage of **metropolitan France**—sales from 2014 onward, DPE from 2021, and price and neighborhood dynamics at multiple geographic scales.\n- Property analyzer: from address, floor area, property type, and other inputs, **dashboards** summarize the home, its immediate context, and the neighborhood.\n- Market explorer: explore a **local market** from a chosen **geographic zone**, with consolidated real-estate and **socio-demographic** statistics to understand how that market behaves.\n- Simulators: mortgage, real-estate wealth tax (IFI), property capital gains.",
         "sectionStack": "- Deployment & infrastructure: AWS EC2, Dockerized services, Amazon RDS, Amazon Cognito for authentication, AWS Amplify for the frontend\n- Architecture & backend: Python / FastAPI microservices behind a central API Gateway; service boundaries aligned with business areas; TileServer for maps\n- Data layer: multi-source ingestion pipelines in Python; processing and loading into PostgreSQL/PostGIS or conversion to vector tiles\n- Security: Cognito JWT (Amplify on the client); access via Cognito groups; Cloudflare\n- Observability: structured logging (optional JSON), X-Correlation-ID propagation, PII sanitization, custom-built admin monitoring UI\n- Frontend: React (Vite), React Router, Tailwind, MapLibre for maps\n- Testing & CI: GitHub Actions (lint, backend and frontend tests), Docker Compose–based CI"
       },
       "secureops": {

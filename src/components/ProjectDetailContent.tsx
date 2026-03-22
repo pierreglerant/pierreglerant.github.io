@@ -12,6 +12,7 @@ import type { Locale } from "../i18n/config";
 import type { ProjectSlug } from "../config/projects";
 import { getProjectArchitectureSection } from "../config/project-architecture";
 import SecureOpsArchitectureDiagram from "./SecureOpsArchitectureDiagram";
+import ImmoSphereArchitectureDiagram from "./ImmoSphereArchitectureDiagram";
 import {
   PROJECT_GALLERY_IMAGES,
   PROJECT_REPO_URLS,
@@ -123,6 +124,8 @@ export default function ProjectDetailContent({
   const architectureBody: ReactNode =
     architecture.variant === "secureopsDiagram" ? (
       <SecureOpsArchitectureDiagram locale={locale} />
+    ) : architecture.variant === "immosphereDiagram" ? (
+      <ImmoSphereArchitectureDiagram locale={locale} />
     ) : (
       architecture.body
     );
