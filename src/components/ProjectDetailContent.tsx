@@ -7,6 +7,7 @@ import ProjectDetailAccordion, {
   type AccordionSection,
 } from "./ProjectDetailAccordion";
 import { bodyParagraphs } from "../lib/body-paragraphs";
+import { renderInlineBold } from "../lib/render-inline-bold";
 import type { Locale } from "../i18n/config";
 import type { ProjectSlug } from "../config/projects";
 import { getProjectArchitectureSection } from "../config/project-architecture";
@@ -15,6 +16,7 @@ import {
   PROJECT_GALLERY_IMAGES,
   PROJECT_REPO_URLS,
   PROJECT_SITE_URLS,
+  SECUREOPS_ACTIONS_SCAN_REPO_URL,
 } from "../config/projects";
 import { getTranslation } from "../i18n/server";
 
@@ -45,10 +47,39 @@ export default function ProjectDetailContent({
   const siteUrl = PROJECT_SITE_URLS[slug];
   const repoUrl = PROJECT_REPO_URLS[slug];
 
-  const overviewText = t(`projects.items.${slug}.sectionOverview`);
+  const overviewText =
+    slug === "secureops"
+      ? ""
+      : t(`projects.items.${slug}.sectionOverview`);
   const keywordsText = t(`projects.items.${slug}.sectionKeywords`);
+
   const overviewBody: string | ReactNode =
-    keywordsText.trim().length > 0 ? (
+    slug === "secureops" ? (
+      <>
+        <p>{renderInlineBold(t("projects.items.secureops.sectionOverviewLead"))}</p>
+        <p>
+          {renderInlineBold(t("projects.items.secureops.sectionOverviewCiPrefix"))}
+          <a
+            href={SECUREOPS_ACTIONS_SCAN_REPO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-[rgb(var(--primary))] underline decoration-[rgb(var(--primary))]/60 underline-offset-2 transition-opacity hover:opacity-90"
+          >
+            {t("projects.items.secureops.sectionOverviewCiLinkLabel")}
+          </a>
+          {renderInlineBold(t("projects.items.secureops.sectionOverviewCiSuffix"))}
+        </p>
+        <p>{renderInlineBold(t("projects.items.secureops.sectionOverviewStatus"))}</p>
+        {keywordsText.trim().length > 0 ? (
+          <p>
+            <span className="font-semibold text-[var(--color-text)]">
+              {t("projects.keywordsLabel")}
+            </span>{" "}
+            {keywordsText}
+          </p>
+        ) : null}
+      </>
+    ) : keywordsText.trim().length > 0 ? (
       <>
         {bodyParagraphs(overviewText).map((para, j) => (
           <p key={j}>{para}</p>
@@ -72,6 +103,19 @@ export default function ProjectDetailContent({
       architecture.body
     );
 
+  const featuresBody: string | ReactNode =
+    slug === "secureops" ? (
+      <>
+        {bodyParagraphs(t("projects.items.secureops.sectionFeatures")).map(
+          (para, j) => (
+            <p key={j}>{renderInlineBold(para)}</p>
+          ),
+        )}
+      </>
+    ) : (
+      t(`projects.items.${slug}.sectionFeatures`)
+    );
+
   const accordionSections: AccordionSection[] = [
     {
       title: t("projects.detailSectionTitles.overview"),
@@ -79,7 +123,7 @@ export default function ProjectDetailContent({
     },
     {
       title: t("projects.detailSectionTitles.features"),
-      body: t(`projects.items.${slug}.sectionFeatures`),
+      body: featuresBody,
     },
     {
       title: t("projects.detailSectionTitles.stack"),

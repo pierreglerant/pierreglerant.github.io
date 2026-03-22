@@ -111,16 +111,15 @@
     "architecture": {
       "secureops": {
         "diagramAria": "SecureOps architecture diagram: frontend, gateway, microservices, workers, and database",
-        "httpLabel": "HTTP — Bearer JWT or X-API-Key",
+        "httpsLabel": "HTTPS",
         "frontendTitle": "Frontend (Next.js)",
         "frontendMeta": "Cognito (auth) • i18n en/fr • Tailwind CSS",
         "gatewayTitle": "API Gateway",
         "gatewayMeta": "JWT + API key auth • CORS • Proxy",
-        "gatewayRoutes": "Routes: /health, /admin/*, /user/*, /scan/*, /crawl/* …",
         "adminTitle": "admin-service",
-        "adminMeta": "PostgreSQL • Alembic",
+        "adminMeta": "REST API • PostgreSQL • Alembic",
         "userTitle": "user-service",
-        "userMeta": "PostgreSQL • Alembic",
+        "userMeta": "REST API • PostgreSQL • Alembic",
         "pdfTitle": "pdf-service",
         "pdfMeta": "WeasyPrint",
         "scanTitle": "scan-service",
@@ -131,8 +130,8 @@
         "scanWorkerMeta": "Job polling • execution • no HTTP • PostgreSQL",
         "crawlWorkerTitle": "crawl-worker",
         "crawlWorkerMeta": "Job polling • execution • no HTTP • PostgreSQL",
-        "postgresTitle": "PostgreSQL (PostGIS)",
-        "postgresMeta": "template_db, dedicated schemas, async queue tables — separate connections from admin-service, user-service, scan-worker, and crawl-worker."
+        "postgresTitle": "PostgreSQL",
+        "postgresMeta": "Template database, dedicated schemas, async job queues, domain and metadata tables, etc."
       }
     },
     "items": {
@@ -150,12 +149,16 @@
         "title": "SecureOps",
         "excerpt": "Cybersecurity application — OWASP Top 10 web scanner and microservices architecture (secureops.fr).",
         "coverAlt": "SecureOps project preview — web vulnerability scanner",
-        "sectionOverview": "SecureOps is a cybersecurity application focused on web vulnerability assessment aligned with the OWASP Top 10, combining a web UI with a dedicated analysis engine.\n\nsecureops.fr is the access point for the product and its use.",
-        "sectionKeywords": "cybersecurity, OWASP Top 10, vulnerability scanner, web security, Python, FastAPI, microservices, custom queues, workers, Docker, AWS, EC2, Amplify, RDS, Cognito, WAF, Cloudflare, orchestration, asynchronous processing",
+        "sectionOverviewLead": "**SecureOps** is a web security product for **OWASP Top 10–style checks** on target URLs.",
+        "sectionOverviewCiPrefix": "On secureops.fr you can pull reports and schedule scans; in CI/CD, run the same checks with the ",
+        "sectionOverviewCiLinkLabel": "SecureOps GitHub Action",
+        "sectionOverviewCiSuffix": ".",
+        "sectionOverviewStatus": "What's live today: passive analysis and web crawlers. **Intrusive testing** is still in development.",
+        "sectionKeywords": "cybersecurity, OWASP Top 10, vulnerability scanner, web security, microservices, custom queues, workers, orchestration, asynchronous processing",
         "websiteLinkLabel": "www.secureops.fr",
         "githubLinkLabel": "GitHub",
-        "sectionFeatures": "Development of a web vulnerability scanner covering OWASP Top 10–style risk scenarios, with a web interface and analysis engine.\n\nDesign of a distributed asynchronous microservices architecture using queues, workers, and orchestration to scale workloads and isolate components.",
-        "sectionStack": "- Deployment: AWS — Docker, EC2, Amplify, RDS; Amazon Cognito (authentication); AWS WAF (application firewall); Cloudflare (logs)\n- Architecture: distributed microservices\n- API: FastAPI microservices (REST) with worker services consuming them\n- Analysis engine: Python — OWASP Top 10–aligned scans, asynchronous worker execution\n- Frontend: web UI for the vulnerability scanner\n- Messaging: in-house queue and job-routing layer (custom design rather than a generic Redis / RabbitMQ / SQS-style broker at the core); workers wired to the FastAPI services\n- Orchestration: scan pipeline stages coordinated through that asynchronous layer"
+        "sectionFeatures": "Engineering of the **passive analysis pipeline**: HTTP/TLS and configuration signals, security headers, technology fingerprinting, and misconfiguration heuristics, correlated to **OWASP Top 10–style risk families**—without active exploitation in what’s exposed online today.\n\n**Crawl jobs** map the reachable surface (link following, scoping rules) so scans can target a discovered set of URLs and assets instead of a **single entry point**.\n\n**Asynchronous execution** end to end: FastAPI services accept scan/crawl requests and enqueue work in **PostgreSQL-backed queues**; dedicated workers poll, execute the engine, and write status and findings back—keeping APIs responsive, absorbing spikes, and isolating failures per job.",
+        "sectionStack": "- Deployment & infrastructure: AWS (EC2), Dockerized services, self-hosted PostgreSQL, Amazon Cognito for authentication\n- Architecture & backend: FastAPI microservices behind an API Gateway; asynchronous scan execution via PostgreSQL-backed job queues and dedicated workers\n- Data layer: PostgreSQL; scan results stored as JSON; indexed tables (status, retry, timestamps); on-demand PDF reports\n- Security: Cognito JWT and API keys; basic RBAC; in-memory rate limiting; SSRF safeguards (private networks blocked, timeouts); Cloudflare for edge and application protection\n- Observability: structured logging (optional JSON), X-Correlation-ID propagation, PII sanitization, custom-built admin monitoring UI\n- Frontend: Next.js (App Router) and Tailwind; async job tracking via polling with backoff\n- Testing & CI: GitHub Actions (lint, backend and frontend tests), Docker-based workflows"
       },
       "project-three": {
         "title": "Project 3",

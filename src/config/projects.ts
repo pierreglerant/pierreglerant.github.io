@@ -61,3 +61,7 @@ export const PROJECT_SITE_URLS: Partial<Record<ProjectSlug, string>> = {
 export const PROJECT_REPO_URLS: Partial<Record<ProjectSlug, string>> = {
   secureops: "https://github.com/pierreglerant/secureops",
 };
+
+/** Action GitHub CI (org secureopsfr), liée depuis la fiche projet SecureOps. */
+export const SECUREOPS_ACTIONS_SCAN_REPO_URL =
+  "https://github.com/secureopsfr/actions-scan";

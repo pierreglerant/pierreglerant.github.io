@@ -16,7 +16,7 @@ function VLine({ className = "" }: { className?: string }) {
 function FlowDown() {
   return (
     <span
-      className="select-none text-[10px] leading-none text-[rgb(var(--primary))] opacity-90"
+      className="select-none text-xs leading-none text-[rgb(var(--primary))] opacity-90"
       aria-hidden
     >
       ▼
@@ -48,11 +48,11 @@ function LayerCard({
     <div
       className={`w-full min-w-0 rounded-xl border px-2.5 py-2 text-center md:px-3 md:py-2.5 ${ring} ${className}`}
     >
-      <p className="text-[0.7rem] font-semibold leading-tight tracking-tight text-[var(--color-text)] text-balance md:text-xs">
+      <p className="text-xs font-semibold leading-tight tracking-tight text-[var(--color-text)] text-balance md:text-sm">
         {title}
       </p>
       {subtitle ? (
-        <p className="mt-1 text-[0.65rem] leading-snug text-balance text-[var(--color-text-muted)] md:text-[0.7rem]">
+        <p className="mt-1 text-[0.7rem] leading-snug text-balance text-[var(--color-text-muted)] md:text-xs">
           {subtitle}
         </p>
       ) : null}
@@ -69,8 +69,9 @@ export default function SecureOpsArchitectureDiagram({
   const t = getTranslation(locale);
 
   return (
-    <article
-      className="secureops-architecture -mx-0.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)]/35 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] md:-mx-0 md:p-4"
+    <div
+      className="secureops-architecture w-full min-w-0"
+      role="group"
       aria-label={t(`${TK}.diagramAria`)}
     >
       <div className="overflow-x-auto pb-0.5 [scrollbar-width:thin]">
@@ -81,8 +82,8 @@ export default function SecureOpsArchitectureDiagram({
           />
 
           <div className="flex flex-col items-center py-1.5 md:py-2">
-            <p className="mb-1 text-center text-[0.6rem] font-medium uppercase tracking-wider text-[var(--color-text-muted)] md:text-[0.65rem]">
-              {t(`${TK}.httpLabel`)}
+            <p className="mb-1 text-center text-[0.65rem] font-medium uppercase tracking-wider text-[var(--color-text-muted)] md:text-[0.7rem]">
+              {t(`${TK}.httpsLabel`)}
             </p>
             <VLine className="h-4 md:h-5" />
           </div>
@@ -90,15 +91,19 @@ export default function SecureOpsArchitectureDiagram({
           <LayerCard
             title={t(`${TK}.gatewayTitle`)}
             subtitle={t(`${TK}.gatewayMeta`)}
-            extra={
-              <p className="mt-2 border-t border-[var(--color-border)] pt-2 text-center font-mono text-[0.6rem] leading-snug text-balance text-[var(--color-text-muted)] md:text-[0.65rem]">
-                {t(`${TK}.gatewayRoutes`)}
-              </p>
-            }
           />
 
-          <div className="flex flex-col items-center py-1.5 md:py-2">
-            <VLine className="h-4 md:h-5" />
+          {/* Flèches gateway → chaque service */}
+          <div className="flex flex-row gap-1.5 pt-1 md:gap-2.5">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div
+                key={i}
+                className="flex flex-1 flex-col items-center gap-0.5"
+              >
+                <FlowDown />
+                <VLine className="h-3" />
+              </div>
+            ))}
           </div>
 
           {/* Cinq services — pdf-service à droite */}
@@ -135,7 +140,7 @@ export default function SecureOpsArchitectureDiagram({
             </div>
           </div>
 
-          {/* Lien gateway → couche suivante */}
+          {/* Services → couche suivante (pas de lien sous pdf-service) */}
           <div className="flex flex-row gap-1.5 pt-1 md:gap-2.5">
             <div className="flex flex-1 justify-center">
               <VLine className="h-3" />
@@ -149,9 +154,7 @@ export default function SecureOpsArchitectureDiagram({
             <div className="flex flex-1 justify-center">
               <VLine className="h-3" />
             </div>
-            <div className="flex flex-1 justify-center">
-              <VLine className="h-3" />
-            </div>
+            <div className="flex flex-1" aria-hidden />
           </div>
 
           {/* Pont : admin/user → DB ; workers scan/crawl ; pdf sans suite */}
@@ -219,6 +222,6 @@ export default function SecureOpsArchitectureDiagram({
           />
         </div>
       </div>
-    </article>
+    </div>
   );
 }
