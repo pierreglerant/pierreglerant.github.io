@@ -85,8 +85,8 @@
   },
   "projects": {
     "title": "Projects",
-    "intro": "Software, data, and AI work I've built, presented here and available online to explore.",
-    "introConfidentiality": "For confidentiality reasons, projects I worked on at Safran are not included here.",
+    "intro": "A selection of software, data, and AI projects I've built—each live on the web and summarized below.",
+    "introConfidentiality": "Work from my time at Safran is not listed here, for confidentiality reasons.",
     "seeMore": "See more",
     "backToProjects": "Back to projects",
     "carouselPrev": "Previous image",

@@ -89,8 +89,8 @@
   },
   "projects": {
     "title": "Projets",
-    "intro": "Travaux en logiciel, données et intelligence artificielle que j’ai réalisés accessibles en ligne.",
-    "introConfidentiality": "Pour des raisons de confidentialité, les projets réalisés au sein de Safran ne sont pas présentés ici.",
+    "intro": "Quelques projets autour du logiciel, de la donnée et de l’intelligence artificielle—réalisations accessibles en ligne, présentées ci-dessous.",
+    "introConfidentiality": "Pour des raisons de confidentialité, le travail effectué chez Safran n’apparaît pas dans cette liste.",
     "seeMore": "Voir le détail",
     "backToProjects": "Retour aux projets",
     "carouselPrev": "Image précédente",

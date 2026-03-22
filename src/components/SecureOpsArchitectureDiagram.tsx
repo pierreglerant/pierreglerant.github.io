@@ -61,7 +61,11 @@ function LayerCard({
   );
 }
 
-export default function SecureOpsArchitectureDiagram({ locale }: { locale: Locale }) {
+export default function SecureOpsArchitectureDiagram({
+  locale,
+}: {
+  locale: Locale;
+}) {
   const t = getTranslation(locale);
 
   return (
@@ -71,7 +75,10 @@ export default function SecureOpsArchitectureDiagram({ locale }: { locale: Local
     >
       <div className="overflow-x-auto pb-0.5 [scrollbar-width:thin]">
         <div className="mx-auto min-w-[min(100%,32rem)] max-w-3xl space-y-0 md:min-w-0">
-          <LayerCard title={t(`${TK}.frontendTitle`)} subtitle={t(`${TK}.frontendMeta`)} />
+          <LayerCard
+            title={t(`${TK}.frontendTitle`)}
+            subtitle={t(`${TK}.frontendMeta`)}
+          />
 
           <div className="flex flex-col items-center py-1.5 md:py-2">
             <p className="mb-1 text-center text-[0.6rem] font-medium uppercase tracking-wider text-[var(--color-text-muted)] md:text-[0.65rem]">
@@ -97,19 +104,34 @@ export default function SecureOpsArchitectureDiagram({ locale }: { locale: Local
           {/* Cinq services — pdf-service à droite */}
           <div className="flex flex-row gap-1.5 md:gap-2.5">
             <div className="min-w-0 flex-1">
-              <LayerCard title={t(`${TK}.adminTitle`)} subtitle={t(`${TK}.adminMeta`)} />
+              <LayerCard
+                title={t(`${TK}.adminTitle`)}
+                subtitle={t(`${TK}.adminMeta`)}
+              />
             </div>
             <div className="min-w-0 flex-1">
-              <LayerCard title={t(`${TK}.userTitle`)} subtitle={t(`${TK}.userMeta`)} />
+              <LayerCard
+                title={t(`${TK}.userTitle`)}
+                subtitle={t(`${TK}.userMeta`)}
+              />
             </div>
             <div className="min-w-0 flex-1">
-              <LayerCard title={t(`${TK}.scanTitle`)} subtitle={t(`${TK}.scanMeta`)} />
+              <LayerCard
+                title={t(`${TK}.scanTitle`)}
+                subtitle={t(`${TK}.scanMeta`)}
+              />
             </div>
             <div className="min-w-0 flex-1">
-              <LayerCard title={t(`${TK}.crawlTitle`)} subtitle={t(`${TK}.crawlMeta`)} />
+              <LayerCard
+                title={t(`${TK}.crawlTitle`)}
+                subtitle={t(`${TK}.crawlMeta`)}
+              />
             </div>
             <div className="min-w-0 flex-1">
-              <LayerCard title={t(`${TK}.pdfTitle`)} subtitle={t(`${TK}.pdfMeta`)} />
+              <LayerCard
+                title={t(`${TK}.pdfTitle`)}
+                subtitle={t(`${TK}.pdfMeta`)}
+              />
             </div>
           </div>
 
@@ -162,7 +184,10 @@ export default function SecureOpsArchitectureDiagram({ locale }: { locale: Local
                 <VLine className="h-3 shrink-0" />
               </div>
             </div>
-            <div className="flex min-h-[5.5rem] flex-1 md:min-h-[6rem]" aria-hidden />
+            <div
+              className="flex min-h-[5.5rem] flex-1 md:min-h-[6rem]"
+              aria-hidden
+            />
           </div>
 
           {/* Quatre liaisons distinctes vers PostgreSQL (pas de fusion) — colonne pdf vide */}

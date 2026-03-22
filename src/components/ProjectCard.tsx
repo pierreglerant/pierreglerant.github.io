@@ -2,10 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Locale } from "../i18n/config";
 import type { ProjectBadgeId, ProjectSlug } from "../config/projects";
-import {
-  PROJECT_CARD_BADGES,
-  PROJECT_COVER_IMAGE,
-} from "../config/projects";
+import { PROJECT_CARD_BADGES, PROJECT_COVER_IMAGE } from "../config/projects";
 import { getTranslation } from "../i18n/server";
 
 const BADGE_STYLES: Record<ProjectBadgeId, string> = {
@@ -50,26 +47,28 @@ export default function ProjectCard({ locale, slug }: Props) {
           />
         </div>
         <div className="flex min-h-0 flex-1 flex-col gap-2 p-5 md:p-6">
-          <ul
-            className="flex list-none flex-wrap gap-1.5 p-0"
-            aria-label={t("projects.badgeListLabel")}
-          >
-            {badges.map((id) => (
-              <li key={id}>
-                <span
-                  className={
-                    "inline-block rounded-md border px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide md:text-[0.7rem] " +
-                    BADGE_STYLES[id]
-                  }
-                >
-                  {t(`projects.badges.${id}`)}
-                </span>
-              </li>
-            ))}
-          </ul>
-          <h3 className="text-lg font-semibold tracking-tight text-[var(--color-text)] transition-colors group-hover:text-[rgb(var(--primary))] md:text-xl">
-            {title}
-          </h3>
+          <div className="grid grid-cols-[1fr_auto] items-center gap-x-3 gap-y-1">
+            <h3 className="min-w-0 text-lg font-semibold leading-snug tracking-tight text-[var(--color-text)] transition-colors group-hover:text-[rgb(var(--primary))] md:text-xl">
+              {title}
+            </h3>
+            <ul
+              className="flex list-none shrink-0 flex-row flex-wrap items-center justify-end gap-1.5 p-0"
+              aria-label={t("projects.badgeListLabel")}
+            >
+              {badges.map((id) => (
+                <li key={id}>
+                  <span
+                    className={
+                      "inline-block rounded-md border px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide md:text-[0.7rem] " +
+                      BADGE_STYLES[id]
+                    }
+                  >
+                    {t(`projects.badges.${id}`)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
           <p className="flex-1 text-sm leading-relaxed text-[var(--color-text-muted)] md:text-[0.9375rem]">
             {excerpt}
           </p>
