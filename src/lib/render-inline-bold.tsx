@@ -14,15 +14,10 @@ export function renderInlineBold(text: string): ReactNode {
   let k = 0;
   while ((m = re.exec(text)) !== null) {
     if (m.index > last) {
-      nodes.push(
-        <Fragment key={k++}>{text.slice(last, m.index)}</Fragment>,
-      );
+      nodes.push(<Fragment key={k++}>{text.slice(last, m.index)}</Fragment>);
     }
     nodes.push(
-      <strong
-        key={k++}
-        className="font-semibold text-[var(--color-text)]"
-      >
+      <strong key={k++} className="font-semibold text-[var(--color-text)]">
         {m[1]}
       </strong>,
     );

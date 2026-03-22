@@ -48,17 +48,19 @@ export default function ProjectDetailContent({
   const repoUrl = PROJECT_REPO_URLS[slug];
 
   const overviewText =
-    slug === "secureops"
-      ? ""
-      : t(`projects.items.${slug}.sectionOverview`);
+    slug === "secureops" ? "" : t(`projects.items.${slug}.sectionOverview`);
   const keywordsText = t(`projects.items.${slug}.sectionKeywords`);
 
   const overviewBody: string | ReactNode =
     slug === "secureops" ? (
       <>
-        <p>{renderInlineBold(t("projects.items.secureops.sectionOverviewLead"))}</p>
         <p>
-          {renderInlineBold(t("projects.items.secureops.sectionOverviewCiPrefix"))}
+          {renderInlineBold(t("projects.items.secureops.sectionOverviewLead"))}
+        </p>
+        <p>
+          {renderInlineBold(
+            t("projects.items.secureops.sectionOverviewCiPrefix"),
+          )}
           <a
             href={SECUREOPS_ACTIONS_SCAN_REPO_URL}
             target="_blank"
@@ -67,9 +69,15 @@ export default function ProjectDetailContent({
           >
             {t("projects.items.secureops.sectionOverviewCiLinkLabel")}
           </a>
-          {renderInlineBold(t("projects.items.secureops.sectionOverviewCiSuffix"))}
+          {renderInlineBold(
+            t("projects.items.secureops.sectionOverviewCiSuffix"),
+          )}
         </p>
-        <p>{renderInlineBold(t("projects.items.secureops.sectionOverviewStatus"))}</p>
+        <p>
+          {renderInlineBold(
+            t("projects.items.secureops.sectionOverviewStatus"),
+          )}
+        </p>
         {keywordsText.trim().length > 0 ? (
           <p>
             <span className="font-semibold text-[var(--color-text)]">
