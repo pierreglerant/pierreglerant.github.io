@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { useCallback, useId, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { bodyParagraphs, stackBulletItems } from "../lib/body-paragraphs";
+import { formatStackListItem } from "../lib/format-stack-list-item";
 
 export type AccordionSection = {
   title: string;
@@ -17,21 +18,6 @@ type Props = {
   /** Index de la section ouverte au chargement (-1 = toutes fermées) */
   defaultOpenIndex?: number;
 };
-
-/** Met en avant `Libellé :` au début de chaque puce (format stack). */
-function formatStackListItem(text: string): ReactNode {
-  const idx = text.indexOf(": ");
-  if (idx <= 0) return text;
-  const label = text.slice(0, idx).trim();
-  const value = text.slice(idx + 2).trim();
-  if (!label || !value) return text;
-  return (
-    <>
-      <span className="font-semibold text-[var(--color-text)]">{label}:</span>
-      <span> {value}</span>
-    </>
-  );
-}
 
 function renderStringAccordionBody(
   body: string,

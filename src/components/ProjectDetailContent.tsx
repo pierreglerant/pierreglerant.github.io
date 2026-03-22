@@ -6,7 +6,7 @@ import ProjectGalleryCarousel from "./ProjectGalleryCarousel";
 import ProjectDetailAccordion, {
   type AccordionSection,
 } from "./ProjectDetailAccordion";
-import { bodyParagraphs } from "../lib/body-paragraphs";
+import { bodyParagraphs, stackBulletItems } from "../lib/body-paragraphs";
 import { renderInlineBold } from "../lib/render-inline-bold";
 import type { Locale } from "../i18n/config";
 import type { ProjectSlug } from "../config/projects";
@@ -19,6 +19,22 @@ import {
   SECUREOPS_ACTIONS_SCAN_REPO_URL,
 } from "../config/projects";
 import { getTranslation } from "../i18n/server";
+
+/** Puce « Libellé : valeur » avec **gras** possible dans la valeur (ImmoSphere). */
+function immosphereFeatureBulletItem(item: string): ReactNode {
+  const idx = item.indexOf(": ");
+  if (idx <= 0) {
+    return renderInlineBold(item);
+  }
+  const label = item.slice(0, idx).trim();
+  const value = item.slice(idx + 2).trim();
+  return (
+    <>
+      <span className="font-semibold text-[var(--color-text)]">{label}:</span>{" "}
+      {renderInlineBold(value)}
+    </>
+  );
+}
 
 export default function ProjectDetailContent({
   locale,
@@ -90,7 +106,7 @@ export default function ProjectDetailContent({
     ) : keywordsText.trim().length > 0 ? (
       <>
         {bodyParagraphs(overviewText).map((para, j) => (
-          <p key={j}>{para}</p>
+          <p key={j}>{slug === "immosphere" ? renderInlineBold(para) : para}</p>
         ))}
         <p>
           <span className="font-semibold text-[var(--color-text)]">
@@ -119,6 +135,26 @@ export default function ProjectDetailContent({
             <p key={j}>{renderInlineBold(para)}</p>
           ),
         )}
+      </>
+    ) : slug === "immosphere" ? (
+      <>
+        {bodyParagraphs(t("projects.items.immosphere.sectionFeatures")).map(
+          (para, j) => (
+            <p key={j}>{renderInlineBold(para)}</p>
+          ),
+        )}
+        <p className="mt-3 font-semibold text-[var(--color-text)]">
+          {t("projects.items.immosphere.sectionFeaturesListTitle")}
+        </p>
+        <ul className="mt-2 list-disc space-y-2 pl-5 marker:text-[rgb(var(--primary))]">
+          {stackBulletItems(
+            t("projects.items.immosphere.sectionFeaturesList"),
+          ).map((item, j) => (
+            <li key={j} className="pl-1">
+              {immosphereFeatureBulletItem(item)}
+            </li>
+          ))}
+        </ul>
       </>
     ) : (
       t(`projects.items.${slug}.sectionFeatures`)
