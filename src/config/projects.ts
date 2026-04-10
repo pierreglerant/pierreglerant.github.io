@@ -7,7 +7,7 @@
 export const PROJECT_SLUGS = [
   "immosphere",
   "secureops",
-  "project-three",
+  "crypto-prediction",
 ] as const;
 
 export type ProjectSlug = (typeof PROJECT_SLUGS)[number];
@@ -21,7 +21,7 @@ export const PROJECT_CARD_BADGES: Record<
 > = {
   immosphere: ["data", "software"],
   secureops: ["cyber", "software"],
-  "project-three": ["ai"],
+  "crypto-prediction": ["data", "ai"],
 };
 
 export function isProjectSlug(value: string): value is ProjectSlug {
@@ -41,14 +41,14 @@ function galleryForSlug(slug: ProjectSlug): readonly string[] {
 export const PROJECT_GALLERY_IMAGES: Record<ProjectSlug, readonly string[]> = {
   immosphere: galleryForSlug("immosphere"),
   secureops: galleryForSlug("secureops"),
-  "project-three": galleryForSlug("project-three"),
+  "crypto-prediction": galleryForSlug("crypto-prediction"),
 };
 
 /** Première image = aperçu carte liste */
 export const PROJECT_COVER_IMAGE: Record<ProjectSlug, string> = {
   immosphere: PROJECT_GALLERY_IMAGES.immosphere[0],
   secureops: PROJECT_GALLERY_IMAGES.secureops[0],
-  "project-three": PROJECT_GALLERY_IMAGES["project-three"][0],
+  "crypto-prediction": PROJECT_GALLERY_IMAGES["crypto-prediction"][0],
 };
 
 /** URL du site public pour un projet (lien affiché dans la fiche). */
@@ -60,6 +60,12 @@ export const PROJECT_SITE_URLS: Partial<Record<ProjectSlug, string>> = {
 /** Dépôt source (ex. GitHub), optionnel par projet. */
 export const PROJECT_REPO_URLS: Partial<Record<ProjectSlug, string>> = {
   secureops: "https://github.com/pierreglerant/secureops",
+  "crypto-prediction": "https://github.com/pierreglerant/crypto-prediction",
+};
+
+/** Rapport PDF statique sous /public (téléchargement depuis la fiche projet). */
+export const PROJECT_REPORT_PDF_URLS: Partial<Record<ProjectSlug, string>> = {
+  "crypto-prediction": "/projects/crypto-prediction/rapport-final.pdf",
 };
 
 /** Action GitHub CI (org secureopsfr), liée depuis la fiche projet SecureOps. */

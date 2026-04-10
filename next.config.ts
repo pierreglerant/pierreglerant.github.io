@@ -26,6 +26,26 @@ const nextConfig: NextConfig = {
         destination: "/en/projects/secureops",
         permanent: true,
       },
+      {
+        source: "/fr/projects/project-three",
+        destination: "/fr/projects/crypto-prediction",
+        permanent: true,
+      },
+      {
+        source: "/en/projects/project-three",
+        destination: "/en/projects/crypto-prediction",
+        permanent: true,
+      },
+      {
+        source: "/fr/projects/crypto-data-platform",
+        destination: "/fr/projects/crypto-prediction",
+        permanent: true,
+      },
+      {
+        source: "/en/projects/crypto-data-platform",
+        destination: "/en/projects/crypto-prediction",
+        permanent: true,
+      },
     ];
   },
 

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, Github } from "lucide-react";
+import { ArrowLeft, ExternalLink, FileDown, Github } from "lucide-react";
 import AnimateInView from "./AnimateInView";
 import ProjectGalleryCarousel from "./ProjectGalleryCarousel";
 import ProjectDetailAccordion, {
@@ -16,6 +16,7 @@ import ImmoSphereArchitectureDiagram from "./ImmoSphereArchitectureDiagram";
 import {
   PROJECT_GALLERY_IMAGES,
   PROJECT_REPO_URLS,
+  PROJECT_REPORT_PDF_URLS,
   PROJECT_SITE_URLS,
   SECUREOPS_ACTIONS_SCAN_REPO_URL,
 } from "../config/projects";
@@ -63,6 +64,7 @@ export default function ProjectDetailContent({
 
   const siteUrl = PROJECT_SITE_URLS[slug];
   const repoUrl = PROJECT_REPO_URLS[slug];
+  const reportPdfUrl = PROJECT_REPORT_PDF_URLS[slug];
 
   const overviewText =
     slug === "secureops" ? "" : t(`projects.items.${slug}.sectionOverview`);
@@ -104,17 +106,23 @@ export default function ProjectDetailContent({
           </p>
         ) : null}
       </>
-    ) : keywordsText.trim().length > 0 ? (
+    ) : keywordsText.trim().length > 0 || slug === "crypto-prediction" ? (
       <>
         {bodyParagraphs(overviewText).map((para, j) => (
-          <p key={j}>{slug === "immosphere" ? renderInlineBold(para) : para}</p>
+          <p key={j}>
+            {slug === "immosphere" || slug === "crypto-prediction"
+              ? renderInlineBold(para)
+              : para}
+          </p>
         ))}
-        <p>
-          <span className="font-semibold text-[var(--color-text)]">
-            {t("projects.keywordsLabel")}
-          </span>{" "}
-          {keywordsText}
-        </p>
+        {keywordsText.trim().length > 0 ? (
+          <p>
+            <span className="font-semibold text-[var(--color-text)]">
+              {t("projects.keywordsLabel")}
+            </span>{" "}
+            {keywordsText}
+          </p>
+        ) : null}
       </>
     ) : (
       overviewText
@@ -163,25 +171,57 @@ export default function ProjectDetailContent({
       t(`projects.items.${slug}.sectionFeatures`)
     );
 
-  const accordionSections: AccordionSection[] = [
-    {
-      title: t("projects.detailSectionTitles.overview"),
-      body: overviewBody,
-    },
-    {
-      title: t("projects.detailSectionTitles.features"),
-      body: featuresBody,
-    },
-    {
-      title: t("projects.detailSectionTitles.stack"),
-      body: t(`projects.items.${slug}.sectionStack`),
-      bodyVariant: "bulletList" as const,
-    },
-    {
-      title: t("projects.detailSectionTitles.architecture"),
-      body: architectureBody,
-    },
-  ];
+  const accordionSections: AccordionSection[] =
+    slug === "crypto-prediction"
+      ? [
+          {
+            title: t("projects.detailSectionTitles.overview"),
+            body: overviewBody,
+          },
+          {
+            title: t("projects.detailSectionTitles.method"),
+            body: (
+              <>
+                {bodyParagraphs(
+                  t("projects.items.crypto-prediction.sectionMethod"),
+                ).map((para, j) => (
+                  <p key={j}>{renderInlineBold(para)}</p>
+                ))}
+              </>
+            ),
+          },
+          {
+            title: t("projects.detailSectionTitles.results"),
+            body: (
+              <>
+                {bodyParagraphs(
+                  t("projects.items.crypto-prediction.sectionResults"),
+                ).map((para, j) => (
+                  <p key={j}>{renderInlineBold(para)}</p>
+                ))}
+              </>
+            ),
+          },
+        ]
+      : [
+          {
+            title: t("projects.detailSectionTitles.overview"),
+            body: overviewBody,
+          },
+          {
+            title: t("projects.detailSectionTitles.features"),
+            body: featuresBody,
+          },
+          {
+            title: t("projects.detailSectionTitles.stack"),
+            body: t(`projects.items.${slug}.sectionStack`),
+            bodyVariant: "bulletList" as const,
+          },
+          {
+            title: t("projects.detailSectionTitles.architecture"),
+            body: architectureBody,
+          },
+        ];
 
   return (
     <div className="mx-auto max-w-[min(100%,56rem)] px-4 py-10 md:py-16">
@@ -218,7 +258,7 @@ export default function ProjectDetailContent({
             >
               {title}
             </h1>
-            {siteUrl || repoUrl ? (
+            {siteUrl || repoUrl || reportPdfUrl ? (
               <div className="flex max-w-full flex-wrap items-center justify-end gap-x-4 gap-y-2">
                 {siteUrl ? (
                   <a
@@ -248,6 +288,20 @@ export default function ProjectDetailContent({
                       aria-hidden
                     />
                     {t(`projects.items.${slug}.githubLinkLabel`)}
+                  </a>
+                ) : null}
+                {reportPdfUrl ? (
+                  <a
+                    href={reportPdfUrl}
+                    download
+                    className="inline-flex shrink-0 items-center gap-1.5 border-b border-transparent pb-0.5 text-sm font-medium text-[rgb(var(--primary))] no-underline transition-colors hover:border-[rgb(var(--primary))] md:text-base"
+                  >
+                    <FileDown
+                      className="h-4 w-4 shrink-0 opacity-90 md:h-[1.125rem] md:w-[1.125rem]"
+                      strokeWidth={2}
+                      aria-hidden
+                    />
+                    {t(`projects.items.${slug}.pdfReportLinkLabel`)}
                   </a>
                 ) : null}
               </div>

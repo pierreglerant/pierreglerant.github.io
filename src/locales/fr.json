@@ -112,7 +112,9 @@
       "overview": "Vue d’ensemble",
       "features": "Détails & fonctionnalités",
       "stack": "Technologies & stack",
-      "architecture": "Architecture"
+      "architecture": "Architecture",
+      "method": "Méthode",
+      "results": "Résultats"
     },
     "architecture": {
       "secureops": {
@@ -181,14 +183,16 @@
         "sectionFeatures": "Conception du **pipeline d’analyse passive** : signaux HTTP/TLS et de configuration, en-têtes de sécurité, empreintes technologiques et heuristiques de mauvaise configuration, mises en regard de **familles de risques type OWASP Top 10**—sans exploitation active sur le périmètre actuellement exposé en ligne.\n\n**Jobs de crawl** pour cartographier la surface atteignable (suivi de liens, règles de périmètre), afin de lancer des scans sur un ensemble d’URLs et d’actifs découverts plutôt que sur une **seule entrée**.\n\n**Exécution asynchrone** de bout en bout : les services FastAPI reçoivent les demandes scan/crawl et enfilent le travail dans des **files adossées à PostgreSQL** ; des workers dédiés font le polling, exécutent le moteur et écrivent statuts et résultats—APIs réactives, absorption des pics, isolation des pannes par job.",
         "sectionStack": "- Déploiement & infrastructure : AWS EC2, services conteneurisés (Docker), PostgreSQL hébergé sur cette instance EC2, Amazon Cognito pour l’authentification, AWS Amplify pour le frontend\n- Architecture & backend : microservices FastAPI exposés via une API Gateway ; exécution asynchrone des scans via une file de jobs PostgreSQL et des workers dédiés\n- Couche données : PostgreSQL ; résultats de scan stockés en JSON ; tables indexées (statut, tentatives, horodatage) ; rapports PDF générés à la demande\n- Sécurité : JWT Cognito et clés API ; RBAC basique ; limitation de débit en mémoire ; protections SSRF (blocage des réseaux privés, timeouts) ; Cloudflare pour la protection applicative en périphérie\n- Observabilité : logs structurés (JSON en option), propagation X-Correlation-ID, réduction / masquage des données personnelles (PII), interface d’administration de supervision développée sur mesure\n- Frontend : Next.js (App Router) et Tailwind ; suivi des jobs asynchrones par polling avec backoff\n- Tests & CI : GitHub Actions (lint, tests backend et frontend), intégration Docker"
       },
-      "project-three": {
-        "title": "Projet 3",
-        "excerpt": "Troisième carte d’exemple : même gabarit, texte provisoire.",
-        "coverAlt": "Visuel du projet 3 (placeholder)",
-        "sectionOverview": "Dernière page factice de la série. Expliquez les résultats obtenus, les métriques ou les enseignements du projet.",
-        "sectionKeywords": "",
-        "sectionFeatures": "Les trois visuels sont indépendants pour simuler des projets distincts une fois le contenu final en place.",
-        "sectionStack": "- Déploiement : à renseigner\n- API : à renseigner\n- Frontend : à renseigner\n- Base de données : à renseigner\n- Autres : CI/CD, métadonnées et sitemap à la publication"
+      "crypto-prediction": {
+        "title": "Crypto Prediction",
+        "excerpt": "Données crypto : ingestion → entrepôt → API (dbt, Airflow). Co-réalisé avec un data engineer ; benchmark ML en autonomie.",
+        "githubLinkLabel": "GitHub",
+        "pdfReportLinkLabel": "Rapport final (PDF)",
+        "coverAlt": "Aperçu du projet Crypto Prediction — plateforme de données sur les cryptomonnaies",
+        "sectionOverview": "**Crypto Prediction** est un projet de plateforme de données orientée **production** : il ingère, traite et sert des données de marché sur les cryptomonnaies à partir d’APIs externes (**CoinGecko**, **Binance**), jusqu’à des jeux **prêts pour l’analytique** et une exposition via **API REST**.\n\nLa partie **ingénierie données** (ingestion, modélisation d’entrepôt, orchestration, transformations **dbt**, service API) a été menée **en binôme** avec un **data engineer**. J’ai réalisé **seul** la partie **ML** : préparation de datasets, feature engineering et **benchmark de modèles**.\n\nL’architecture suit une chaîne classique : **APIs externes** → ingestion → stockage brut → transformations → entrepôt → **API** → usages (tableaux de bord, expérimentations ML). Des extensions **streaming** ou **ML en production** peuvent s’ajouter dans la continuité du projet.",
+        "sectionKeywords": "data engineering, cryptomonnaies, ingestion, ETL, dbt, Airflow, FastAPI, PostgreSQL, entrepôt de données, API REST, machine learning, benchmark",
+        "sectionMethod": "**Ingénierie données (binôme)** : ingestion **CoinGecko** et **Binance**, données brutes dans **PostgreSQL**, couches **dbt** (staging → marts), DAGs **Airflow** pour enchaîner fetch → stockage → transformation. Le service **FastAPI** expose prix et métriques comme **produit data**.\n\n**ML (seul)** : préparation de jeux de données depuis l’entrepôt, features, **benchmark de modèles** en notebooks — hors chaîne de production.\n\n**Pratiques** : **Docker Compose** pour une stack locale reproductible ; tests sur le code Python et les modèles **dbt** là où c’était pertinent.",
+        "sectionResults": "**Produit data livré** : endpoints REST adossés à des tables nettoyées et **prêtes analytique** — exploitables en tableaux de bord ou en aval.\n\n**Reproductibilité** : un même environnement local (services + données) ; schémas et transformations versionnés (**dbt**, migrations).\n\n**Benchmark ML** : comparaisons de modèles sur features préparées, avec des critères lisibles entre baselines et candidats (travail expérimental — pas de service de trading en ligne)."
       }
     }
   },

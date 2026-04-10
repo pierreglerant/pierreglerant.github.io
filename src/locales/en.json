@@ -108,7 +108,9 @@
       "overview": "Overview",
       "features": "Features & scope",
       "stack": "Tech stack",
-      "architecture": "Architecture"
+      "architecture": "Architecture",
+      "method": "Method",
+      "results": "Results"
     },
     "architecture": {
       "secureops": {
@@ -177,14 +179,16 @@
         "sectionFeatures": "Engineering of the **passive analysis pipeline**: HTTP/TLS and configuration signals, security headers, technology fingerprinting, and misconfiguration heuristics, correlated to **OWASP Top 10–style risk families**—without active exploitation in what’s exposed online today.\n\n**Crawl jobs** map the reachable surface (link following, scoping rules) so scans can target a discovered set of URLs and assets instead of a **single entry point**.\n\n**Asynchronous execution** end to end: FastAPI services accept scan/crawl requests and enqueue work in **PostgreSQL-backed queues**; dedicated workers poll, execute the engine, and write status and findings back—keeping APIs responsive, absorbing spikes, and isolating failures per job.",
         "sectionStack": "- Deployment & infrastructure: AWS EC2, Dockerized services, PostgreSQL running on that EC2 instance, Amazon Cognito for authentication, AWS Amplify for the frontend\n- Architecture & backend: FastAPI microservices behind an API Gateway; asynchronous scan execution via PostgreSQL-backed job queues and dedicated workers\n- Data layer: PostgreSQL; scan results stored as JSON; indexed tables (status, retry, timestamps); on-demand PDF reports\n- Security: Cognito JWT and API keys; basic RBAC; in-memory rate limiting; SSRF safeguards (private networks blocked, timeouts); Cloudflare for edge and application protection\n- Observability: structured logging (optional JSON), X-Correlation-ID propagation, PII sanitization, custom-built admin monitoring UI\n- Frontend: Next.js (App Router) and Tailwind; async job tracking via polling with backoff\n- Testing & CI: GitHub Actions (lint, backend and frontend tests), Docker-based workflows"
       },
-      "project-three": {
-        "title": "Project 3",
-        "excerpt": "Third sample card: temporary text until you ship real projects.",
-        "coverAlt": "Project 3 cover (placeholder)",
-        "sectionOverview": "Final placeholder page. Summarize outcomes, metrics, or lessons learned from the project.",
-        "sectionKeywords": "",
-        "sectionFeatures": "All three hero images are independent so they read as separate projects once you replace the copy.",
-        "sectionStack": "- Deployment: TBD\n- API: TBD\n- Frontend: TBD\n- Database: TBD\n- Other: CI/CD, metadata and sitemap on publish"
+      "crypto-prediction": {
+        "title": "Crypto Prediction",
+        "excerpt": "Crypto market data stack: ingestion → warehouse → FastAPI (dbt, Airflow). Co-built with a data engineer; ML benchmark solo.",
+        "githubLinkLabel": "GitHub",
+        "pdfReportLinkLabel": "Final report (PDF)",
+        "coverAlt": "Crypto Prediction project preview — cryptocurrency market data stack",
+        "sectionOverview": "**Crypto Prediction** is a **production-grade** data stack project that ingests, processes, and serves **cryptocurrency market data** from external APIs (**CoinGecko**, **Binance**) through to **analytics-ready** datasets and a **REST API**.\n\nThe **data engineering** scope—ingestion, warehouse modeling, orchestration, **dbt** transformations, and the API—was delivered **in pair** with a **data engineer**. I owned the **ML** track **solo**: dataset preparation, feature engineering, and **model benchmarking**.\n\nThe flow mirrors a classic pipeline: **external APIs** → ingestion → raw storage → transformations → warehouse → **API** → consumers (dashboards, ML experiments). **Streaming** or **production ML** can extend the same foundation.",
+        "sectionKeywords": "data engineering, cryptocurrency, ingestion, ETL, dbt, Airflow, FastAPI, PostgreSQL, data warehouse, REST API, machine learning, benchmarking",
+        "sectionMethod": "**Data engineering (pair work)**: we implemented ingestion from **CoinGecko** and **Binance**, landed raw data in **PostgreSQL**, built **dbt** layers (staging → marts), and scheduled **Airflow** DAGs so fetch → store → transform runs reliably. The **FastAPI** service exposes prices and metrics as a small **data product**.\n\n**ML (solo)**: I prepared datasets from warehouse outputs, engineered features, and ran a **model benchmark** in notebooks—kept off the production hot path.\n\n**Practices**: **Docker Compose** for a reproducible local stack (database, Airflow, API); tests on Python code and dbt models where it mattered.",
+        "sectionResults": "**Delivered data product**: REST endpoints backed by cleaned, **analytics-ready** tables—ready for dashboards or downstream consumers.\n\n**Reproducibility**: one command brings up the core services locally; warehouse schema and transforms are versioned (**dbt** + migrations).\n\n**ML benchmark**: comparative runs on prepared features, with clear criteria to contrast baselines and candidate models (experimental work—not a live trading service)."
       }
     }
   },
