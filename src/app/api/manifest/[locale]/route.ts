@@ -28,32 +28,13 @@ export async function GET(
     orientation: "portrait-primary",
     lang: l === "fr" ? "fr-FR" : "en-US",
     dir: "ltr",
-    icons: [
-      {
-        src: "/favicon-96x96.png",
-        sizes: "96x96",
-        type: "image/png",
-      },
-      {
-        src: "/logo.png",
-        sizes: "512x512",
-        type: "image/png",
-        purpose: "maskable",
-      },
-    ],
+    icons: [],
     categories: ["portfolio", "personal"],
     shortcuts: [
       {
         name: t("header.contact"),
         short_name: t("header.contact"),
         url: `/${locale}#contact`,
-        icons: [
-          {
-            src: "/logo.png",
-            sizes: "512x512",
-            type: "image/png",
-          },
-        ],
       },
     ],
     prefer_related_applications: false,

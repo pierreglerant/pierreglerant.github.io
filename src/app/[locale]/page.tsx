@@ -26,15 +26,6 @@ export async function generateMetadata({
       title: t("metadata.homeTitle"),
       description: t("metadata.homeDescription"),
       url: `${SITE_URL}/${locale}`,
-      images: [
-        {
-          url: `${SITE_URL}/logo.png`,
-          width: 512,
-          height: 512,
-          alt: "Pierre Glerant",
-          type: "image/png",
-        },
-      ],
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}`,
@@ -60,7 +51,6 @@ export default async function HomePage({
     "@type": "Person",
     name: "Pierre Glerant",
     url: SITE_URL,
-    image: `${SITE_URL}/logo.png`,
     description: t("metadata.siteDescription"),
     email: CONTACT_EMAIL,
     sameAs: [],

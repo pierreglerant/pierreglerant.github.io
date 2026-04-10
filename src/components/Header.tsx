@@ -2,7 +2,6 @@
 
 import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "./LanguageProvider";
 import type { Language } from "./LanguageProvider";
@@ -59,8 +58,7 @@ export default function Header() {
     <header className={menuOpen ? "site-header z-[50]" : "site-header"}>
       <div className="nav">
         <Link href={homeHash} className="logo">
-          <Image src="/logo.png" alt="Pierre Glerant" width={40} height={40} />
-          <span className="hidden md:inline">
+          <span>
             Pierre<span style={{ color: "rgb(var(--primary))" }}> Glerant</span>
           </span>
         </Link>

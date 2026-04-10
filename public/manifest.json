@@ -10,26 +10,13 @@
   "orientation": "portrait-primary",
   "lang": "fr-FR",
   "dir": "ltr",
-  "icons": [
-    {
-      "src": "/favicon-96x96.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "/logo.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ],
+  "icons": [],
   "categories": ["portfolio", "personal"],
   "shortcuts": [
     {
       "name": "Contact",
       "short_name": "Contact",
-      "url": "/fr#contact",
-      "icons": [{ "src": "/logo.png", "sizes": "512x512", "type": "image/png" }]
+      "url": "/fr#contact"
     }
   ],
   "prefer_related_applications": false,

@@ -50,15 +50,6 @@ export async function generateMetadata({
 
     manifest: `/api/manifest/${locale}`,
 
-    icons: {
-      icon: [
-        { url: "/favicon.ico", sizes: "any" },
-        { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-        { url: "/logo.svg", type: "image/svg+xml" },
-      ],
-      apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
-    },
-
     openGraph: {
       type: "website",
       locale: locale === "fr" ? "fr_FR" : "en_US",
@@ -72,13 +63,6 @@ export async function generateMetadata({
           url: `${SITE_URL}/og-image.png`,
           width: 1200,
           height: 630,
-          alt: SITE_NAME,
-          type: "image/png",
-        },
-        {
-          url: `${SITE_URL}/logo.png`,
-          width: 512,
-          height: 512,
           alt: SITE_NAME,
           type: "image/png",
         },
@@ -102,7 +86,6 @@ export async function generateMetadata({
           height: 630,
           alt: SITE_NAME,
         },
-        { url: `${SITE_URL}/logo.png`, alt: SITE_NAME },
       ],
     },
 
@@ -149,7 +132,6 @@ export default async function LocaleLayout({
     "@type": "Person",
     name: SITE_NAME,
     url: SITE_URL,
-    image: `${SITE_URL}/logo.png`,
     description: t("metadata.siteDescription"),
     email: CONTACT_EMAIL,
   };
