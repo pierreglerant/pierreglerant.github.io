@@ -189,6 +189,24 @@
         "sectionKeywords": "data engineering, cryptocurrency, ingestion, ETL, dbt, Airflow, FastAPI, PostgreSQL, data warehouse, REST API, machine learning, benchmarking",
         "sectionMethod": "**Data engineering (pair work)**: we implemented ingestion from **CoinGecko** and **Binance**, landed raw data in **PostgreSQL**, built **dbt** layers (staging → marts), and scheduled **Airflow** DAGs so fetch → store → transform runs reliably. The **FastAPI** service exposes prices and metrics as a small **data product**.\n\n**ML (solo)**: I prepared datasets from warehouse outputs, engineered features, and ran a **model benchmark** in notebooks—kept off the production hot path.\n\n**Practices**: **Docker Compose** for a reproducible local stack (database, Airflow, API); tests on Python code and dbt models where it mattered.",
         "sectionResults": "**Delivered data product**: REST endpoints backed by cleaned, **analytics-ready** tables—ready for dashboards or downstream consumers.\n\n**Reproducibility**: one command brings up the core services locally; warehouse schema and transforms are versioned (**dbt** + migrations).\n\n**ML benchmark**: comparative runs on prepared features, with clear criteria to contrast baselines and candidate models (experimental work—not a live trading service)."
+      },
+      "project-four": {
+        "title": "Upcoming project 1",
+        "excerpt": "Reserved slot — data & AI (replace when ready).",
+        "coverAlt": "Placeholder cover — upcoming project 1",
+        "sectionOverview": "This is a **placeholder project** page to reserve a fourth slot on the portfolio. Replace the title, copy, and images when the real project is ready.",
+        "sectionKeywords": "placeholder, data, AI",
+        "sectionFeatures": "Temporary **features** section.\n\nFill in with the actual project scope later.",
+        "sectionStack": "- Data: TBD\n- AI: TBD\n- Stack: TBD\n- Deployment: TBD"
+      },
+      "project-five": {
+        "title": "Upcoming project 2",
+        "excerpt": "Reserved slot — Software badge, same classic layout as other software project pages (overview, features, stack, architecture).",
+        "coverAlt": "Placeholder cover — upcoming project 2",
+        "sectionOverview": "This is a **placeholder project** using the **same presentation pattern** as standard software project pages (ImmoSphere, SecureOps): four sections—overview, features & scope, tech stack, architecture.\n\nReplace the title, copy, and images when the real project is ready.",
+        "sectionKeywords": "placeholder, software, development, architecture",
+        "sectionFeatures": "Temporary **features & scope** section, similar to a software product page.\n\nReplace with the actual scope (APIs, UI, integrations, etc.).",
+        "sectionStack": "- Frontend: TBD\n- Backend: TBD\n- Database: TBD\n- CI/CD & quality: TBD\n- Deployment: TBD"
       }
     }
   },

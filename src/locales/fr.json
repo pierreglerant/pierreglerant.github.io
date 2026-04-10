@@ -193,6 +193,24 @@
         "sectionKeywords": "data engineering, cryptomonnaies, ingestion, ETL, dbt, Airflow, FastAPI, PostgreSQL, entrepôt de données, API REST, machine learning, benchmark",
         "sectionMethod": "**Ingénierie données (binôme)** : ingestion **CoinGecko** et **Binance**, données brutes dans **PostgreSQL**, couches **dbt** (staging → marts), DAGs **Airflow** pour enchaîner fetch → stockage → transformation. Le service **FastAPI** expose prix et métriques comme **produit data**.\n\n**ML (seul)** : préparation de jeux de données depuis l’entrepôt, features, **benchmark de modèles** en notebooks — hors chaîne de production.\n\n**Pratiques** : **Docker Compose** pour une stack locale reproductible ; tests sur le code Python et les modèles **dbt** là où c’était pertinent.",
         "sectionResults": "**Produit data livré** : endpoints REST adossés à des tables nettoyées et **prêtes analytique** — exploitables en tableaux de bord ou en aval.\n\n**Reproductibilité** : un même environnement local (services + données) ; schémas et transformations versionnés (**dbt**, migrations).\n\n**Benchmark ML** : comparaisons de modèles sur features préparées, avec des critères lisibles entre baselines et candidats (travail expérimental — pas de service de trading en ligne)."
+      },
+      "project-four": {
+        "title": "Projet à venir 1",
+        "excerpt": "Emplacement réservé — données & IA (contenu à remplacer).",
+        "coverAlt": "Visuel placeholder — projet à venir 1",
+        "sectionOverview": "Ceci est une **fiche projet factice** pour prévoir un quatrième projet sur le portfolio. Remplacez titre, textes et visuels lorsque le projet sera prêt.",
+        "sectionKeywords": "placeholder, données, IA",
+        "sectionFeatures": "Section **fonctionnalités** provisoire.\n\nÀ compléter avec le périmètre réel du projet.",
+        "sectionStack": "- Données : à préciser\n- IA : à préciser\n- Stack technique : à préciser\n- Déploiement : à préciser"
+      },
+      "project-five": {
+        "title": "Projet à venir 2",
+        "excerpt": "Emplacement réservé — badge Logiciel, même présentation que les fiches « classiques » (vue d’ensemble, détails, stack, architecture).",
+        "coverAlt": "Visuel placeholder — projet à venir 2",
+        "sectionOverview": "Ceci est une **fiche projet factice** calquée sur le **schéma de présentation standard** des projets logiciel (ImmoSphere, SecureOps) : quatre sections — vue d’ensemble, détails & fonctionnalités, technologies & stack, architecture.\n\nRemplacez titre, textes et visuels lorsque le projet sera défini.",
+        "sectionKeywords": "placeholder, logiciel, développement, architecture",
+        "sectionFeatures": "Section **fonctionnalités & périmètre** provisoire, comme sur une fiche produit logiciel.\n\nÀ remplacer par le périmètre réel (API, interface, intégrations, etc.).",
+        "sectionStack": "- Frontend : à préciser\n- Backend : à préciser\n- Base de données : à préciser\n- CI/CD & qualité : à préciser\n- Déploiement : à préciser"
       }
     }
   },

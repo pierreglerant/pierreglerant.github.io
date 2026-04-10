@@ -8,6 +8,8 @@ export const PROJECT_SLUGS = [
   "immosphere",
   "secureops",
   "crypto-prediction",
+  "project-four",
+  "project-five",
 ] as const;
 
 export type ProjectSlug = (typeof PROJECT_SLUGS)[number];
@@ -22,6 +24,8 @@ export const PROJECT_CARD_BADGES: Record<
   immosphere: ["data", "software"],
   secureops: ["cyber", "software"],
   "crypto-prediction": ["data", "ai"],
+  "project-four": ["data", "ai"],
+  "project-five": ["software"],
 };
 
 export function isProjectSlug(value: string): value is ProjectSlug {
@@ -42,6 +46,8 @@ export const PROJECT_GALLERY_IMAGES: Record<ProjectSlug, readonly string[]> = {
   immosphere: galleryForSlug("immosphere"),
   secureops: galleryForSlug("secureops"),
   "crypto-prediction": galleryForSlug("crypto-prediction"),
+  "project-four": galleryForSlug("project-four"),
+  "project-five": galleryForSlug("project-five"),
 };
 
 /** Première image = aperçu carte liste */
@@ -49,6 +55,8 @@ export const PROJECT_COVER_IMAGE: Record<ProjectSlug, string> = {
   immosphere: PROJECT_GALLERY_IMAGES.immosphere[0],
   secureops: PROJECT_GALLERY_IMAGES.secureops[0],
   "crypto-prediction": PROJECT_GALLERY_IMAGES["crypto-prediction"][0],
+  "project-four": PROJECT_GALLERY_IMAGES["project-four"][0],
+  "project-five": PROJECT_GALLERY_IMAGES["project-five"][0],
 };
 
 /** URL du site public pour un projet (lien affiché dans la fiche). */
