@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Globe, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useLanguage } from "./LanguageProvider";
 import type { Language } from "./LanguageProvider";
 
@@ -49,7 +49,11 @@ export default function Header() {
     setLanguage(newLang);
   };
 
-  const langLabel = language === "en" ? "FR" : "EN";
+  const languageFlag = language === "fr" ? "🇫🇷" : "🇬🇧";
+  const switchLanguageLabel =
+    language === "en"
+      ? t("header.switchToFrench")
+      : t("header.switchToEnglish");
 
   return (
     <header className={menuOpen ? "site-header z-[50]" : "site-header"}>
@@ -72,14 +76,17 @@ export default function Header() {
             <button
               type="button"
               onClick={toggleLanguage}
-              className="btn btn-secondary p-2 rounded-full"
+              className="btn btn-secondary p-2 rounded-full min-w-[2.25rem] min-h-[2.25rem] inline-flex items-center justify-center"
               style={{ cursor: "pointer" }}
-              aria-label={
-                language === "en" ? "Switch to French" : "Passer en anglais"
-              }
-              title={langLabel}
+              aria-label={switchLanguageLabel}
+              title={switchLanguageLabel}
             >
-              <Globe className="w-4 h-4" />
+              <span
+                className="text-[1.125rem] leading-none select-none"
+                aria-hidden
+              >
+                {languageFlag}
+              </span>
             </button>
           </div>
           <button
@@ -143,11 +150,16 @@ export default function Header() {
                 <button
                   type="button"
                   onClick={toggleLanguage}
-                  className="btn btn-secondary p-2 rounded-full"
-                  aria-label={langLabel}
-                  title={langLabel}
+                  className="btn btn-secondary p-2 rounded-full min-w-[2.25rem] min-h-[2.25rem] inline-flex items-center justify-center"
+                  aria-label={switchLanguageLabel}
+                  title={switchLanguageLabel}
                 >
-                  <Globe className="w-4 h-4" />
+                  <span
+                    className="text-[1.125rem] leading-none select-none"
+                    aria-hidden
+                  >
+                    {languageFlag}
+                  </span>
                 </button>
               </div>
             </div>

@@ -19,7 +19,9 @@
     "contact": "Contact",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu",
-    "menu": "Menu"
+    "menu": "Menu",
+    "switchToFrench": "Passer en français",
+    "switchToEnglish": "Passer en anglais"
   },
   "footer": {
     "copyright": "© {{year}} Pierre Glerant. Tous droits réservés."
