@@ -187,7 +187,7 @@
         "title": "Crypto Prediction",
         "excerpt": "Données crypto : ingestion → entrepôt → API (dbt, Airflow). Co-réalisé avec un data engineer ; benchmark ML en autonomie.",
         "githubLinkLabel": "GitHub",
-        "pdfReportLinkLabel": "Rapport final (PDF)",
+        "pdfReportLinkLabel": "Rapport (PDF)",
         "coverAlt": "Aperçu du projet Crypto Prediction — plateforme de données sur les cryptomonnaies",
         "sectionOverview": "**Crypto Prediction** est un projet de plateforme de données orientée **production** : il ingère, traite et sert des données de marché sur les cryptomonnaies à partir d’APIs externes (**CoinGecko**, **Binance**), jusqu’à des jeux **prêts pour l’analytique** et une exposition via **API REST**.\n\nLa partie **ingénierie données** (ingestion, modélisation d’entrepôt, orchestration, transformations **dbt**, service API) a été menée **en binôme** avec un **data engineer**. J’ai réalisé **seul** la partie **ML** : préparation de datasets, feature engineering et **benchmark de modèles**.\n\nL’architecture suit une chaîne classique : **APIs externes** → ingestion → stockage brut → transformations → entrepôt → **API** → usages (tableaux de bord, expérimentations ML). Des extensions **streaming** ou **ML en production** peuvent s’ajouter dans la continuité du projet.",
         "sectionKeywords": "data engineering, cryptomonnaies, ingestion, ETL, dbt, Airflow, FastAPI, PostgreSQL, entrepôt de données, API REST, machine learning, benchmark",

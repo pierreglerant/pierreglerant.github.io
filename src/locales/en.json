@@ -183,7 +183,7 @@
         "title": "Crypto Prediction",
         "excerpt": "Crypto market data stack: ingestion → warehouse → FastAPI (dbt, Airflow). Co-built with a data engineer; ML benchmark solo.",
         "githubLinkLabel": "GitHub",
-        "pdfReportLinkLabel": "Final report (PDF)",
+        "pdfReportLinkLabel": "Report (PDF)",
         "coverAlt": "Crypto Prediction project preview — cryptocurrency market data stack",
         "sectionOverview": "**Crypto Prediction** is a **production-grade** data stack project that ingests, processes, and serves **cryptocurrency market data** from external APIs (**CoinGecko**, **Binance**) through to **analytics-ready** datasets and a **REST API**.\n\nThe **data engineering** scope—ingestion, warehouse modeling, orchestration, **dbt** transformations, and the API—was delivered **in pair** with a **data engineer**. I owned the **ML** track **solo**: dataset preparation, feature engineering, and **model benchmarking**.\n\nThe flow mirrors a classic pipeline: **external APIs** → ingestion → raw storage → transformations → warehouse → **API** → consumers (dashboards, ML experiments). **Streaming** or **production ML** can extend the same foundation.",
         "sectionKeywords": "data engineering, cryptocurrency, ingestion, ETL, dbt, Airflow, FastAPI, PostgreSQL, data warehouse, REST API, machine learning, benchmarking",

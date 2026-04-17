@@ -73,7 +73,7 @@ export const PROJECT_REPO_URLS: Partial<Record<ProjectSlug, string>> = {
 
 /** Rapport PDF statique sous /public (téléchargement depuis la fiche projet). */
 export const PROJECT_REPORT_PDF_URLS: Partial<Record<ProjectSlug, string>> = {
-  "crypto-prediction": "/projects/crypto-prediction/rapport-final.pdf",
+  "crypto-prediction": "/projects/crypto-prediction/report.pdf",
 };
 
 /** Action GitHub CI (org secureopsfr), liée depuis la fiche projet SecureOps. */
