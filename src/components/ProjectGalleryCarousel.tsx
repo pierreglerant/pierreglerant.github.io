@@ -126,11 +126,8 @@ export default function ProjectGalleryCarousel({
   const slidePct = 100 / n;
   const currentSlide = slides[index] ?? slides[0];
   const currentIsSecureOps = currentSlide?.src.includes("/secureops/") ?? false;
-  const currentIsSecureOpsPortrait = currentSlide?.src.includes("/secureops/4.png");
   const carouselAspectClass = currentIsSecureOps
-    ? currentIsSecureOpsPortrait
-      ? "aspect-[635/899]"
-      : currentSlide?.src.includes("/secureops/5.png")
+    ? currentSlide?.src.includes("/secureops/5.png")
         ? "aspect-[1851/961]"
         : "aspect-[1869/957]"
     : "aspect-[16/9]";
