@@ -27,7 +27,11 @@ export default function ProjectCard({ locale, slug }: Props) {
   const coverFitClass =
     slug === "secureops"
       ? "object-contain object-center p-5 md:p-7"
+      : slug === "crypto-prediction"
+        ? "object-cover object-center"
       : "object-cover";
+  const coverContainerClass =
+    slug === "crypto-prediction" ? "bg-[var(--color-bg)]" : "bg-[var(--color-surface)]";
   const ring =
     "outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]";
 
@@ -40,7 +44,7 @@ export default function ProjectCard({ locale, slug }: Props) {
           ring
         }
       >
-        <div className="relative aspect-[16/9] w-full shrink-0 overflow-hidden bg-[var(--color-surface)]">
+        <div className={`relative aspect-[16/9] w-full shrink-0 overflow-hidden ${coverContainerClass}`}>
           <Image
             src={cover}
             alt={coverAlt}

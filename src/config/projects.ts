@@ -34,10 +34,12 @@ export function isProjectSlug(value: string): value is ProjectSlug {
 
 const DEFAULT_GALLERY_COUNT = 4;
 const GALLERY_COUNT_BY_SLUG: Partial<Record<ProjectSlug, number>> = {
+  "crypto-prediction": 1,
   secureops: 5,
 };
 
 const GALLERY_EXT_BY_SLUG: Partial<Record<ProjectSlug, "jpg" | "png">> = {
+  "crypto-prediction": "png",
   secureops: "png",
 };
 
@@ -63,7 +65,7 @@ export const PROJECT_GALLERY_IMAGES: Record<ProjectSlug, readonly string[]> = {
 export const PROJECT_COVER_IMAGE: Record<ProjectSlug, string> = {
   immosphere: PROJECT_GALLERY_IMAGES.immosphere[0],
   secureops: "/projects/secureops/logo.png",
-  "crypto-prediction": PROJECT_GALLERY_IMAGES["crypto-prediction"][0],
+  "crypto-prediction": "/projects/crypto-prediction/logo.png",
   "project-four": PROJECT_GALLERY_IMAGES["project-four"][0],
   "project-five": PROJECT_GALLERY_IMAGES["project-five"][0],
 };

@@ -132,7 +132,9 @@ export default function ProjectGalleryCarousel({
         : "aspect-[1869/957]"
     : "aspect-[16/9]";
   const lightboxSlide = slides[lightboxIndex] ?? slides[0];
-  const lightboxImageFitClass = lightboxSlide.src.includes("/secureops/4.png")
+  const lightboxUsesContain =
+    lightboxSlide.src.includes("/secureops/4.png") || imageFit === "contain";
+  const lightboxImageFitClass = lightboxUsesContain
     ? "object-contain"
     : "object-cover";
 
@@ -248,17 +250,14 @@ export default function ProjectGalleryCarousel({
           >
             {slides.map((slide, i) => {
               const isPortraitPage = slide.src.includes("/secureops/4.png");
+              const usesContain = isPortraitPage || imageFit === "contain";
               const slideFitClass =
-                isPortraitPage
-                  ? "object-contain"
-                  : imageFit === "contain"
-                    ? "object-contain"
-                    : "object-cover";
+                usesContain ? "object-contain" : "object-cover";
 
               return (
                 <div
                   key={slide.src}
-                  className={`relative h-full shrink-0 ${isPortraitPage ? "bg-[var(--color-bg)]" : ""}`}
+                  className={`relative h-full shrink-0 ${usesContain ? "bg-[var(--color-bg)]" : ""}`}
                   style={{ width: `${slidePct}%` }}
                 >
                   <button

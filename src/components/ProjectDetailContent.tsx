@@ -260,7 +260,7 @@ export default function ProjectDetailContent({
             closeLightboxLabel={t("projects.carouselCloseLightbox")}
             lightboxZoomInLabel={t("projects.carouselLightboxZoomIn")}
             lightboxZoomOutLabel={t("projects.carouselLightboxZoomOut")}
-            imageFit="cover"
+            imageFit={slug === "crypto-prediction" ? "contain" : "cover"}
           />
           <div className="mt-5 flex w-full flex-wrap items-baseline justify-between gap-x-4 gap-y-2 md:mt-6">
             <h1
