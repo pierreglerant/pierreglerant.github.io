@@ -24,6 +24,10 @@ export default function ProjectCard({ locale, slug }: Props) {
   const coverAlt = t(`projects.items.${slug}.coverAlt`);
   const cover = PROJECT_COVER_IMAGE[slug];
   const badges = PROJECT_CARD_BADGES[slug];
+  const coverFitClass =
+    slug === "secureops"
+      ? "object-contain object-center p-5 md:p-7"
+      : "object-cover";
   const ring =
     "outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]";
 
@@ -42,8 +46,9 @@ export default function ProjectCard({ locale, slug }: Props) {
             alt={coverAlt}
             width={960}
             height={540}
-            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+            className={`h-full w-full transition-transform duration-500 ease-out group-hover:scale-[1.04] ${coverFitClass}`}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 360px"
+            quality={100}
           />
         </div>
         <div className="flex min-h-0 flex-1 flex-col gap-2 p-5 md:p-6">

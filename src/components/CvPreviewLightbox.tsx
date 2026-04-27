@@ -94,6 +94,7 @@ export default function CvPreviewLightbox({
                 draggable={false}
                 className="pointer-events-none block h-auto max-h-[min(95dvh,922px)] w-auto max-w-[min(100vw-1.5rem,715px)] select-none object-contain"
                 sizes="100vw"
+                quality={100}
                 priority
               />
             </button>
@@ -123,6 +124,7 @@ export default function CvPreviewLightbox({
             height={CV_HEIGHT}
             className="block h-auto w-full max-w-full"
             sizes="(max-width: 768px) 100vw, 672px"
+            quality={100}
           />
         </Card>
       </button>

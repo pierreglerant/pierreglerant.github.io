@@ -230,7 +230,7 @@ export default function ProjectDetailContent({
         ];
 
   return (
-    <div className="mx-auto max-w-[min(100%,56rem)] px-4 py-10 md:py-16">
+    <div className="mx-auto max-w-[min(100%,64rem)] px-4 py-10 md:py-16">
       <AnimateInView
         className="landing-reveal-page"
         as="article"
@@ -256,6 +256,11 @@ export default function ProjectDetailContent({
             prevLabel={t("projects.carouselPrev")}
             nextLabel={t("projects.carouselNext")}
             regionLabel={t("projects.carouselRegion", { title })}
+            openLightboxLabel={t("projects.carouselOpenLightbox")}
+            closeLightboxLabel={t("projects.carouselCloseLightbox")}
+            lightboxZoomInLabel={t("projects.carouselLightboxZoomIn")}
+            lightboxZoomOutLabel={t("projects.carouselLightboxZoomOut")}
+            imageFit="cover"
           />
           <div className="mt-5 flex w-full flex-wrap items-baseline justify-between gap-x-4 gap-y-2 md:mt-6">
             <h1

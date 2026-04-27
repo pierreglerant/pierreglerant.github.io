@@ -2,7 +2,7 @@
  * Projets affichés sur l’accueil et pages détail.
  * Slugs utilisés dans les URLs : /[locale]/projects/[slug]
  *
- * Images : public/projects/<slug>/1.jpg … (ordre carrousel / couverture = 1)
+ * Images : public/projects/<slug>/1.<ext> … (ordre carrousel / couverture = 1)
  */
 export const PROJECT_SLUGS = [
   "immosphere",
@@ -32,12 +32,21 @@ export function isProjectSlug(value: string): value is ProjectSlug {
   return (PROJECT_SLUGS as readonly string[]).includes(value);
 }
 
-const GALLERY_COUNT = 4;
+const DEFAULT_GALLERY_COUNT = 4;
+const GALLERY_COUNT_BY_SLUG: Partial<Record<ProjectSlug, number>> = {
+  secureops: 5,
+};
+
+const GALLERY_EXT_BY_SLUG: Partial<Record<ProjectSlug, "jpg" | "png">> = {
+  secureops: "png",
+};
 
 function galleryForSlug(slug: ProjectSlug): readonly string[] {
+  const count = GALLERY_COUNT_BY_SLUG[slug] ?? DEFAULT_GALLERY_COUNT;
+  const ext = GALLERY_EXT_BY_SLUG[slug] ?? "jpg";
   return Array.from(
-    { length: GALLERY_COUNT },
-    (_, i) => `/projects/${slug}/${i + 1}.jpg`,
+    { length: count },
+    (_, i) => `/projects/${slug}/${i + 1}.${ext}`,
   );
 }
 
@@ -53,7 +62,7 @@ export const PROJECT_GALLERY_IMAGES: Record<ProjectSlug, readonly string[]> = {
 /** Première image = aperçu carte liste */
 export const PROJECT_COVER_IMAGE: Record<ProjectSlug, string> = {
   immosphere: PROJECT_GALLERY_IMAGES.immosphere[0],
-  secureops: PROJECT_GALLERY_IMAGES.secureops[0],
+  secureops: "/projects/secureops/logo.png",
   "crypto-prediction": PROJECT_GALLERY_IMAGES["crypto-prediction"][0],
   "project-four": PROJECT_GALLERY_IMAGES["project-four"][0],
   "project-five": PROJECT_GALLERY_IMAGES["project-five"][0],
@@ -62,7 +71,7 @@ export const PROJECT_COVER_IMAGE: Record<ProjectSlug, string> = {
 /** URL du site public pour un projet (lien affiché dans la fiche). */
 export const PROJECT_SITE_URLS: Partial<Record<ProjectSlug, string>> = {
   immosphere: "https://www.immosphere.co",
-  secureops: "https://secureops.fr",
+  secureops: "https://www.secureops.fr",
 };
 
 /** Dépôt source (ex. GitHub), optionnel par projet. */

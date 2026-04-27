@@ -4,6 +4,12 @@ const nextConfig: NextConfig = {
   // Pas de trailing slash pour éviter contenu dupliqué (SEO)
   trailingSlash: false,
 
+  // Qualité d'image maximale (poids réseau plus élevé en contrepartie).
+  images: {
+    qualities: [100],
+    formats: ["image/webp"],
+  },
+
   async redirects() {
     return [
       {
