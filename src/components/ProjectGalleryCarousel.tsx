@@ -20,6 +20,7 @@ type Props = {
   lightboxZoomInLabel: string;
   lightboxZoomOutLabel: string;
   imageFit?: "cover" | "contain" | "auto";
+  aspectRatioClass?: string;
 };
 
 export default function ProjectGalleryCarousel({
@@ -32,6 +33,7 @@ export default function ProjectGalleryCarousel({
   lightboxZoomInLabel,
   lightboxZoomOutLabel,
   imageFit = "cover",
+  aspectRatioClass,
 }: Props) {
   const n = slides.length;
   const [mounted, setMounted] = useState(false);
@@ -126,11 +128,13 @@ export default function ProjectGalleryCarousel({
   const slidePct = 100 / n;
   const currentSlide = slides[index] ?? slides[0];
   const currentIsSecureOps = currentSlide?.src.includes("/secureops/") ?? false;
-  const carouselAspectClass = currentIsSecureOps
-    ? currentSlide?.src.includes("/secureops/5.png")
-        ? "aspect-[1851/961]"
-        : "aspect-[1869/957]"
-    : "aspect-[16/9]";
+  const carouselAspectClass =
+    aspectRatioClass ??
+    (currentIsSecureOps
+      ? currentSlide?.src.includes("/secureops/5.png")
+          ? "aspect-[1851/961]"
+          : "aspect-[1869/957]"
+      : "aspect-[16/9]");
   const lightboxSlide = slides[lightboxIndex] ?? slides[0];
   const lightboxUsesContain =
     lightboxSlide.src.includes("/secureops/4.png") || imageFit === "contain";
