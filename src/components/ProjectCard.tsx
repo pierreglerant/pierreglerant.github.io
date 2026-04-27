@@ -25,11 +25,15 @@ export default function ProjectCard({ locale, slug }: Props) {
   const cover = PROJECT_COVER_IMAGE[slug];
   const badges = PROJECT_CARD_BADGES[slug];
   const coverFitClass =
-    slug === "secureops"
+    slug === "secureops" || slug === "immosphere"
       ? "object-contain object-center p-5 md:p-7"
       : slug === "crypto-prediction"
         ? "object-cover object-center"
       : "object-cover";
+  const coverHoverClass =
+    slug === "secureops" || slug === "immosphere"
+      ? ""
+      : "group-hover:scale-[1.04]";
   const coverContainerClass =
     slug === "crypto-prediction" ? "bg-[var(--color-bg)]" : "bg-[var(--color-surface)]";
   const ring =
@@ -50,7 +54,7 @@ export default function ProjectCard({ locale, slug }: Props) {
             alt={coverAlt}
             width={960}
             height={540}
-            className={`h-full w-full transition-transform duration-500 ease-out group-hover:scale-[1.04] ${coverFitClass}`}
+            className={`h-full w-full transition-transform duration-500 ease-out ${coverHoverClass} ${coverFitClass}`}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 360px"
             quality={100}
           />
