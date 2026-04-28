@@ -41,7 +41,7 @@ export default function BettingAppArchitectureDiagram({
                 </clipPath>
               </defs>
 
-              <g transform="translate(0 28)">
+              <g transform="translate(0 36)">
                 <circle
                   cx="210"
                   cy="210"
@@ -185,11 +185,11 @@ export default function BettingAppArchitectureDiagram({
 
               <g aria-label="Expo Router app root">
                 <rect
-                  x="115"
+                  x="106"
                   y="0"
-                  width="190"
-                  height="26"
-                  rx="5"
+                  width="208"
+                  height="32"
+                  rx="6"
                   fill="#151d2f"
                   stroke="#3b82f6"
                   strokeOpacity="0.65"
@@ -197,10 +197,10 @@ export default function BettingAppArchitectureDiagram({
                 />
                 <text
                   x="210"
-                  y="16.5"
+                  y="20"
                   textAnchor="middle"
                   fill="#dbeafe"
-                  fontSize="9.2"
+                  fontSize="10.5"
                   fontWeight="600"
                   fontFamily="ui-monospace, monospace"
                 >
@@ -210,11 +210,11 @@ export default function BettingAppArchitectureDiagram({
 
               <g aria-label="Supabase backend root">
                 <rect
-                  x="108"
-                  y="460"
-                  width="204"
-                  height="28"
-                  rx="5"
+                  x="96"
+                  y="462"
+                  width="228"
+                  height="34"
+                  rx="6"
                   fill="#151d2f"
                   stroke="#0c6fa3"
                   strokeOpacity="0.75"
@@ -222,10 +222,10 @@ export default function BettingAppArchitectureDiagram({
                 />
                 <text
                   x="210"
-                  y="476"
+                  y="482"
                   textAnchor="middle"
                   fill="#bae6fd"
-                  fontSize="9.2"
+                  fontSize="10.5"
                   fontWeight="600"
                   fontFamily="ui-sans-serif, system-ui, sans-serif"
                 >
