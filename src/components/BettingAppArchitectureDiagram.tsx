@@ -90,7 +90,7 @@ export default function BettingAppArchitectureDiagram({
                   y="200"
                   textAnchor="middle"
                   fill="#ffffff"
-                  fontSize="13.5"
+                  fontSize="11.2"
                   fontWeight="700"
                   fontFamily="ui-sans-serif, system-ui, sans-serif"
                 >
@@ -112,7 +112,7 @@ export default function BettingAppArchitectureDiagram({
                   y="102"
                   textAnchor="middle"
                   fill="#ffffff"
-                  fontSize="9.5"
+                  fontSize="11.2"
                   fontWeight="600"
                   fontFamily="ui-sans-serif, system-ui, sans-serif"
                 >
