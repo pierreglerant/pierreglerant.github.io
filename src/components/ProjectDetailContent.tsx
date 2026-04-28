@@ -13,6 +13,7 @@ import type { ProjectSlug } from "../config/projects";
 import { getProjectArchitectureSection } from "../config/project-architecture";
 import SecureOpsArchitectureDiagram from "./SecureOpsArchitectureDiagram";
 import ImmoSphereArchitectureDiagram from "./ImmoSphereArchitectureDiagram";
+import BettingAppArchitectureDiagram from "./BettingAppArchitectureDiagram";
 import {
   PROJECT_GALLERY_IMAGES,
   PROJECT_REPO_URLS,
@@ -140,6 +141,8 @@ export default function ProjectDetailContent({
       <SecureOpsArchitectureDiagram locale={locale} />
     ) : architecture.variant === "immosphereDiagram" ? (
       <ImmoSphereArchitectureDiagram locale={locale} />
+    ) : architecture.variant === "bettingAppDiagram" ? (
+      <BettingAppArchitectureDiagram locale={locale} />
     ) : (
       architecture.body
     );

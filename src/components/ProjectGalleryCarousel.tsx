@@ -132,8 +132,8 @@ export default function ProjectGalleryCarousel({
     aspectRatioClass ??
     (currentIsSecureOps
       ? currentSlide?.src.includes("/secureops/5.png")
-          ? "aspect-[1851/961]"
-          : "aspect-[1869/957]"
+        ? "aspect-[1851/961]"
+        : "aspect-[1869/957]"
       : "aspect-[16/9]");
   const lightboxSlide = slides[lightboxIndex] ?? slides[0];
   const lightboxUsesContain =
@@ -255,8 +255,9 @@ export default function ProjectGalleryCarousel({
             {slides.map((slide, i) => {
               const isPortraitPage = slide.src.includes("/secureops/4.png");
               const usesContain = isPortraitPage || imageFit === "contain";
-              const slideFitClass =
-                usesContain ? "object-contain" : "object-cover";
+              const slideFitClass = usesContain
+                ? "object-contain"
+                : "object-cover";
 
               return (
                 <div

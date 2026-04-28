@@ -208,13 +208,13 @@
         "sectionStack": "- Données : à préciser\n- IA : à préciser\n- Stack technique : à préciser\n- Déploiement : à préciser"
       },
       "project-five": {
-        "title": "Projet à venir 2",
-        "excerpt": "Emplacement réservé — badge Logiciel, même présentation que les fiches « classiques » (vue d’ensemble, détails, stack, architecture).",
-        "coverAlt": "Visuel placeholder — projet à venir 2",
-        "sectionOverview": "Ceci est une **fiche projet factice** calquée sur le **schéma de présentation standard** des projets logiciel (ImmoSphere, SecureOps) : quatre sections — vue d’ensemble, détails & fonctionnalités, technologies & stack, architecture.\n\nRemplacez titre, textes et visuels lorsque le projet sera défini.",
-        "sectionKeywords": "placeholder, logiciel, développement, architecture",
-        "sectionFeatures": "Section **fonctionnalités & périmètre** provisoire, comme sur une fiche produit logiciel.\n\nÀ remplacer par le périmètre réel (API, interface, intégrations, etc.).",
-        "sectionStack": "- Frontend : à préciser\n- Backend : à préciser\n- Base de données : à préciser\n- CI/CD & qualité : à préciser\n- Déploiement : à préciser"
+        "title": "Application de paris entre amis",
+        "excerpt": "App mobile de paris entre amis (points fictifs) avec cotes dynamiques et classement.",
+        "coverAlt": "Aperçu de l’application de paris entre amis",
+        "sectionOverview": "Application mobile pour organiser des **paris entre amis** (points fictifs et classement) dans un petit groupe ou une équipe.\n\nLe client suit une **architecture en oignon** : la logique métier reste au centre (domaine + cas d’usage), découplée de l’UI et des accès externes.\n\nLe frontend est en **React Native** + **TypeScript** ; le backend repose sur **Supabase** (PostgreSQL, RPC, RLS, storage et fonctions edge selon les besoins).",
+        "sectionKeywords": "app mobile, architecture onion, TypeScript, React Native, Supabase, PostgreSQL, RPC",
+        "sectionFeatures": "**Création de paris** : création de paris sur des sujets libres, y compris des paris centrés sur des membres de l’équipe.\n\n**Mise en points fictifs** : engagement de points fictifs sur une issue, sans argent réel.\n\n**Cotes dynamiques** : calcul des cotes selon le nombre de paris et leur répartition entre options.\n\n**Classement** : comparaison des joueurs via un classement basé sur les règles de points.",
+        "sectionStack": "- Déploiement & builds : Expo SDK 54 ; EAS (build + soumission) vers l’App Store iOS\n- Client : React Native, TypeScript, Expo Router (routes typées), session locale AsyncStorage\n- Architecture : onion (domaine / use cases au centre), couches présentation et infrastructure en périphérie\n- Backend & données : Supabase (PostgreSQL), RPC, tables métier, storage (avatars), edge functions\n- Tests & CI : GitHub Actions avec contrôles statiques, tests unitaires et tests d’intégration"
       }
     }
   },
