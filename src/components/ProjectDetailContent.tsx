@@ -109,13 +109,13 @@ export default function ProjectDetailContent({
       </>
     ) : keywordsText.trim().length > 0 ||
       slug === "crypto-prediction" ||
-      slug === "project-five" ? (
+      slug === "project-four" ? (
       <>
         {bodyParagraphs(overviewText).map((para, j) => (
           <p key={j}>
             {slug === "immosphere" ||
             slug === "crypto-prediction" ||
-            slug === "project-five"
+            slug === "project-four"
               ? renderInlineBold(para)
               : para}
           </p>
@@ -174,11 +174,11 @@ export default function ProjectDetailContent({
           ))}
         </ul>
       </>
-    ) : slug === "project-five" ? (
+    ) : slug === "project-four" ? (
       <>
         <ul className="mt-1 list-disc space-y-2 pl-5 marker:text-[rgb(var(--primary))]">
           {stackBulletItems(
-            t("projects.items.project-five.sectionFeatures"),
+            t("projects.items.project-four.sectionFeatures"),
           ).map((item, j) => (
             <li key={j} className="pl-1">
               {renderInlineBold(item)}

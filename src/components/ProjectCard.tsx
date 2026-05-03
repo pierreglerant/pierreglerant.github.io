@@ -24,18 +24,18 @@ export default function ProjectCard({ locale, slug }: Props) {
   const coverAlt = t(`projects.items.${slug}.coverAlt`);
   const cover = PROJECT_COVER_IMAGE[slug];
   const badges = PROJECT_CARD_BADGES[slug];
-  const coverFitClass =
+  const isLogoCard =
     slug === "secureops" ||
     slug === "immosphere" ||
-    slug === "crypto-prediction"
-      ? "object-contain object-center p-5 md:p-7"
-      : "object-cover object-center";
-  const coverHoverClass =
-    slug === "secureops" ||
-    slug === "immosphere" ||
-    slug === "crypto-prediction"
-      ? ""
-      : "group-hover:scale-[1.04]";
+    slug === "crypto-prediction" ||
+    slug === "project-four";
+
+  const coverFitClass = isLogoCard
+    ? slug === "project-four"
+      ? "object-contain object-center p-3 md:p-4"
+      : "object-contain object-center p-5 md:p-7"
+    : "object-cover object-center";
+  const coverHoverClass = isLogoCard ? "" : "group-hover:scale-[1.04]";
   const coverContainerClass = "bg-[var(--color-surface)]";
   const ring =
     "outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]";

@@ -53,13 +53,13 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/fr/projects/project-four",
-        destination: "/fr#projects",
+        source: "/fr/projects/project-five",
+        destination: "/fr/projects/project-four",
         permanent: true,
       },
       {
-        source: "/en/projects/project-four",
-        destination: "/en#projects",
+        source: "/en/projects/project-five",
+        destination: "/en/projects/project-four",
         permanent: true,
       },
     ];
