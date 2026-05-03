@@ -1,0 +1,24 @@
+{
+  "name": "Pierre Glerant — Portfolio",
+  "short_name": "Pierre Glerant",
+  "description": "Portfolio personnel : projets et contact.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3a8a",
+  "orientation": "portrait-primary",
+  "lang": "fr-FR",
+  "dir": "ltr",
+  "icons": [],
+  "categories": ["portfolio", "personal"],
+  "shortcuts": [
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "url": "/fr#contact"
+    }
+  ],
+  "prefer_related_applications": false,
+  "display_override": ["standalone", "minimal-ui", "browser"]
+}

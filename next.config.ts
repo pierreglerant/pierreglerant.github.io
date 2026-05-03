@@ -1,0 +1,142 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  // Pas de trailing slash pour éviter contenu dupliqué (SEO)
+  trailingSlash: false,
+
+  // Qualité d'image maximale (poids réseau plus élevé en contrepartie).
+  images: {
+    qualities: [100],
+    formats: ["image/webp"],
+  },
+
+  async redirects() {
+    return [
+      {
+        source: "/fr/projects/project-one",
+        destination: "/fr/projects/immosphere",
+        permanent: true,
+      },
+      {
+        source: "/en/projects/project-one",
+        destination: "/en/projects/immosphere",
+        permanent: true,
+      },
+      {
+        source: "/fr/projects/project-two",
+        destination: "/fr/projects/secureops",
+        permanent: true,
+      },
+      {
+        source: "/en/projects/project-two",
+        destination: "/en/projects/secureops",
+        permanent: true,
+      },
+      {
+        source: "/fr/projects/project-three",
+        destination: "/fr/projects/crypto-prediction",
+        permanent: true,
+      },
+      {
+        source: "/en/projects/project-three",
+        destination: "/en/projects/crypto-prediction",
+        permanent: true,
+      },
+      {
+        source: "/fr/projects/crypto-data-platform",
+        destination: "/fr/projects/crypto-prediction",
+        permanent: true,
+      },
+      {
+        source: "/en/projects/crypto-data-platform",
+        destination: "/en/projects/crypto-prediction",
+        permanent: true,
+      },
+      {
+        source: "/fr/projects/project-five",
+        destination: "/fr/projects/bettingapp",
+        permanent: true,
+      },
+      {
+        source: "/en/projects/project-five",
+        destination: "/en/projects/bettingapp",
+        permanent: true,
+      },
+      {
+        source: "/fr/projects/project-four",
+        destination: "/fr/projects/bettingapp",
+        permanent: true,
+      },
+      {
+        source: "/en/projects/project-four",
+        destination: "/en/projects/bettingapp",
+        permanent: true,
+      },
+    ];
+  },
+
+  // Configuration pour éviter l'avertissement sur le workspace root
+  // Note: Le warning sur les lockfiles multiples est normal si vous avez un monorepo
+
+  async headers() {
+    // CSP : limite les sources de scripts/styles/connexions pour atténuer XSS et injection.
+    // À affiner selon les domaines réels (Cognito, gateway, analytics). Voir docs/SEO-AUDIT.md.
+    const csp = [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob: https:",
+      "font-src 'self'",
+      "connect-src 'self' https://challenges.cloudflare.com https://*.amazoncognito.com https:",
+      "frame-src 'self' https://challenges.cloudflare.com https://*.amazoncognito.com",
+      "base-uri 'self'",
+      "form-action 'self'",
+      "frame-ancestors 'none'",
+    ].join("; ");
+
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "Content-Security-Policy", value: csp },
+          // Empêche l'affichage du site dans un iframe (clickjacking)
+          { key: "X-Frame-Options", value: "DENY" },
+          // Empêche le navigateur de deviner le type MIME (MIME sniffing)
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          // Contrôle les informations envoyées dans le header Referer
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          // Désactive les API navigateur non utilisées
+          {
+            key: "Permissions-Policy",
+            value:
+              "geolocation=(), microphone=(), camera=(), payment=(), usb=()",
+          },
+          // Force HTTPS pendant 1 an, incluant les sous-domaines
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains; preload",
+          },
+          // Bloque le chargement si une attaque XSS est détectée (navigateurs legacy)
+          { key: "X-XSS-Protection", value: "1; mode=block" },
+          // Empêche le téléchargement de ressources cross-origin non autorisées
+          { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+          // Isole le contexte de navigation (protection contre Spectre)
+          {
+            key: "Cross-Origin-Embedder-Policy",
+            value: "credentialless",
+          },
+          // Empêche le chargement de ressources cross-origin non autorisées
+          {
+            key: "Cross-Origin-Resource-Policy",
+            value: "same-origin",
+          },
+        ],
+      },
+    ];
+  },
+};
+
+export default nextConfig;

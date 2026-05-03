@@ -1,0 +1,227 @@
+{
+  "common": {
+    "success": "Action réalisée avec succès.",
+    "error": "Une erreur est survenue.",
+    "info": "Information"
+  },
+  "metadata": {
+    "siteTitle": "Pierre Glerant — Portfolio",
+    "siteDescription": "Portfolio de Pierre Glerant : projets, compétences et contact.",
+    "homeTitle": "Accueil",
+    "homeDescription": "Bienvenue sur le portfolio de Pierre Glerant.",
+    "contactTitle": "Contact",
+    "contactDescription": "Contacter Pierre Glerant par email."
+  },
+  "header": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "contact": "Contact",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "menu": "Menu",
+    "switchToFrench": "Passer en français",
+    "switchToEnglish": "Passer en anglais"
+  },
+  "footer": {
+    "copyright": "© {{year}} Pierre Glerant. Tous droits réservés."
+  },
+  "home": {
+    "titleLine1": "Bonjour, je suis",
+    "titleLine1Before": "Bonjour, bienvenue sur mon ",
+    "titleLine1Accent": "portfolio",
+    "titleHighlight": "",
+    "heroLine1": "Ingénieur logiciel / IA, diplômé de CentraleSupélec.",
+    "heroLine2": "",
+    "sectionsTitle": "Contenu",
+    "highlight1Title": "CentraleSupélec",
+    "highlight1Body": "Diplômé en 2025, dominante Informatique, mention IA.",
+    "highlight2Title": "Safran",
+    "highlight2Body": "3 ans d’apprentissage en science des données, puis comme ingénieur en applications d’IA.",
+    "highlight3Title": "Projets",
+    "highlight3BodyPrefix": "4 projets logiciels, données et IA visibles ",
+    "highlight3LinkLabel": "ici",
+    "highlight3LinkAria": "Aller à la section Projets",
+    "highlight1LogoAlt": "Logo CentraleSupélec",
+    "highlight2LogoAlt": "Logo Safran",
+    "highlight3LogoAlt": "Logo GitHub",
+    "skillsMarqueeIntro": "Compétences et technologies"
+  },
+  "about": {
+    "title": "À propos",
+    "skills": {
+      "heading": "Compétences",
+      "intro": "",
+      "items": {
+        "ml": {
+          "title": "ML & deep learning",
+          "body": "Entraînement et évaluation de modèles — Python, TensorFlow, PyTorch, Pandas, NumPy."
+        },
+        "llm": {
+          "title": "LLM & RAG",
+          "body": "Modèles de langage, RAG et pipelines NLP."
+        },
+        "data": {
+          "title": "Données & pipelines",
+          "body": "SQL, pipelines de données, flux fiables pour l’entraînement et la production."
+        },
+        "frontend": {
+          "title": "Développement logiciel - frontend",
+          "body": "TypeScript, React, Next.js, React Native et Expo."
+        },
+        "backend": {
+          "title": "Développement logiciel - backend",
+          "body": "API REST, PostgreSQL, micro-services, architecture en oignon, architecture en couches."
+        },
+        "cloud": {
+          "title": "Cloud & DevOps",
+          "body": "Infrastructure et exploitation : AWS (EC2, RDS, Amplify, etc.), Linux, automatisation (scripts, CI/CD), observabilité (logs, métriques, alertes)."
+        }
+      }
+    },
+    "resume": {
+      "heading": "Curriculum vitæ",
+      "previewAlt": "Aperçu du CV de Pierre Glerant",
+      "openViewer": "Afficher le CV en plein écran",
+      "closeViewer": "Fermer l’aperçu",
+      "lightboxZoomIn": "Agrandir encore l’aperçu",
+      "lightboxZoomOut": "Revenir à la taille adaptée à l’écran",
+      "download": "Télécharger le CV (PDF)"
+    }
+  },
+  "projects": {
+    "title": "Projets",
+    "intro": "Quelques projets autour du logiciel, de la donnée et de l’intelligence artificielle",
+    "introConfidentiality": "Pour des raisons de confidentialité, le travail effectué chez Safran n’apparaît pas dans cette liste.",
+    "seeMore": "Voir le détail",
+    "backToProjects": "Retour aux projets",
+    "carouselPrev": "Image précédente",
+    "carouselNext": "Image suivante",
+    "carouselRegion": "Galerie d’images : {{title}}",
+    "carouselOpenLightbox": "Ouvrir l’image en plein écran",
+    "carouselCloseLightbox": "Fermer l’image en plein écran",
+    "carouselLightboxZoomIn": "Agrandir l’image",
+    "carouselLightboxZoomOut": "Réduire l’image",
+    "carouselSlideAlt": "{{base}} — visuel {{current}} sur {{total}}",
+    "carouselSlideAltShort": "Visuel {{current}} sur {{total}}",
+    "keywordsLabel": "Mots-clés :",
+    "badgeListLabel": "Thématiques du projet",
+    "badges": {
+      "data": "Données",
+      "software": "Logiciel",
+      "cyber": "Cyber",
+      "ai": "IA"
+    },
+    "detailSectionTitles": {
+      "overview": "Vue d’ensemble",
+      "features": "Détails & fonctionnalités",
+      "stack": "Technologies & stack",
+      "architecture": "Architecture",
+      "method": "Méthode",
+      "results": "Résultats"
+    },
+    "architecture": {
+      "secureops": {
+        "diagramAria": "Schéma d’architecture SecureOps : frontend, gateway, microservices, workers et base de données",
+        "httpsLabel": "HTTPS",
+        "frontendTitle": "Frontend (Next.js)",
+        "frontendMeta": "Cognito (auth) • i18n fr/en • Tailwind CSS",
+        "gatewayTitle": "API Gateway",
+        "gatewayMeta": "Auth JWT + clés API • CORS • Proxy",
+        "adminTitle": "admin-service",
+        "adminMeta": "API REST • PostgreSQL • Alembic",
+        "userTitle": "user-service",
+        "userMeta": "API REST • PostgreSQL • Alembic",
+        "pdfTitle": "pdf-service",
+        "pdfMeta": "WeasyPrint",
+        "scanTitle": "scan-service",
+        "scanMeta": "API REST — jobs scan (création, statut, résultat)",
+        "crawlTitle": "crawl-service",
+        "crawlMeta": "API REST — jobs crawl (création, statut, résultat)",
+        "scanWorkerTitle": "scan-worker",
+        "scanWorkerMeta": "Poll des jobs • exécution • sans HTTP • PostgreSQL",
+        "crawlWorkerTitle": "crawl-worker",
+        "crawlWorkerMeta": "Poll des jobs • exécution • sans HTTP • PostgreSQL",
+        "postgresTitle": "PostgreSQL",
+        "postgresMeta": "Base modèle, schémas dédiés, files d’attente de jobs, tables métier et de métadonnées, etc."
+      },
+      "immosphere": {
+        "diagramAria": "Schéma d’architecture ImmoSphere : frontend, API gateway, services dont TileServer, et PostgreSQL",
+        "httpsLabel": "HTTPS",
+        "frontendTitle": "Frontend",
+        "frontendMeta": "React + Vite • AWS Amplify · Amazon Cognito • Tailwind CSS",
+        "directTilesNote": "Le frontend interroge aussi TileServer en HTTPS pour les tuiles vectorielles.",
+        "gatewayTitle": "API Gateway (FastAPI)",
+        "gatewayMeta": "Auth : JWT Cognito · clé API métriques → admin • CORS · reverse proxy · réponses tuiles en streaming",
+        "microservicesLabel": "Services",
+        "serviceLines": "analytics-query-service|lecture indicateurs / PostGIS\nanalytics-ingestion-service|chargement & transformation\nland-register-service|cadastre, pipelines, MBTiles (suivi SSE)\nautocompletion-service|recherche adresses / texte\nuser-service|profil & données utilisateur\nadmin-service|métriques, outils d’exploitation\nblog-service|contenus & formulaires (ex. Turnstile)\ntoolbox-service|utilitaires API\npdf-generator-service|PDF (Playwright)\nTileServer GL|tuiles vectorielles depuis MBTiles",
+        "postgresTitle": "PostgreSQL / PostGIS",
+        "postgresMeta": "Loyers, transactions, DPE, équipements, démographie / logement, cadastre ; index pour l’autocomplétion (adresses, libellés) ; comptes, contenus et schémas analytics & admin"
+      }
+    },
+    "items": {
+      "immosphere": {
+        "title": "ImmoSphere",
+        "excerpt": "Aide à la décision immobilière sur données agrégées multi-sources — PostGIS, tuiles vectorielles auto-hébergées, microservices FastAPI sur AWS (immosphere.co).",
+        "coverAlt": "Aperçu du projet ImmoSphere — plateforme d’analyse immobilière",
+        "sectionOverview": "**ImmoSphere** est une application web d’aide à la décision immobilière, bâtie sur des données immobilières et de marché agrégées et **multi-sources**.\n\nLe produit permet d’explorer et de comparer des zones géographiques selon plusieurs indicateurs (prix, loyers, démographie, équipements, performance énergétique (DPE), etc.) pour éclairer les décisions d’investissement et d’usage, avec une expérience centrée sur la **carte interactive**.\n\nCo-réalisation avec un **conseiller en gestion de patrimoine** : le partenaire assure le cadrage métier et le développement commercial ; je conduis la conception, le développement et l’exploitation techniques.",
+        "sectionKeywords": "immobilier, aide à la décision, analyse de données, données multi-sources, cartographie interactive, géospatial, microservices, pipelines de données",
+        "websiteLinkLabel": "www.immosphere.co",
+        "sectionFeatures": "Livraison de bout en bout d’un produit d’**aide à la décision** : ingestion et transformation des données, APIs REST, **PostgreSQL/PostGIS**, frontend React, déploiement conteneurisé sur **AWS** (EC2, RDS) et accompagnement opérationnel au quotidien.\n\nAnalyse **multi-indicateurs** (transactions, loyers, DPE, équipements, population / logement, etc.) exposée via une **API unifiée** derrière une gateway.",
+        "sectionFeaturesListTitle": "Fonctionnalités principales",
+        "sectionFeaturesList": "- Cartes nationales : couches interactives sur la **France métropolitaine** — ventes depuis 2014, DPE depuis 2021, indicateurs de prix et de dynamique de quartier à différentes échelles territoriales.\n- Analyseur de bien : à partir de l’adresse, de la surface, de la typologie et d’autres informations saisies, **tableaux de bord** qui synthétisent le logement, son environnement immédiat et le quartier.\n- Explorateur de marché : exploration d’un **marché local** à partir d’une **zone géographique** choisie, avec des statistiques immobilières et **socio-démographiques** consolidées pour en comprendre la dynamique.\n- Simulateurs : crédit immobilier, impôt sur la fortune immobilière (IFI), plus-value immobilière.",
+        "sectionStack": "- Déploiement & infrastructure : AWS EC2, services conteneurisés (Docker), Amazon RDS, Amazon Cognito pour l’authentification, AWS Amplify pour le frontend\n- Architecture & backend : microservices Python / FastAPI derrière une API Gateway centrale ; services découpés selon les périmètres métier ; TileServer pour les cartes\n- Couche données : ingestion multi-sources orchestrée en Python ; traitements et conversions vers PostgreSQL/PostGIS ou vers des tuiles vectorielles\n- Sécurité : JWT Cognito (Amplify côté client) ; droits par groupes Cognito ; Cloudflare\n- Observabilité : logs structurés (JSON en option), propagation X-Correlation-ID, réduction / masquage des données personnelles (PII), interface d’administration de supervision développée sur mesure\n- Frontend : React (Vite), React Router, Tailwind, MapLibre pour les cartes\n- Tests & CI : GitHub Actions (lint, tests backend et frontend), intégration Docker"
+      },
+      "secureops": {
+        "title": "SecureOps",
+        "excerpt": "Application de cybersécurité — scanner web OWASP Top 10 et architecture microservices (secureops.fr).",
+        "coverAlt": "Aperçu du projet SecureOps — scanner de vulnérabilités web",
+        "sectionOverviewLead": "**SecureOps** est un produit de sécurité web pour des contrôles alignés sur **l’OWASP Top 10** sur des URLs cibles.",
+        "sectionOverviewCiPrefix": "Sur secureops.fr : rapports et scans planifiés ; en CI/CD, utilisez ",
+        "sectionOverviewCiLinkLabel": "l’action GitHub SecureOps",
+        "sectionOverviewCiSuffix": " pour rejouer les mêmes contrôles.",
+        "sectionOverviewStatus": "Disponible en ligne aujourd’hui : analyse passive et crawlers web. Les **tests intrusifs** sont encore en développement.",
+        "sectionKeywords": "cybersécurité, OWASP Top 10, scanner de vulnérabilités, sécurité web, microservices, files d’attente sur mesure, workers, orchestration, traitement asynchrone",
+        "websiteLinkLabel": "www.secureops.fr",
+        "githubLinkLabel": "GitHub",
+        "sectionFeatures": "Conception du **pipeline d’analyse passive** : signaux HTTP/TLS et de configuration, en-têtes de sécurité, empreintes technologiques et heuristiques de mauvaise configuration, mises en regard de **familles de risques type OWASP Top 10**—sans exploitation active sur le périmètre actuellement exposé en ligne.\n\n**Jobs de crawl** pour cartographier la surface atteignable (suivi de liens, règles de périmètre), afin de lancer des scans sur un ensemble d’URLs et d’actifs découverts plutôt que sur une **seule entrée**.\n\n**Exécution asynchrone** de bout en bout : les services FastAPI reçoivent les demandes scan/crawl et enfilent le travail dans des **files adossées à PostgreSQL** ; des workers dédiés font le polling, exécutent le moteur et écrivent statuts et résultats—APIs réactives, absorption des pics, isolation des pannes par job.",
+        "sectionStack": "- Déploiement & infrastructure : AWS EC2, services conteneurisés (Docker), PostgreSQL hébergé sur cette instance EC2, Amazon Cognito pour l’authentification, AWS Amplify pour le frontend\n- Architecture & backend : microservices FastAPI exposés via une API Gateway ; exécution asynchrone des scans via une file de jobs PostgreSQL et des workers dédiés\n- Couche données : PostgreSQL ; résultats de scan stockés en JSON ; tables indexées (statut, tentatives, horodatage) ; rapports PDF générés à la demande\n- Sécurité : JWT Cognito et clés API ; RBAC basique ; limitation de débit en mémoire ; protections SSRF (blocage des réseaux privés, timeouts) ; Cloudflare pour la protection applicative en périphérie\n- Observabilité : logs structurés (JSON en option), propagation X-Correlation-ID, réduction / masquage des données personnelles (PII), interface d’administration de supervision développée sur mesure\n- Frontend : Next.js (App Router) et Tailwind ; suivi des jobs asynchrones par polling avec backoff\n- Tests & CI : GitHub Actions (lint, tests backend et frontend), intégration Docker"
+      },
+      "crypto-prediction": {
+        "title": "Crypto Prediction",
+        "excerpt": "Données crypto : ingestion → entrepôt → API (dbt, Airflow). Co-réalisé avec un data engineer ; benchmark ML en autonomie.",
+        "githubLinkLabel": "GitHub",
+        "pdfReportLinkLabel": "Rapport (PDF)",
+        "coverAlt": "Aperçu du projet Crypto Prediction — plateforme de données sur les cryptomonnaies",
+        "sectionOverview": "**Crypto Prediction** est un projet de plateforme de données orientée **production** : il ingère, traite et sert des données de marché sur les cryptomonnaies à partir d’APIs externes (**CoinGecko**, **Binance**), jusqu’à des jeux **prêts pour l’analytique** et une exposition via **API REST**.\n\nLa partie **ingénierie données** (ingestion, modélisation d’entrepôt, orchestration, transformations **dbt**, service API) a été menée **en binôme** avec un **data engineer**. J’ai réalisé **seul** la partie **ML** : préparation de datasets, feature engineering et **benchmark de modèles**.\n\nL’architecture suit une chaîne classique : **APIs externes** → ingestion → stockage brut → transformations → entrepôt → **API** → usages (tableaux de bord, expérimentations ML). Des extensions **streaming** ou **ML en production** peuvent s’ajouter dans la continuité du projet.",
+        "sectionKeywords": "data engineering, cryptomonnaies, ingestion, ETL, dbt, Airflow, FastAPI, PostgreSQL, entrepôt de données, API REST, machine learning, benchmark",
+        "sectionMethod": "**Ingénierie données (binôme)** : ingestion **CoinGecko** et **Binance**, données brutes dans **PostgreSQL**, couches **dbt** (staging → marts), DAGs **Airflow** pour enchaîner fetch → stockage → transformation. Le service **FastAPI** expose prix et métriques comme **produit data**.\n\n**ML (seul)** : préparation de jeux de données depuis l’entrepôt, features, **benchmark de modèles** en notebooks — hors chaîne de production.\n\n**Pratiques** : **Docker Compose** pour une stack locale reproductible ; tests sur le code Python et les modèles **dbt** là où c’était pertinent.",
+        "sectionResults": "**Produit data livré** : endpoints REST adossés à des tables nettoyées et **prêtes analytique** — exploitables en tableaux de bord ou en aval.\n\n**Reproductibilité** : un même environnement local (services + données) ; schémas et transformations versionnés (**dbt**, migrations).\n\n**Benchmark ML** : comparaisons de modèles sur features préparées, avec des critères lisibles entre baselines et candidats (travail expérimental — pas de service de trading en ligne)."
+      },
+      "bettingapp": {
+        "title": "Application de paris",
+        "excerpt": "App mobile de paris entre amis (points fictifs) avec cotes dynamiques et classement.",
+        "coverAlt": "Aperçu de l’application de paris",
+        "sectionOverview": "Application mobile pour organiser des **paris entre amis** (points fictifs et classement) dans un petit groupe ou une équipe.\n\nLe client suit une **architecture en oignon** : la logique métier reste au centre (domaine + cas d’usage), découplée de l’UI et des accès externes.\n\nLe frontend est en **React Native** + **TypeScript** ; le backend repose sur **Supabase** (PostgreSQL, RPC, RLS, storage et fonctions edge selon les besoins).",
+        "sectionKeywords": "app mobile, architecture onion, TypeScript, React Native, Supabase, PostgreSQL, RPC",
+        "sectionFeatures": "- **Création de paris** : création de paris sur des sujets libres, y compris des paris centrés sur des membres de l’équipe.\n- **Mise en points fictifs** : engagement de points fictifs sur une issue, sans argent réel.\n- **Cotes dynamiques** : calcul des cotes selon le nombre de paris et leur répartition entre options.\n- **Classement** : comparaison des joueurs via un classement basé sur les règles de points.",
+        "sectionStack": "- Déploiement & builds : Expo SDK 54 ; EAS (build + soumission) vers l’App Store iOS\n- Client : React Native, TypeScript, Expo Router (routes typées), session locale AsyncStorage\n- Architecture : onion (domaine / use cases au centre), couches présentation et infrastructure en périphérie\n- Backend & données : Supabase (PostgreSQL), RPC, tables métier, storage (avatars), edge functions\n- Tests & CI : GitHub Actions avec contrôles statiques, tests unitaires et tests d’intégration",
+        "githubLinkLabel": "GitHub"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "headline": "Envie de collaborer, d’échanger ou de lancer un projet ?",
+    "cta": "Envoyer un email",
+    "location": "Basé à Paris, France • Disponible en remote / hybride",
+    "lastUpdate": "Dernière mise à jour du site : {{date}}"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Page introuvable",
+    "description": "La page demandée n'existe pas ou a été déplacée.",
+    "backHome": "Retour à l'accueil",
+    "contact": "Contact"
+  }
+}
