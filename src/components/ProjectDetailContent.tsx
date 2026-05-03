@@ -109,14 +109,12 @@ export default function ProjectDetailContent({
       </>
     ) : keywordsText.trim().length > 0 ||
       slug === "crypto-prediction" ||
-      slug === "project-four" ||
       slug === "project-five" ? (
       <>
         {bodyParagraphs(overviewText).map((para, j) => (
           <p key={j}>
             {slug === "immosphere" ||
             slug === "crypto-prediction" ||
-            slug === "project-four" ||
             slug === "project-five"
               ? renderInlineBold(para)
               : para}

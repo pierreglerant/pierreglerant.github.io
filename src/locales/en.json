@@ -35,7 +35,7 @@
     "highlight2Title": "Safran",
     "highlight2Body": "3-year apprenticeship: first as a data scientist, then as an AI application engineer.",
     "highlight3Title": "Projects",
-    "highlight3BodyPrefix": "8 software, data, and AI projects, visible ",
+    "highlight3BodyPrefix": "4 software, data, and AI projects, visible ",
     "highlight3LinkLabel": "here",
     "highlight3LinkAria": "Go to the Projects section",
     "highlight1LogoAlt": "CentraleSupélec logo",
@@ -194,19 +194,10 @@
         "sectionMethod": "**Data engineering (pair work)**: we implemented ingestion from **CoinGecko** and **Binance**, landed raw data in **PostgreSQL**, built **dbt** layers (staging → marts), and scheduled **Airflow** DAGs so fetch → store → transform runs reliably. The **FastAPI** service exposes prices and metrics as a small **data product**.\n\n**ML (solo)**: I prepared datasets from warehouse outputs, engineered features, and ran a **model benchmark** in notebooks—kept off the production hot path.\n\n**Practices**: **Docker Compose** for a reproducible local stack (database, Airflow, API); tests on Python code and dbt models where it mattered.",
         "sectionResults": "**Delivered data product**: REST endpoints backed by cleaned, **analytics-ready** tables—ready for dashboards or downstream consumers.\n\n**Reproducibility**: one command brings up the core services locally; warehouse schema and transforms are versioned (**dbt** + migrations).\n\n**ML benchmark**: comparative runs on prepared features, with clear criteria to contrast baselines and candidate models (experimental work—not a live trading service)."
       },
-      "project-four": {
-        "title": "Upcoming project 1",
-        "excerpt": "Reserved slot — data & AI (replace when ready).",
-        "coverAlt": "Placeholder cover — upcoming project 1",
-        "sectionOverview": "This is a **placeholder project** page to reserve a fourth slot on the portfolio. Replace the title, copy, and images when the real project is ready.",
-        "sectionKeywords": "placeholder, data, AI",
-        "sectionFeatures": "Temporary **features** section.\n\nFill in with the actual project scope later.",
-        "sectionStack": "- Data: TBD\n- AI: TBD\n- Stack: TBD\n- Deployment: TBD"
-      },
       "project-five": {
-        "title": "Betting App for Friends",
+        "title": "Betting App",
         "excerpt": "Mobile betting app for friends (virtual points) with dynamic odds and leaderboard.",
-        "coverAlt": "Friends betting app preview",
+        "coverAlt": "Betting app preview",
         "sectionOverview": "Mobile app to run **friendly bets** (virtual points + leaderboard) inside a small group or team.\n\nThe client follows an **onion architecture**: business logic stays at the core (domain + use cases), decoupled from UI and external adapters.\n\nFrontend is built with **React Native** + **TypeScript**; backend uses **Supabase** (PostgreSQL, RPC, RLS, storage, and edge functions where needed).",
         "sectionKeywords": "mobile app, onion architecture, TypeScript, React Native, Supabase, PostgreSQL, RPC",
         "sectionFeatures": "- **Bet creation**: create bets on open topics, including bets centered on team members.\n- **Virtual points staking**: place virtual points on an outcome (no real money).\n- **Dynamic odds**: odds derived from bet volume and distribution across options.\n- **Leaderboard**: rank players based on the game point rules.",

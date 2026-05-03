@@ -52,6 +52,16 @@ const nextConfig: NextConfig = {
         destination: "/en/projects/crypto-prediction",
         permanent: true,
       },
+      {
+        source: "/fr/projects/project-four",
+        destination: "/fr#projects",
+        permanent: true,
+      },
+      {
+        source: "/en/projects/project-four",
+        destination: "/en#projects",
+        permanent: true,
+      },
     ];
   },
 
