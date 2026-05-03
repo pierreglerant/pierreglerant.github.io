@@ -71,7 +71,7 @@
         },
         "backend": {
           "title": "Développement logiciel - backend",
-          "body": "API REST, PostgreSQL, micro-services ; couche Domain, cas d’usage Application et couche Infrastructure (persistance, intégrations) en architecture en oignon."
+          "body": "API REST, PostgreSQL, micro-services, architecture en oignon, architecture en couches."
         },
         "cloud": {
           "title": "Cloud & DevOps",

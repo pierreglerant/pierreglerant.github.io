@@ -67,7 +67,7 @@
         },
         "backend": {
           "title": "Software engineering - backend",
-          "body": "REST APIs, PostgreSQL, microservices; Domain layer, Application use cases, and Infrastructure (persistence, integrations) in onion architecture."
+          "body": "REST APIs, PostgreSQL, microservices, onion architecture, layered architecture."
         },
         "cloud": {
           "title": "Cloud & DevOps",
