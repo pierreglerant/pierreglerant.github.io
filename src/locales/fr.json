@@ -31,8 +31,8 @@
     "titleLine1Before": "Bonjour, bienvenue sur mon ",
     "titleLine1Accent": "portfolio",
     "titleHighlight": "",
-    "heroLine1": "Data Scientist & ingénieur ML, diplômé de CentraleSupélec.",
-    "heroLine2": "Spécialisé en conception et déploiement d’applications IA, entre autres.",
+    "heroLine1": "Ingénieur logiciel / IA, diplômé de CentraleSupélec.",
+    "heroLine2": "",
     "sectionsTitle": "Contenu",
     "highlight1Title": "CentraleSupélec",
     "highlight1Body": "Diplômé en 2025, dominante Informatique, mention IA.",
@@ -51,7 +51,7 @@
     "title": "À propos",
     "skills": {
       "heading": "Compétences",
-      "intro": "Solutions IA fiables — du ML au déploiement à l’échelle.",
+      "intro": "",
       "items": {
         "ml": {
           "title": "ML & deep learning",
@@ -91,7 +91,7 @@
   },
   "projects": {
     "title": "Projets",
-    "intro": "Quelques projets autour du logiciel, de la donnée et de l’intelligence artificielle—réalisations accessibles en ligne, présentées ci-dessous.",
+    "intro": "Quelques projets autour du logiciel, de la donnée et de l’intelligence artificielle",
     "introConfidentiality": "Pour des raisons de confidentialité, le travail effectué chez Safran n’apparaît pas dans cette liste.",
     "seeMore": "Voir le détail",
     "backToProjects": "Retour aux projets",

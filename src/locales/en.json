@@ -27,8 +27,8 @@
     "titleLine1Before": "Hello, welcome to my ",
     "titleLine1Accent": "portfolio",
     "titleHighlight": "",
-    "heroLine1": "Data Scientist & ML Engineer from CentraleSupélec.",
-    "heroLine2": "Specialized in designing and deploying AI applications — and beyond.",
+    "heroLine1": "Software / AI Engineer from CentraleSupélec.",
+    "heroLine2": "",
     "sectionsTitle": "Content",
     "highlight1Title": "CentraleSupélec",
     "highlight1Body": "Graduated in 2025, computer science track, AI concentration.",
@@ -47,7 +47,7 @@
     "title": "About",
     "skills": {
       "heading": "Skills",
-      "intro": "Reliable AI — from machine learning to production at scale.",
+      "intro": "",
       "items": {
         "ml": {
           "title": "ML & deep learning",
@@ -87,7 +87,7 @@
   },
   "projects": {
     "title": "Projects",
-    "intro": "A selection of software, data, and AI projects I've built—each live on the web and summarized below.",
+    "intro": "A few projects around software, data, and artificial intelligence",
     "introConfidentiality": "Work from my time at Safran is not listed here, for confidentiality reasons.",
     "seeMore": "See more",
     "backToProjects": "Back to projects",

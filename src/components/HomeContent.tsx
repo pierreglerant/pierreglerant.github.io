@@ -18,6 +18,7 @@ const SKILLS_MARQUEE_COPIES = 3;
 export default function HomeContent({ locale }: { locale: string }) {
   const t = getTranslation(locale as Locale);
   const l = locale as Locale;
+  const heroLine2 = t("home.heroLine2").trim();
   const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Contact portfolio")}`;
   const projectsHash = `${localePath(l, "/")}#projects`;
 
@@ -126,7 +127,7 @@ export default function HomeContent({ locale }: { locale: string }) {
           </h1>
           <div className="hero-lines">
             <p>{t("home.heroLine1")}</p>
-            <p>{t("home.heroLine2")}</p>
+            {heroLine2 ? <p>{heroLine2}</p> : null}
           </div>
           <HeroSocialLinks />
         </div>

@@ -9,6 +9,7 @@ import { ABOUT_SKILL_KEYS } from "../config/about-skills";
 
 export default function AboutSkillsSection({ locale }: { locale: string }) {
   const t = getTranslation(locale as Locale);
+  const skillsIntro = t("about.skills.intro").trim();
 
   return (
     <AnimateInView
@@ -21,9 +22,11 @@ export default function AboutSkillsSection({ locale }: { locale: string }) {
         <SectionTitleWithIcon id="about-skills-heading" icon={Layers}>
           {t("about.skills.heading")}
         </SectionTitleWithIcon>
-        <p className="about-section__skills-intro mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
-          {t("about.skills.intro")}
-        </p>
+        {skillsIntro ? (
+          <p className="about-section__skills-intro mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
+            {skillsIntro}
+          </p>
+        ) : null}
       </div>
 
       <div className="about-skills-grid grid mx-auto mt-12 w-full max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
