@@ -65,17 +65,17 @@
           "title": "Données & pipelines",
           "body": "SQL, pipelines de données, flux fiables pour l’entraînement et la production."
         },
-        "software": {
-          "title": "Développement logiciel",
-          "body": "API REST, PostgreSQL, TypeScript, React, Next.js, micro-services."
+        "frontend": {
+          "title": "Développement logiciel - frontend",
+          "body": "TypeScript, React, Next.js, React Native et Expo."
         },
-        "mlops": {
-          "title": "MLOps & déploiement",
-          "body": "Docker, Git, CI/CD, APIs, mise en prod et monitoring."
+        "backend": {
+          "title": "Développement logiciel - backend",
+          "body": "API REST, PostgreSQL, micro-services ; couche Domain, cas d’usage Application et couche Infrastructure (persistance, intégrations) en architecture en oignon."
         },
         "cloud": {
           "title": "Cloud & DevOps",
-          "body": "AWS (EC2, RDS, Amplify, etc.), Linux, automatisation, observabilité."
+          "body": "Infrastructure et exploitation : AWS (EC2, RDS, Amplify, etc.), Linux, automatisation (scripts, CI/CD), observabilité (logs, métriques, alertes)."
         }
       }
     },

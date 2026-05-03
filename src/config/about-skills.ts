@@ -5,8 +5,8 @@ export const ABOUT_SKILL_KEYS = [
   "ml",
   "llm",
   "data",
-  "software",
-  "mlops",
+  "backend",
+  "frontend",
   "cloud",
 ] as const;
 

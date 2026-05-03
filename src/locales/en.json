@@ -61,17 +61,17 @@
           "title": "Data & pipelines",
           "body": "SQL, data pipelines, and reliable data flows for training and production."
         },
-        "software": {
-          "title": "Software engineering",
-          "body": "REST APIs, PostgreSQL, TypeScript, React, Next.js, microservices."
+        "frontend": {
+          "title": "Software engineering - frontend",
+          "body": "TypeScript, React, Next.js, React Native and Expo."
         },
-        "mlops": {
-          "title": "MLOps & deployment",
-          "body": "Docker, Git, CI/CD, APIs, production rollout and monitoring."
+        "backend": {
+          "title": "Software engineering - backend",
+          "body": "REST APIs, PostgreSQL, microservices; Domain layer, Application use cases, and Infrastructure (persistence, integrations) in onion architecture."
         },
         "cloud": {
           "title": "Cloud & DevOps",
-          "body": "AWS (EC2, RDS, Amplify, etc.), Linux, automation, observability."
+          "body": "Infrastructure and operations: AWS (EC2, RDS, Amplify, etc.), Linux, automation (scripts, CI/CD), observability (logs, metrics, alerts)."
         }
       }
     },
