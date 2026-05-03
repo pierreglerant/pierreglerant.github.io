@@ -273,7 +273,11 @@ export default function ProjectDetailContent({
             closeLightboxLabel={t("projects.carouselCloseLightbox")}
             lightboxZoomInLabel={t("projects.carouselLightboxZoomIn")}
             lightboxZoomOutLabel={t("projects.carouselLightboxZoomOut")}
-            imageFit={slug === "crypto-prediction" ? "contain" : "cover"}
+            imageFit={
+              slug === "crypto-prediction" || slug === "project-four"
+                ? "contain"
+                : "cover"
+            }
             aspectRatioClass={
               slug === "crypto-prediction"
                 ? "aspect-[1124/450]"

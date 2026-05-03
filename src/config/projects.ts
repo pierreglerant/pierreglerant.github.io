@@ -82,7 +82,6 @@ export const PROJECT_COVER_IMAGE: Record<ProjectSlug, string> = {
 
 /** URL du site public pour un projet (lien affiché dans la fiche). */
 export const PROJECT_SITE_URLS: Partial<Record<ProjectSlug, string>> = {
-  immosphere: "https://www.immosphere.co",
   secureops: "https://www.secureops.fr",
 };
 
