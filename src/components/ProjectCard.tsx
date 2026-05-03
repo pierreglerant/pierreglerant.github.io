@@ -2,7 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Locale } from "../i18n/config";
 import type { ProjectBadgeId, ProjectSlug } from "../config/projects";
-import { PROJECT_CARD_BADGES, PROJECT_COVER_IMAGE, UNOPTIMIZED_PROJECT_IMAGES_IN_DEV } from "../config/projects";
+import {
+  PROJECT_CARD_BADGES,
+  PROJECT_COVER_IMAGE,
+  UNOPTIMIZED_PROJECT_IMAGES_IN_DEV,
+} from "../config/projects";
 import { getTranslation } from "../i18n/server";
 
 const BADGE_STYLES: Record<ProjectBadgeId, string> = {

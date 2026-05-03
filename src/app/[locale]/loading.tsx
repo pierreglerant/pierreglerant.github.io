@@ -74,12 +74,7 @@ export default function Loading() {
             </div>
             <div className="hero-social mt-2 flex flex-wrap justify-center gap-3 sm:gap-3.5 px-2">
               {Array.from({ length: 3 }).map((_, i) => (
-                <Skeleton
-                  key={i}
-                  width="w-11"
-                  height="h-11"
-                  rounded="xl"
-                />
+                <Skeleton key={i} width="w-11" height="h-11" rounded="xl" />
               ))}
             </div>
           </div>
@@ -200,7 +195,10 @@ export default function Loading() {
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {Array.from({ length: projectPlaceholders }).map((_, i) => (
-              <div key={i} className="project-card card flex flex-col overflow-hidden !p-0">
+              <div
+                key={i}
+                className="project-card card flex flex-col overflow-hidden !p-0"
+              >
                 <div className="relative aspect-[16/9] w-full shrink-0 overflow-hidden bg-[var(--color-surface)]">
                   <Skeleton
                     width="w-full"
@@ -237,19 +235,11 @@ export default function Loading() {
               <SectionHeadingSkeleton titleWidth="w-36 sm:w-44" />
               <div className="mx-auto mt-4 max-w-2xl space-y-3 px-1">
                 <Skeleton width="w-full" height="h-5" rounded="md" />
-                <Skeleton
-                  width="w-[88%] mx-auto"
-                  height="h-5"
-                  rounded="md"
-                />
+                <Skeleton width="w-[88%] mx-auto" height="h-5" rounded="md" />
               </div>
             </div>
             <div className="contact-section-inner mx-auto mt-12 max-w-xl space-y-4 text-center">
-              <Skeleton
-                width="w-48 mx-auto"
-                height="h-11"
-                rounded="full"
-              />
+              <Skeleton width="w-48 mx-auto" height="h-11" rounded="full" />
               <Skeleton
                 width="w-full max-w-xs mx-auto"
                 height="h-4"
