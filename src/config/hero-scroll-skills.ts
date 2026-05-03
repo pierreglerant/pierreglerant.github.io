@@ -17,7 +17,7 @@ export const HERO_SCROLL_SKILLS: string[] = [
   "Linux",
   "FastAPI",
   "Pandas",
-  "JavaScript",
+  "TypeScript",
   "React",
   "Next.js",
 ];

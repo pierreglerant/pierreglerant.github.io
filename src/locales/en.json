@@ -63,7 +63,7 @@
         },
         "software": {
           "title": "Software engineering",
-          "body": "REST APIs, PostgreSQL, JavaScript, React, Next.js, microservices."
+          "body": "REST APIs, PostgreSQL, TypeScript, React, Next.js, microservices."
         },
         "mlops": {
           "title": "MLOps & deployment",

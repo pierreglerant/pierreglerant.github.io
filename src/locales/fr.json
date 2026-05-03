@@ -67,7 +67,7 @@
         },
         "software": {
           "title": "Développement logiciel",
-          "body": "API REST, PostgreSQL, JavaScript, React, Next.js, micro-services."
+          "body": "API REST, PostgreSQL, TypeScript, React, Next.js, micro-services."
         },
         "mlops": {
           "title": "MLOps & déploiement",
