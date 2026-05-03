@@ -209,8 +209,9 @@
         "coverAlt": "Friends betting app preview",
         "sectionOverview": "Mobile app to run **friendly bets** (virtual points + leaderboard) inside a small group or team.\n\nThe client follows an **onion architecture**: business logic stays at the core (domain + use cases), decoupled from UI and external adapters.\n\nFrontend is built with **React Native** + **TypeScript**; backend uses **Supabase** (PostgreSQL, RPC, RLS, storage, and edge functions where needed).",
         "sectionKeywords": "mobile app, onion architecture, TypeScript, React Native, Supabase, PostgreSQL, RPC",
-        "sectionFeatures": "**Bet creation**: create bets on open topics, including bets centered on team members.\n\n**Virtual points staking**: place virtual points on an outcome (no real money).\n\n**Dynamic odds**: odds derived from bet volume and distribution across options.\n\n**Leaderboard**: rank players based on the game point rules.",
-        "sectionStack": "- Deployment & builds: Expo SDK 54; EAS (build + submit) to the iOS App Store\n- Client: React Native, TypeScript, Expo Router (typed routes), local session via AsyncStorage\n- Architecture: onion style (domain / use cases at the center), presentation and infrastructure at the edge\n- Backend & data: Supabase (PostgreSQL), RPC, business tables, storage (avatars), edge functions\n- Testing & CI: GitHub Actions with static checks, unit tests, and integration tests"
+        "sectionFeatures": "- **Bet creation**: create bets on open topics, including bets centered on team members.\n- **Virtual points staking**: place virtual points on an outcome (no real money).\n- **Dynamic odds**: odds derived from bet volume and distribution across options.\n- **Leaderboard**: rank players based on the game point rules.",
+        "sectionStack": "- Deployment & builds: Expo SDK 54; EAS (build + submit) to the iOS App Store\n- Client: React Native, TypeScript, Expo Router (typed routes), local session via AsyncStorage\n- Architecture: onion style (domain / use cases at the center), presentation and infrastructure at the edge\n- Backend & data: Supabase (PostgreSQL), RPC, business tables, storage (avatars), edge functions\n- Testing & CI: GitHub Actions with static checks, unit tests, and integration tests",
+        "githubLinkLabel": "GitHub"
       }
     }
   },

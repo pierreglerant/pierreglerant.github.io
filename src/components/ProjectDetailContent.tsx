@@ -176,6 +176,18 @@ export default function ProjectDetailContent({
           ))}
         </ul>
       </>
+    ) : slug === "project-five" ? (
+      <>
+        <ul className="mt-1 list-disc space-y-2 pl-5 marker:text-[rgb(var(--primary))]">
+          {stackBulletItems(t("projects.items.project-five.sectionFeatures")).map(
+            (item, j) => (
+              <li key={j} className="pl-1">
+                {renderInlineBold(item)}
+              </li>
+            ),
+          )}
+        </ul>
+      </>
     ) : (
       t(`projects.items.${slug}.sectionFeatures`)
     );

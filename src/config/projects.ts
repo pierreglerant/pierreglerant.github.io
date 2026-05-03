@@ -82,6 +82,7 @@ export const PROJECT_SITE_URLS: Partial<Record<ProjectSlug, string>> = {
 export const PROJECT_REPO_URLS: Partial<Record<ProjectSlug, string>> = {
   secureops: "https://github.com/pierreglerant/secureops",
   "crypto-prediction": "https://github.com/pierreglerant/crypto-prediction",
+  "project-five": "https://github.com/pierreglerant/betting-app",
 };
 
 /** Rapport PDF statique sous /public (téléchargement depuis la fiche projet). */
