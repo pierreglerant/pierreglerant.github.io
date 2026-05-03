@@ -54,12 +54,22 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/fr/projects/project-five",
-        destination: "/fr/projects/project-four",
+        destination: "/fr/projects/bettingapp",
         permanent: true,
       },
       {
         source: "/en/projects/project-five",
-        destination: "/en/projects/project-four",
+        destination: "/en/projects/bettingapp",
+        permanent: true,
+      },
+      {
+        source: "/fr/projects/project-four",
+        destination: "/fr/projects/bettingapp",
+        permanent: true,
+      },
+      {
+        source: "/en/projects/project-four",
+        destination: "/en/projects/bettingapp",
         permanent: true,
       },
     ];

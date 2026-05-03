@@ -109,13 +109,13 @@ export default function ProjectDetailContent({
       </>
     ) : keywordsText.trim().length > 0 ||
       slug === "crypto-prediction" ||
-      slug === "project-four" ? (
+      slug === "bettingapp" ? (
       <>
         {bodyParagraphs(overviewText).map((para, j) => (
           <p key={j}>
             {slug === "immosphere" ||
             slug === "crypto-prediction" ||
-            slug === "project-four"
+            slug === "bettingapp"
               ? renderInlineBold(para)
               : para}
           </p>
@@ -174,11 +174,11 @@ export default function ProjectDetailContent({
           ))}
         </ul>
       </>
-    ) : slug === "project-four" ? (
+    ) : slug === "bettingapp" ? (
       <>
         <ul className="mt-1 list-disc space-y-2 pl-5 marker:text-[rgb(var(--primary))]">
           {stackBulletItems(
-            t("projects.items.project-four.sectionFeatures"),
+            t("projects.items.bettingapp.sectionFeatures"),
           ).map((item, j) => (
             <li key={j} className="pl-1">
               {renderInlineBold(item)}
@@ -274,7 +274,7 @@ export default function ProjectDetailContent({
             lightboxZoomInLabel={t("projects.carouselLightboxZoomIn")}
             lightboxZoomOutLabel={t("projects.carouselLightboxZoomOut")}
             imageFit={
-              slug === "crypto-prediction" || slug === "project-four"
+              slug === "crypto-prediction" || slug === "bettingapp"
                 ? "contain"
                 : "cover"
             }

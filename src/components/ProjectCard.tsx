@@ -32,10 +32,10 @@ export default function ProjectCard({ locale, slug }: Props) {
     slug === "secureops" ||
     slug === "immosphere" ||
     slug === "crypto-prediction" ||
-    slug === "project-four";
+    slug === "bettingapp";
 
   const coverFitClass = isLogoCard
-    ? slug === "project-four"
+    ? slug === "bettingapp"
       ? "object-contain object-center p-3 md:p-4"
       : "object-contain object-center p-5 md:p-7"
     : "object-cover object-center";

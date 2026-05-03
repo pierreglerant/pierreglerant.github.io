@@ -198,7 +198,7 @@
         "sectionMethod": "**Ingénierie données (binôme)** : ingestion **CoinGecko** et **Binance**, données brutes dans **PostgreSQL**, couches **dbt** (staging → marts), DAGs **Airflow** pour enchaîner fetch → stockage → transformation. Le service **FastAPI** expose prix et métriques comme **produit data**.\n\n**ML (seul)** : préparation de jeux de données depuis l’entrepôt, features, **benchmark de modèles** en notebooks — hors chaîne de production.\n\n**Pratiques** : **Docker Compose** pour une stack locale reproductible ; tests sur le code Python et les modèles **dbt** là où c’était pertinent.",
         "sectionResults": "**Produit data livré** : endpoints REST adossés à des tables nettoyées et **prêtes analytique** — exploitables en tableaux de bord ou en aval.\n\n**Reproductibilité** : un même environnement local (services + données) ; schémas et transformations versionnés (**dbt**, migrations).\n\n**Benchmark ML** : comparaisons de modèles sur features préparées, avec des critères lisibles entre baselines et candidats (travail expérimental — pas de service de trading en ligne)."
       },
-      "project-four": {
+      "bettingapp": {
         "title": "Application de paris",
         "excerpt": "App mobile de paris entre amis (points fictifs) avec cotes dynamiques et classement.",
         "coverAlt": "Aperçu de l’application de paris",

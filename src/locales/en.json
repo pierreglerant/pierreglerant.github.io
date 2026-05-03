@@ -194,7 +194,7 @@
         "sectionMethod": "**Data engineering (pair work)**: we implemented ingestion from **CoinGecko** and **Binance**, landed raw data in **PostgreSQL**, built **dbt** layers (staging → marts), and scheduled **Airflow** DAGs so fetch → store → transform runs reliably. The **FastAPI** service exposes prices and metrics as a small **data product**.\n\n**ML (solo)**: I prepared datasets from warehouse outputs, engineered features, and ran a **model benchmark** in notebooks—kept off the production hot path.\n\n**Practices**: **Docker Compose** for a reproducible local stack (database, Airflow, API); tests on Python code and dbt models where it mattered.",
         "sectionResults": "**Delivered data product**: REST endpoints backed by cleaned, **analytics-ready** tables—ready for dashboards or downstream consumers.\n\n**Reproducibility**: one command brings up the core services locally; warehouse schema and transforms are versioned (**dbt** + migrations).\n\n**ML benchmark**: comparative runs on prepared features, with clear criteria to contrast baselines and candidate models (experimental work—not a live trading service)."
       },
-      "project-four": {
+      "bettingapp": {
         "title": "Betting App",
         "excerpt": "Mobile betting app for friends (virtual points) with dynamic odds and leaderboard.",
         "coverAlt": "Betting app preview",

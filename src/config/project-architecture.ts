@@ -17,7 +17,7 @@ export function getProjectArchitectureSection(
   if (slug === "immosphere") {
     return { variant: "immosphereDiagram" };
   }
-  if (slug === "project-four") {
+  if (slug === "bettingapp") {
     return { variant: "bettingAppDiagram" };
   }
   return {

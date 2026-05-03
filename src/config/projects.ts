@@ -8,7 +8,7 @@ export const PROJECT_SLUGS = [
   "immosphere",
   "secureops",
   "crypto-prediction",
-  "project-four",
+  "bettingapp",
 ] as const;
 
 export type ProjectSlug = (typeof PROJECT_SLUGS)[number];
@@ -31,7 +31,7 @@ export const PROJECT_CARD_BADGES: Record<
   immosphere: ["data", "software"],
   secureops: ["cyber", "software"],
   "crypto-prediction": ["data", "ai"],
-  "project-four": ["software"],
+  "bettingapp": ["software"],
 };
 
 export function isProjectSlug(value: string): value is ProjectSlug {
@@ -43,7 +43,7 @@ const GALLERY_COUNT_BY_SLUG: Partial<Record<ProjectSlug, number>> = {
   immosphere: 9,
   "crypto-prediction": 1,
   secureops: 5,
-  "project-four": 2,
+  "bettingapp": 2,
 };
 
 const GALLERY_EXT_BY_SLUG: Partial<
@@ -52,7 +52,7 @@ const GALLERY_EXT_BY_SLUG: Partial<
   immosphere: "png",
   "crypto-prediction": "png",
   secureops: "png",
-  "project-four": "jpeg",
+  "bettingapp": "jpeg",
 };
 
 function galleryForSlug(slug: ProjectSlug): readonly string[] {
@@ -69,7 +69,7 @@ export const PROJECT_GALLERY_IMAGES: Record<ProjectSlug, readonly string[]> = {
   immosphere: galleryForSlug("immosphere"),
   secureops: galleryForSlug("secureops"),
   "crypto-prediction": galleryForSlug("crypto-prediction"),
-  "project-four": galleryForSlug("project-four"),
+  "bettingapp": galleryForSlug("bettingapp"),
 };
 
 /** Aperçu carte liste : logo dédié ou, à défaut, première image du carrousel */
@@ -77,7 +77,7 @@ export const PROJECT_COVER_IMAGE: Record<ProjectSlug, string> = {
   immosphere: "/projects/immosphere/logo.svg",
   secureops: "/projects/secureops/logo.png",
   "crypto-prediction": "/projects/crypto-prediction/logo.png",
-  "project-four": "/projects/project-four/logo.png",
+  "bettingapp": "/projects/bettingapp/logo.png",
 };
 
 /** URL du site public pour un projet (lien affiché dans la fiche). */
@@ -89,7 +89,7 @@ export const PROJECT_SITE_URLS: Partial<Record<ProjectSlug, string>> = {
 export const PROJECT_REPO_URLS: Partial<Record<ProjectSlug, string>> = {
   secureops: "https://github.com/pierreglerant/secureops",
   "crypto-prediction": "https://github.com/pierreglerant/crypto-prediction",
-  "project-four": "https://github.com/pierreglerant/betting-app",
+  "bettingapp": "https://github.com/pierreglerant/betting-app",
 };
 
 /** Rapport PDF statique sous /public (téléchargement depuis la fiche projet). */
