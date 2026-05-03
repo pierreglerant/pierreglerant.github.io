@@ -20,5 +20,5 @@ export const HERO_SCROLL_SKILLS: string[] = [
   "TypeScript",
   "React",
   "Next.js",
-  "React Native"
+  "React Native",
 ];
