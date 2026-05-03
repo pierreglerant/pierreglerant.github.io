@@ -13,6 +13,14 @@ export const PROJECT_SLUGS = [
 
 export type ProjectSlug = (typeof PROJECT_SLUGS)[number];
 
+/**
+ * En `next dev`, désactive l’optimiseur `next/image` pour les chemins `public/`
+ * — sinon remplacer un fichier (même nom) ne s’affiche pas tant que le cache
+ * `.next/cache/images` n’est pas vidé.
+ */
+export const UNOPTIMIZED_PROJECT_IMAGES_IN_DEV =
+  process.env.NODE_ENV === "development";
+
 /** Badges affichés sur les cartes projets (accueil) — une couleur par id dans `ProjectCard`. */
 export type ProjectBadgeId = "data" | "software" | "cyber" | "ai";
 

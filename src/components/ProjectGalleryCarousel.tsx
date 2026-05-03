@@ -5,6 +5,8 @@ import { createPortal } from "react-dom";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
+import { UNOPTIMIZED_PROJECT_IMAGES_IN_DEV } from "../config/projects";
+
 const AUTO_ADVANCE_MS = 10_000;
 const SWIPE_THRESHOLD_PX = 48;
 
@@ -198,6 +200,7 @@ export default function ProjectGalleryCarousel({
                     quality={100}
                     priority
                     draggable={false}
+                    unoptimized={UNOPTIMIZED_PROJECT_IMAGES_IN_DEV}
                   />
                 </div>
               </button>
@@ -285,6 +288,7 @@ export default function ProjectGalleryCarousel({
                       quality={100}
                       priority={i === 0}
                       draggable={false}
+                      unoptimized={UNOPTIMIZED_PROJECT_IMAGES_IN_DEV}
                     />
                   </button>
                 </div>

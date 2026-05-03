@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Locale } from "../i18n/config";
 import type { ProjectBadgeId, ProjectSlug } from "../config/projects";
-import { PROJECT_CARD_BADGES, PROJECT_COVER_IMAGE } from "../config/projects";
+import { PROJECT_CARD_BADGES, PROJECT_COVER_IMAGE, UNOPTIMIZED_PROJECT_IMAGES_IN_DEV } from "../config/projects";
 import { getTranslation } from "../i18n/server";
 
 const BADGE_STYLES: Record<ProjectBadgeId, string> = {
@@ -25,19 +25,18 @@ export default function ProjectCard({ locale, slug }: Props) {
   const cover = PROJECT_COVER_IMAGE[slug];
   const badges = PROJECT_CARD_BADGES[slug];
   const coverFitClass =
-    slug === "secureops" || slug === "immosphere"
+    slug === "secureops" ||
+    slug === "immosphere" ||
+    slug === "crypto-prediction"
       ? "object-contain object-center p-5 md:p-7"
-      : slug === "crypto-prediction"
-        ? "object-cover object-center"
-        : "object-cover";
+      : "object-cover object-center";
   const coverHoverClass =
-    slug === "secureops" || slug === "immosphere"
+    slug === "secureops" ||
+    slug === "immosphere" ||
+    slug === "crypto-prediction"
       ? ""
       : "group-hover:scale-[1.04]";
-  const coverContainerClass =
-    slug === "crypto-prediction"
-      ? "bg-[var(--color-bg)]"
-      : "bg-[var(--color-surface)]";
+  const coverContainerClass = "bg-[var(--color-surface)]";
   const ring =
     "outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]";
 
@@ -61,6 +60,7 @@ export default function ProjectCard({ locale, slug }: Props) {
             className={`h-full w-full transition-transform duration-500 ease-out ${coverHoverClass} ${coverFitClass}`}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 360px"
             quality={100}
+            unoptimized={UNOPTIMIZED_PROJECT_IMAGES_IN_DEV}
           />
         </div>
         <div className="flex min-h-0 flex-1 flex-col gap-2 p-5 md:p-6">
