@@ -7,4 +7,4 @@ export const SOCIAL_LINKS = {
 export const CONTACT_EMAIL = "pierreglerant@gmail.com";
 
 /** Dernière mise à jour du contenu du site (section contact). Format ISO YYYY-MM-DD. */
-export const SITE_LAST_UPDATE_ISO = "2026-03-21";
+export const SITE_LAST_UPDATE_ISO = "2026-05-03";
