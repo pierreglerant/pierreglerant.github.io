@@ -132,7 +132,7 @@ export default function HomeContent({ locale }: { locale: string }) {
           <HeroSocialLinks />
         </div>
         <div id="features" className="hero-highlights">
-          <div className="grid w-full min-w-0 grid-cols-3 gap-3 sm:gap-4 md:gap-7">
+          <div className="grid w-full min-w-0 grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-4 md:gap-7">
             {HIGHLIGHTS.map((highlight) => (
               <FeatureCard
                 key={highlight.key}

@@ -595,6 +595,52 @@
     box-shadow: var(--color-shadow-btn-hover);
   }
 
+  /* ---------- Loading skeletons (Next.js loading.tsx) ---------- */
+
+  @keyframes skeleton-shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes skeleton-fade {
+    50% {
+      opacity: 0.72;
+    }
+  }
+
+  .skeleton-block {
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--color-surface);
+    border: 1px solid rgba(255, 255, 255, 0.045);
+  }
+
+  .skeleton-block::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.085),
+      transparent
+    );
+    animation: skeleton-shimmer 1.35s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skeleton-block::after {
+      animation: none;
+    }
+
+    .skeleton-block {
+      animation: skeleton-fade 2s ease-in-out infinite;
+    }
+  }
+
   /* ---------- Hero ---------- */
 
   .hero-wrapper {

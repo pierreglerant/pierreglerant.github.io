@@ -1,11 +1,7 @@
-"use client";
-
-import React from "react";
-
 interface SkeletonProps {
   width?: string;
   height?: string;
-  rounded?: "none" | "sm" | "md" | "lg" | "full";
+  rounded?: "none" | "sm" | "md" | "lg" | "xl" | "full";
   className?: string;
 }
 
@@ -14,23 +10,23 @@ const roundedClasses = {
   sm: "rounded-sm",
   md: "rounded-md",
   lg: "rounded-lg",
+  xl: "rounded-xl",
   full: "rounded-full",
 };
 
 /**
- * Bloc skeleton avec animation pulse (chargement Next.js `loading.tsx`).
+ * Placeholder de chargement (shimmer) — utilisé par `app/[locale]/loading.tsx`.
  */
-const Skeleton: React.FC<SkeletonProps> = ({
+export default function Skeleton({
   width = "w-full",
   height = "h-4",
   rounded = "md",
   className = "",
-}) => {
+}: SkeletonProps) {
   return (
     <div
-      className={`animate-pulse bg-[var(--color-surface-hover)] ${roundedClasses[rounded]} ${width} ${height} ${className}`}
+      className={`skeleton-block ${roundedClasses[rounded]} ${width} ${height} ${className}`.trim()}
+      aria-hidden
     />
   );
-};
-
-export default Skeleton;
+}
