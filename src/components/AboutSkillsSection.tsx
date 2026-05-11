@@ -8,8 +8,13 @@ import type { Locale } from "../i18n/config";
 import { ABOUT_SKILL_KEYS } from "../config/about-skills";
 
 export default function AboutSkillsSection({ locale }: { locale: string }) {
-  const t = getTranslation(locale as Locale);
+  const l = locale as Locale;
+  const t = getTranslation(l);
   const skillsIntro = t("about.skills.intro").trim();
+  const cvPdfHref = l === "fr" ? "/cv/cv_fr.pdf" : "/cv/cv_en.pdf";
+  const cvPdfDownloadName = l === "fr" ? "cv_fr.pdf" : "cv_en.pdf";
+  const cvPreviewSrc =
+    l === "fr" ? "/cv/cv_preview_fr.png" : "/cv/cv_preview_en.png";
 
   return (
     <AnimateInView
@@ -49,6 +54,7 @@ export default function AboutSkillsSection({ locale }: { locale: string }) {
           {t("about.resume.heading")}
         </SectionTitleWithIcon>
         <CvPreviewLightbox
+          previewSrc={cvPreviewSrc}
           previewAlt={t("about.resume.previewAlt")}
           openViewerLabel={t("about.resume.openViewer")}
           closeLabel={t("about.resume.closeViewer")}
@@ -57,8 +63,8 @@ export default function AboutSkillsSection({ locale }: { locale: string }) {
         />
         <div className="mt-6 flex justify-center">
           <a
-            href="/cv/cv.pdf"
-            download="cv.pdf"
+            href={cvPdfHref}
+            download={cvPdfDownloadName}
             className="btn btn-primary inline-flex items-center justify-center rounded-full px-6 py-3 text-sm no-underline"
           >
             {t("about.resume.download")}

@@ -6,11 +6,11 @@ import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 import { Card } from "./cards";
 
-const CV_SRC = "/cv/cv-preview.png";
 const CV_WIDTH = 715;
 const CV_HEIGHT = 922;
 
 type CvPreviewLightboxProps = {
+  previewSrc: string;
   previewAlt: string;
   openViewerLabel: string;
   closeLabel: string;
@@ -19,6 +19,7 @@ type CvPreviewLightboxProps = {
 };
 
 export default function CvPreviewLightbox({
+  previewSrc,
   previewAlt,
   openViewerLabel,
   closeLabel,
@@ -87,7 +88,7 @@ export default function CvPreviewLightbox({
               className={`origin-center rounded-lg border-0 bg-transparent p-0 outline-none transition-transform duration-300 ease-out motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)] ${innerZoom ? "scale-[1.62] cursor-zoom-out" : "scale-100 cursor-zoom-in"}`}
             >
               <Image
-                src={CV_SRC}
+                src={previewSrc}
                 alt=""
                 width={CV_WIDTH}
                 height={CV_HEIGHT}
@@ -118,7 +119,7 @@ export default function CvPreviewLightbox({
           className="about-resume-preview-card overflow-hidden"
         >
           <Image
-            src={CV_SRC}
+            src={previewSrc}
             alt={previewAlt}
             width={CV_WIDTH}
             height={CV_HEIGHT}
