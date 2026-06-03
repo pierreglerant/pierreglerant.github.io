@@ -210,7 +210,7 @@
     "title": "Contact",
     "headline": "Want to collaborate, chat, or start a project?",
     "cta": "Send an email",
-    "location": "Based in Paris, France • Available for remote/hybrid",
+    "location": "Based in Paris, France",
     "lastUpdate": "Last site update: {{date}}"
   },
   "notFound": {

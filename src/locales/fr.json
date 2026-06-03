@@ -214,7 +214,7 @@
     "title": "Contact",
     "headline": "Envie de collaborer, d’échanger ou de lancer un projet ?",
     "cta": "Envoyer un email",
-    "location": "Basé à Paris, France • Disponible en remote / hybride",
+    "location": "Basé à Paris, France",
     "lastUpdate": "Dernière mise à jour du site : {{date}}"
   },
   "notFound": {
